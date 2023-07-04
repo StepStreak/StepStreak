@@ -4,5 +4,5 @@
 
 import { application } from "./application"
 
-import HelloController from "./hello_controller"
-application.register("hello", HelloController)
+import ActivityGraphController from "./activity_graph_controller"
+application.register("activity-graph", ActivityGraphController)
