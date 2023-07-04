@@ -1,0 +1,80 @@
+<header>
+  <nav class="fixed z-30 w-full bg-white border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700 py-3 px-4">
+    <div class="flex justify-between items-center max-w-screen-2xl mx-auto">
+      <div class="flex justify-start items-center">
+        <a href="https://flowbite-admin-dashboard.vercel.app/" class="flex mr-14">
+          <img src="https://flowbite-admin-dashboard.vercel.app/images/logo.svg" class="mr-3 h-8" alt="FlowBite Logo" />
+          <span class="self-center hidden sm:flex text-2xl font-semibold whitespace-nowrap dark:text-white">StepStreak</span>
+        </a>
+      </div>
+      <div class="flex justify-between items-center lg:order-2">
+
+        <button id="theme-toggle" data-tooltip-target="tooltip-toggle" type="button" class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5">
+          <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+          <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+        </button>
+        <div id="tooltip-toggle" role="tooltip" class="inline-block absolute invisible z-10 py-2 px-3 text-sm font-medium text-white bg-gray-900 rounded-lg shadow-sm opacity-0 transition-opacity duration-300 tooltip">
+          Toggle dark mode
+          <div class="tooltip-arrow" data-popper-arrow></div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<div class="flex pt-16 overflow-hidden bg-gray-50 dark:bg-gray-900">
+  <div id="main-content" class="relative w-full max-w-screen-2xl mx-auto h-full overflow-y-auto bg-gray-50 dark:bg-gray-900">
+    <main>
+
+      <div class="px-4 pt-6 2xl:px-0">
+        <div class="grid w-full grid-cols-1 gap-4 mt-4 xl:grid-cols-2 2xl:grid-cols-3">
+
+          <div class="items-center justify-between p-4 bg-white border border-gray-200 rounded-lg shadow-sm sm:flex dark:border-gray-700 sm:p-6 dark:bg-gray-800">
+            <div class="w-full">
+              <h3 class="text-base font-normal text-gray-500 dark:text-gray-400">Steps</h3>
+              <span class="text-2xl font-bold leading-none text-gray-900 sm:text-3xl dark:text-white"><%= Activity.sum(:steps) %></span>
+              <p class="flex items-center text-base font-normal text-gray-500 dark:text-gray-400">
+            <span class="flex items-center mr-1.5 text-sm text-green-500 dark:text-green-400">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path clip-rule="evenodd" fill-rule="evenodd" d="M10 17a.75.75 0 01-.75-.75V5.612L5.29 9.77a.75.75 0 01-1.08-1.04l5.25-5.5a.75.75 0 011.08 0l5.25 5.5a.75.75 0 11-1.08 1.04l-3.96-4.158V16.25A.75.75 0 0110 17z"></path>
+              </svg>
+              <%= TotalActivitiesLastMonthQuery.call(activity: :steps) %>
+            </span>
+                For the last month
+              </p>
+            </div>
+            <%= tag.div data: { controller: 'activity-graph', activity_graph_url_value: 'steps' } do %>
+              <div class="w-full" data-activity-graph-target="graph"></div>
+            <% end %>
+          </div>
+          <div class="items-center justify-between p-4 bg-white border border-gray-200 rounded-lg shadow-sm sm:flex dark:border-gray-700 sm:p-6 dark:bg-gray-800">
+            <div class="w-full">
+              <h3 class="text-base font-normal text-gray-500 dark:text-gray-400">Calories</h3>
+              <span class="text-2xl font-bold leading-none text-gray-900 sm:text-3xl dark:text-white"><%= Activity.sum(:calories) %></span>
+              <p class="flex items-center text-base font-normal text-gray-500 dark:text-gray-400">
+            <span class="flex items-center mr-1.5 text-sm text-green-500 dark:text-green-400">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path clip-rule="evenodd" fill-rule="evenodd" d="M10 17a.75.75 0 01-.75-.75V5.612L5.29 9.77a.75.75 0 01-1.08-1.04l5.25-5.5a.75.75 0 011.08 0l5.25 5.5a.75.75 0 11-1.08 1.04l-3.96-4.158V16.25A.75.75 0 0110 17z"></path>
+              </svg>
+              <%= TotalActivitiesLastMonthQuery.call(activity: :calories) %>
+            </span>
+                For the last month
+              </p>
+            </div>
+            <%= tag.div data: { controller: 'activity-graph', activity_graph_url_value: 'calories' } do %>
+              <div class="w-full" data-activity-graph-target="graph"></div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+
+    </main>
+    <footer class="md:flex md:items-center md:justify-between px-4 2xl:px-0 py-6 md:py-10">
+      <p class="text-sm text-center text-gray-500 mb-4 md:mb-0">
+        &copy; 2019-2023 <a href="https://flowbite.com//" class="hover:underline" target="_blank">Flowbite.com</a>. All rights reserved.
+      </p>
+    </footer>
+
+  </div>
+
+</div>

@@ -19,7 +19,7 @@ module StepStreak
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
     config.after_initialize do
-      if defined?(Rails::Server)
+      if defined?(Rails::Server) && ENV['MESSAGE_QUEUE_ACTIVATED'] == 'true'
         ConsumerJob.perform_later
       end
     end
