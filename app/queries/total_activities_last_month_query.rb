@@ -1,8 +1,9 @@
 class TotalActivitiesLastMonthQuery
   def self.call(activity:)
-    last_month = (Date.current - 1.month)
+    beginning_of_last_month = Date.current.last_month.beginning_of_month
+    end_of_last_month = Date.current.last_month.end_of_month
 
-    steps_per_month = Activity.where('date >= ?', last_month)
+    steps_per_month = Activity.where('date >= ? AND date <= ?', beginning_of_last_month, end_of_last_month)
             .sum(activity)
 
     steps_per_month

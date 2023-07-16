@@ -1,6 +1,6 @@
 class CaloriesController < ApplicationController
   def index
-    activities = Activity.last(7)
+    activities = Activity.order(date: :asc).last(7)
     @calories = activities.map do |activity|
       {
         x: activity.date,
