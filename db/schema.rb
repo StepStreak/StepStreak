@@ -16,7 +16,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_02_162134) do
 
   create_table "activities", force: :cascade do |t|
     t.integer "steps", default: 0
-    t.integer "calories", default: 0
+    t.float "calories", default: 0.0
+    t.float "distance", default: 0.0
     t.date "date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
