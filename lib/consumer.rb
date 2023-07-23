@@ -11,7 +11,7 @@ class Consumer
 
     begin
       puts " [*] Waiting for messages. To exit press CTRL+C"
-      queue.subscribe(block: true) do |delivery_info, properties, body|
+      queue.subscribe(block: false) do |delivery_info, properties, body|
         # parse the json string into an object
         data = JSON.parse(body, symbolize_names: true)
         puts " [x] Received #{data}"
