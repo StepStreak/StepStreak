@@ -16,7 +16,8 @@ class Consumer
         data = JSON.parse(body, symbolize_names: true)
         puts " [x] Received #{data}"
 
-        Activity.create(data)
+        # Activity.create(data)
+        Activity.where(date: data[:date]).update(max_heart_rate: data[:max_heart_rate])
       end
     rescue Interrupt => _
       connection.close
