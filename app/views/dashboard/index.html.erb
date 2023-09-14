@@ -156,6 +156,34 @@
             </div>
           </div>
         </div>
+
+        <div class="grid w-full grid-cols-2 gap-4 mt-4 xl:grid-cols-2 2xl:grid-cols-2">
+          <div class="p-4 bg-white border border-gray-200 rounded-lg shadow-sm dark:border-gray-700 sm:p-6 dark:bg-gray-800">
+            <h3 class="flex items-center mb-4 text-lg font-semibold text-gray-900 dark:text-white">Top 20 steps</h3>
+            <div id="fullWidthTabContent" class="border-t border-gray-200 dark:border-gray-600">
+              <div class="pt-4" id="faq" role="tabpanel" aria-labelledby="faq-tab">
+                <ul role="list" class="divide-y divide-gray-200 dark:divide-gray-700">
+                  <% @top_20_steps.each do |record| %>
+                    <li class="py-3 sm:py-4">
+                      <div class="flex items-center justify-between">
+                        <div class="flex items-center min-w-0">
+                          <div class="ml-3">
+                            <p class="font-medium text-gray-900 truncate dark:text-white">
+                              <%= record.steps %>
+                            </p>
+                          </div>
+                        </div>
+                        <div class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
+                          <%= record.date %>
+                        </div>
+                      </div>
+                    </li>
+                  <% end %>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
     </main>
