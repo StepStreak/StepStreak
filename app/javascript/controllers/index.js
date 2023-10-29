@@ -6,3 +6,6 @@ import { application } from "./application"
 
 import ActivityGraphController from "./activity_graph_controller"
 application.register("activity-graph", ActivityGraphController)
+
+import bridgeSyncController from "./bridge/sync_controller"
+application.register("bridge--sync", bridgeSyncController)

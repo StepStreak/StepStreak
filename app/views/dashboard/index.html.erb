@@ -25,6 +25,10 @@
 <div class="flex pt-16 overflow-hidden bg-gray-50 dark:bg-gray-900">
   <div id="main-content" class="relative w-full max-w-screen-2xl mx-auto h-full overflow-y-auto bg-gray-50 dark:bg-gray-900">
     <main>
+      <%= tag.div data: { controller: 'bridge--sync' } do %>
+        <%= tag.div data: { 'bridge--sync-target': 'sync', 'bridge-title': 'Sync Health data', action: 'click->bridge--sync#refresh' } do %>
+        <% end %>
+      <% end %>
 
       <div class="px-4 pt-6 2xl:px-0">
         <div class="grid w-full grid-cols-1 gap-4 mt-4 xl:grid-cols-3 2xl:grid-cols-3">
