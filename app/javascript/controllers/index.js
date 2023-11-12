@@ -9,3 +9,6 @@ application.register("activity-graph", ActivityGraphController)
 
 import bridgeSyncController from "./bridge/sync_controller"
 application.register("bridge--sync", bridgeSyncController)
+
+import ReloadController from "./reload_controller"
+application.register("reload", ReloadController)

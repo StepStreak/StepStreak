@@ -1,5 +1,4 @@
 import { BridgeComponent, BridgeElement } from "@hotwired/strada"
-import { Turbo } from "@hotwired/turbo-rails"
 
 export default class extends BridgeComponent {
     static component = "sync"
@@ -11,9 +10,5 @@ export default class extends BridgeComponent {
         this.send("connect", { syncTitle }, () => {
             target.click()
         })
-    }
-
-    refresh() {
-        Turbo.visit(window.location.href, { action: "replace" })
     }
 }
