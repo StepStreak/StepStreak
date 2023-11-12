@@ -8,7 +8,6 @@ class ActivitiesJob < ApplicationJob
       Activity.find_or_initialize_by(date: activity['date']).update(activity)
     end
 
-    sleep(3)
     Turbo::StreamsChannel.broadcast_update_to(
       "activities_job",
       target: 'dashboard-details',
