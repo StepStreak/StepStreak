@@ -1,5 +1,5 @@
 <%= turbo_frame_tag :dashboard do %>
-  <div class="flex pt-16 overflow-hidden bg-gray-50 dark:bg-gray-900">
+  <div class="flex overflow-hidden bg-gray-50 dark:bg-gray-900">
   <div id="main-content" class="relative w-full max-w-screen-2xl mx-auto h-full overflow-y-auto bg-gray-50 dark:bg-gray-900">
     <main>
       <%= tag.div data: { controller: 'bridge--sync' } do %>
@@ -147,7 +147,7 @@
           </div>
         </div>
 
-        <div class="grid w-full grid-cols-2 gap-4 mt-4 xl:grid-cols-2 2xl:grid-cols-2">
+        <div class="grid w-full grid-cols-1 gap-4 mt-4 xl:grid-cols-1 2xl:grid-cols-1">
           <div class="p-4 bg-white border border-gray-200 rounded-lg shadow-sm dark:border-gray-700 sm:p-6 dark:bg-gray-800">
             <h3 class="flex items-center mb-4 text-lg font-semibold text-gray-900 dark:text-white">Top 20 steps</h3>
             <div id="fullWidthTabContent" class="border-t border-gray-200 dark:border-gray-600">
@@ -179,7 +179,7 @@
     </main>
     <footer class="md:flex md:items-center md:justify-between px-4 2xl:px-0 py-6 md:py-10">
       <p class="text-sm text-center text-gray-500 mb-4 md:mb-0">
-        &copy; 2019-2023 <a href="https://flowbite.com//" class="hover:underline" target="_blank">Flowbite.com</a>. All rights reserved.
+        &copy; 2023 StepStreak. All rights reserved.
       </p>
     </footer>
 
