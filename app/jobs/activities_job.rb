@@ -9,7 +9,7 @@ class ActivitiesJob < ApplicationJob
     end
 
     Turbo::StreamsChannel.broadcast_update_to(
-      "activities_job",
+      "activities_turbo_native",
       target: 'dashboard-details',
       content: '<turbo-frame id="dashboard" src="http://192.168.0.89:3000/dashboard" data-controller="reload">' )
   end

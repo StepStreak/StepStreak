@@ -22,7 +22,7 @@
   </nav>
 </header>
 
-<%= turbo_stream_from(:activities_job) %>
+<%= turbo_stream_from("activities_#{turbo_app_agent}") %>
 
 <div id="dashboard-details">
   <%= turbo_frame_tag(:dashboard, src: dashboard_details_path) %>
