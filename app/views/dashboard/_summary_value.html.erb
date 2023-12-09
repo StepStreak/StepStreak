@@ -1,0 +1,14 @@
+<% color = value_color(value - last_value) %>
+
+<p class="flex items-center text-base font-normal text-gray-500 dark:text-gray-400 mt-2">
+  <span class="flex items-center mr-1.5 text-sm <%= color %> dark:<%= color %>">
+  <%= arrow_icon(value - last_value) %>
+    <%= value %>
+    This month
+</span>
+
+  <span class="flex items-center mr-1.5 text-sm text-gray-500 dark:text-gray-400">
+  (<%= last_value %>
+    Last month)
+</span>
+</p>
