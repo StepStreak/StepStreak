@@ -7,6 +7,7 @@ module.exports = {
     './node_modules/flowbite/**/*.js'
   ],
   plugins: [
-    require('flowbite/plugin')
+    require('flowbite/plugin'),
+    ({addVariant}) => { addVariant("turbo-native", "html[data-turbo-native] &") }
   ]
 }
