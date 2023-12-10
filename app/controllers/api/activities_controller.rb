@@ -1,8 +1,9 @@
 module Api
   class ActivitiesController < ApplicationController
     before_action :check_params, only: :create
+
     def create
-      ActivitiesJob.perform_later(activity_params)
+      ActivitiesJob.perform_later(activity_params, current_user)
       render json: { message: 'Activities are being processed' }, status: :accepted
     end
 
