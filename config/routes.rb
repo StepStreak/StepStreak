@@ -8,9 +8,6 @@ Rails.application.routes.draw do
 
   resources :sessions, only: %i[new create destroy]
   resources :users, only: %w[new create]
-  resources :configurations, only: [] do
-    get :ios, on: :collection
-  end
 
   namespace :api, defaults: { format: 'json' }, path: '/api' do
     resources :activities, only: [:create]
