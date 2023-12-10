@@ -7,5 +7,8 @@ import { application } from "./application"
 import bridgeSyncController from "./bridge/sync_controller"
 application.register("bridge--sync", bridgeSyncController)
 
+import bridgeTokenController from "./bridge/token_controller"
+application.register("bridge--token", bridgeTokenController)
+
 import ReloadController from "./reload_controller"
 application.register("reload", ReloadController)

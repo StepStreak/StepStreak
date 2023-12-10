@@ -3,9 +3,9 @@ class ActivitiesJob < ApplicationJob
   include Rails.application.routes.url_helpers
   include Turbo::FramesHelper
 
-  def perform(activities)
+  def perform(activities, user)
     activities.each do |activity|
-      Activity.find_or_initialize_by(date: activity['date']).update(activity)
+      Activity.find_or_initialize_by(date: activity['date'], user: user).update(activity)
     end
 
     Turbo::StreamsChannel.broadcast_update_to(

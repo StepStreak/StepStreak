@@ -1,0 +1,26 @@
+<% content_for :turbo_native_title, "Sign in" %>
+
+<div class="flex min-h-full flex-col items-center justify-center px-6 mx-auto md:h-screen turbo-native:h-screen dark:bg-gray-900">
+  <div class="w-full max-w-xl p-6 space-y-8 sm:p-8 bg-white rounded-lg shadow dark:bg-gray-800">
+    <h2 class="text-2xl font-bold text-gray-900 dark:text-white">
+      Sign in
+    </h2>
+    <%= form_with url: sessions_path, html: {"data-turbo-action": "replace"}, class: "mt-8 space-y-6 turbo-native:mt-0" do |form| %>
+      <%= render 'shared/flash_errors' %>
+
+      <div>
+        <%= form.label :email, "Email address", class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white" %>
+        <%= form.email_field :email, autocomplete: "email", required: true, class: "bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" %>
+      </div>
+      <div>
+        <%= form.label :password, class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white" %>
+        <%= form.password_field :password, autocomplete: "current-password", required: true, class: "bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" %>
+      </div>
+      <%= form.submit 'Sign In', class: 'w-full px-5 py-3 text-base font-medium text-center text-white bg-primary-700 rounded-lg hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 sm:w-auto dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800' %>
+      <div class="text-sm font-medium text-gray-500 dark:text-gray-400">
+        Not registered? <%= link_to 'Create account', new_user_path, class: 'text-primary-700 hover:underline dark:text-primary-500' %>
+      </div>
+
+    <% end %>
+  </div>
+</div>

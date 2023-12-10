@@ -5,9 +5,12 @@ Rails.application.routes.draw do
   root "dashboard#index"
   get '/', to: 'dashboard#index', as: 'dashboard_index'
   get '/dashboard', to: 'dashboard#show', as: 'dashboard_details'
-  get '/steps', to: 'steps#index'
-  get '/calories', to: 'calories#index'
-  get '/distance', to: 'distances#index'
+
+  resources :sessions, only: %i[new create destroy]
+  resources :users, only: %w[new create]
+  resources :configurations, only: [] do
+    get :ios, on: :collection
+  end
 
   namespace :api, defaults: { format: 'json' }, path: '/api' do
     resources :activities, only: [:create]
