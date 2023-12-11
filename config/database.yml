@@ -82,5 +82,6 @@ test:
 production:
   <<: *default
   database: StepStreak_production
-  username: StepStreak
-  password: <%= ENV["STEPSTREAK_DATABASE_PASSWORD"] %>
+  username: <%= Rails.application.credentials[:database_username] %>
+  password: <%= Rails.application.credentials[:database_password] %>
+  host: <%= Rails.application.credentials[:database_host] %>
