@@ -1,10 +1,11 @@
 class DashboardController < ApplicationController
   before_action :set_encoded_token, only: :show
 
-  def index
-  end
+  def index; end
 
-  def show
+  def show; end
+
+  def summary
     @top_20_steps = Top20StepsQuery.call
   end
 

@@ -4,11 +4,17 @@
 
 import { application } from "./application"
 
-import bridgeSyncController from "./bridge/sync_controller"
-application.register("bridge--sync", bridgeSyncController)
+import Bridge__NavigationController from "./bridge/navigation_controller"
+application.register("bridge--navigation", Bridge__NavigationController)
 
-import bridgeTokenController from "./bridge/token_controller"
-application.register("bridge--token", bridgeTokenController)
+import Bridge__SyncController from "./bridge/sync_controller"
+application.register("bridge--sync", Bridge__SyncController)
+
+import Bridge__TokenController from "./bridge/token_controller"
+application.register("bridge--token", Bridge__TokenController)
+
+import NavigationController from "./navigation_controller"
+application.register("navigation", NavigationController)
 
 import ReloadController from "./reload_controller"
 application.register("reload", ReloadController)

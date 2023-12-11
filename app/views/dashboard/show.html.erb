@@ -1,138 +1,17 @@
 <%= turbo_frame_tag :dashboard do %>
-  <div class="flex overflow-hidden bg-gray-50 dark:bg-gray-900">
-  <div id="main-content" class="relative w-full max-w-screen-2xl mx-auto h-full overflow-y-auto bg-gray-50 dark:bg-gray-900">
-    <main>
-      <% if turbo_native_app? %>
-        <%= tag.div data: { controller: 'bridge--sync' } do %>
-          <div class="flex items-center justify-center mt-5 hidden" data-bridge--sync-target="indicator">
-            <button type="button" class="inline-flex items-center px-4 py-2 font-semibold leading-6 text-sm shadow rounded-md text-white bg-blue-600 hover:bg-indigo-400 transition ease-in-out duration-150 cursor-not-allowed" disabled="">
-              <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-              </svg>
-              Syncing...
-            </button>
-          </div>
-          <%= tag.div data: { 'bridge--sync-target': 'sync', 'bridge-title': 'Sync data', action: 'click->bridge--sync#showIndicator' } do %>
-          <% end %>
-        <% end %>
+  <div class="flex overflow-hidden bg-gray-50 dark:bg-gray-900" data-navigation-target="thisMonthFrame">
+    <div id="main-content" class="relative w-full max-w-screen-2xl mx-auto h-full overflow-y-auto bg-gray-50 dark:bg-gray-900">
+      <main>
+        <div class="px-4 pt-6 2xl:px-0">
+          <%= render 'dashboard/partials/bridge' %>
 
-        <%= tag.div data: { controller: 'bridge--token' } do %>
-          <%= tag.div data: { 'bridge--token-target': 'token', 'bridge-title': @encoded_token } %>
-        <% end %>
-      <% end %>
+          <%= render 'dashboard/partials/navigation' %>
 
-      <div class="px-4 pt-6 2xl:px-0">
-        <div class="grid w-full grid-cols-1 gap-4 mt-4 xl:grid-cols-3 2xl:grid-cols-3">
+          <%= render 'dashboard/partials/summary' %>
 
-          <div class="items-center justify-between p-4 bg-white border border-gray-200 rounded-lg shadow-sm sm:flex dark:border-gray-700 sm:p-6 dark:bg-gray-800">
-            <div class="w-full">
-              <h3 class="text-base font-normal text-gray-500 dark:text-gray-400">Steps</h3>
-              <span class="text-2xl font-bold leading-none text-gray-900 sm:text-3xl dark:text-white"><%= Activity.sum(:steps) %></span>
-
-              <%= render 'summary_value', value: TotalActivitiesCurrentMonthQuery.call(activity: :steps), last_value:  TotalActivitiesLastMonthQuery.call(activity: :steps) %>
-            </div>
-          </div>
-          <div class="items-center justify-between p-4 bg-white border border-gray-200 rounded-lg shadow-sm sm:flex dark:border-gray-700 sm:p-6 dark:bg-gray-800">
-            <div class="w-full">
-              <h3 class="text-base font-normal text-gray-500 dark:text-gray-400">Calories (kcal)</h3>
-              <span class="text-2xl font-bold leading-none text-gray-900 sm:text-3xl dark:text-white"><%= Activity.sum(:calories).to_i %></span>
-
-              <%= render 'summary_value', value: TotalActivitiesCurrentMonthQuery.call(activity: :calories).to_i, last_value:  TotalActivitiesLastMonthQuery.call(activity: :calories).to_i %>
-            </div>
-          </div>
-          <div class="items-center justify-between p-4 bg-white border border-gray-200 rounded-lg shadow-sm sm:flex dark:border-gray-700 sm:p-6 dark:bg-gray-800">
-            <div class="w-full">
-              <h3 class="text-base font-normal text-gray-500 dark:text-gray-400">Distance (KM)</h3>
-              <span class="text-2xl font-bold leading-none text-gray-900 sm:text-3xl dark:text-white"><%= Activity.sum(:distance).to_i / 1000 %></span>
-
-              <%= render 'summary_value', value: TotalActivitiesCurrentMonthQuery.call(activity: :distance).to_i / 1000, last_value:  TotalActivitiesLastMonthQuery.call(activity: :distance).to_i / 1000 %>
-            </div>
-          </div>
+          <%= render 'dashboard/partials/steps_month' %>
         </div>
-
-        <div class="grid w-full grid-cols-1 gap-4 mt-4 xl:grid-cols-1 2xl:grid-cols-1">
-          <div class="p-4 mb-4 bg-white border border-gray-200 rounded-lg shadow-sm sm:p-6 dark:border-gray-700 dark:bg-gray-800 xl:mb-0">
-            <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Steps per year</h3>
-
-            <div class="w-full">
-              <%= line_chart TotalStepsPerYear.call %>
-            </div>
-          </div>
-        </div>
-
-        <div class="grid w-full grid-cols-1 gap-4 mt-4 xl:grid-cols-1 2xl:grid-cols-1">
-          <div class="p-4 mb-4 bg-white border border-gray-200 rounded-lg shadow-sm sm:p-6 dark:border-gray-700 dark:bg-gray-800 xl:mb-0">
-            <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Accumulated Steps</h3>
-
-            <div class="w-full">
-              <%= line_chart StepsAccumulatedSumQuery.call %>
-            </div>
-          </div>
-        </div>
-
-        <div class="grid w-full grid-cols-1 gap-4 mt-4 xl:grid-cols-1 2xl:grid-cols-1">
-          <div class="p-4 mb-4 bg-white border border-gray-200 rounded-lg shadow-sm sm:p-6 dark:border-gray-700 dark:bg-gray-800 xl:mb-0">
-            <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Steps per month</h3>
-
-            <div class="w-full">
-              <%= line_chart TotalStepsPerMonth.call %>
-            </div>
-          </div>
-        </div>
-
-        <div class="grid w-full grid-cols-1 gap-4 mt-4 xl:grid-cols-1 2xl:grid-cols-1">
-          <div class="p-4 mb-4 bg-white border border-gray-200 rounded-lg shadow-sm sm:p-6 dark:border-gray-700 dark:bg-gray-800 xl:mb-0">
-            <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Steps per month/year</h3>
-
-            <div class="w-full">
-              <%= line_chart TotalStepsPerMonthYear.call %>
-            </div>
-          </div>
-        </div>
-
-        <div class="grid w-full grid-cols-1 gap-4 mt-4 xl:grid-cols-1 2xl:grid-cols-1">
-          <div class="p-4 mb-4 bg-white border border-gray-200 rounded-lg shadow-sm sm:p-6 dark:border-gray-700 dark:bg-gray-800 xl:mb-0">
-            <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Heart Rate</h3>
-
-            <div class="w-full">
-              <%= line_chart [:heart_rate, :max_heart_rate].map { |type|
-                { name: type, data: MaxHeartRatePerMonth.call(type) }
-              } %>
-            </div>
-          </div>
-        </div>
-
-        <div class="grid w-full grid-cols-1 gap-4 mt-4 xl:grid-cols-1 2xl:grid-cols-1">
-          <div class="p-4 bg-white border border-gray-200 rounded-lg shadow-sm dark:border-gray-700 sm:p-6 dark:bg-gray-800">
-            <h3 class="flex items-center mb-4 text-lg font-semibold text-gray-900 dark:text-white">Top 20 steps</h3>
-            <div id="fullWidthTabContent" class="border-t border-gray-200 dark:border-gray-600">
-              <div class="pt-4" id="faq" role="tabpanel" aria-labelledby="faq-tab">
-                <ul role="list" class="divide-y divide-gray-200 dark:divide-gray-700">
-                  <% @top_20_steps.each do |record| %>
-                    <li class="py-3 sm:py-4">
-                      <div class="flex items-center justify-between">
-                        <div class="flex items-center min-w-0">
-                          <div class="ml-3">
-                            <p class="font-medium text-gray-900 truncate dark:text-white">
-                              <%= record.steps %>
-                            </p>
-                          </div>
-                        </div>
-                        <div class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
-                          <%= record.date %>
-                        </div>
-                      </div>
-                    </li>
-                  <% end %>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </main>
+      </main>
+    </div>
   </div>
-</div>
 <% end %>
