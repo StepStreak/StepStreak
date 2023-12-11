@@ -5,6 +5,7 @@ export default class extends Controller {
   static targets = ["thisMonth", "thisMonthFrame", "summary", "summaryFrame"]
 
   thisMonthFrameTargetConnected() {
+    console.log('thisMonthFrameTargetConnected')
       this.thisMonthTarget.classList.add('dark:text-blue-500')
   }
 

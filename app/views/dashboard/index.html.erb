@@ -1,7 +1,7 @@
 <% content_for(:title, 'Overview') %>
 
-<%= turbo_stream_from("activities_#{turbo_app_agent}") %>
+<%= turbo_stream_from("activities_turbo_native") %>
 
-<div id="dashboard-details" data-controller="navigation">
+<div id="dashboard-details">
   <%= turbo_frame_tag(:dashboard, src: dashboard_details_path) %>
 </div>
