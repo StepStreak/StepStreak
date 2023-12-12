@@ -8,6 +8,11 @@ class ActivitiesJob < ApplicationJob
       Activity.find_or_initialize_by(date: activity['date'], user: user).update(activity)
     end
 
+    user.challenges.active.each do |challenge|
+      challenge_user = challenge.challenge_users.find_by(user: user)
+      challenge_user.update(score: user.activities.where(date: challenge.starts_at.to_date..Date.current).sum(:steps))
+    end
+
     Turbo::StreamsChannel.broadcast_update_to(
       "activities_turbo_native",
       target: 'dashboard-details',

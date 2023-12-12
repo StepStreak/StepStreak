@@ -7,9 +7,9 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 user1 = User.create(email: 'test1@test.com', username: 'test1', password: '1234', password_confirmation: '1234')
-user2 = User.create(email: 'test2@test.com', username: 'test2', password: '1234', password_confirmation: '1234')
+User.create(email: 'test2@test.com', username: 'test2', password: '1234', password_confirmation: '1234')
 
-1.year.ago.to_date.upto(Date.current.end_of_year) do |date|
+1.year.ago.to_date.upto(Date.current) do |date|
   Activity.create(steps: Faker::Number.between(from: 1000, to: 10000),
                   distance: Faker::Number.between(from: 1000, to: 10000),
                   calories: Faker::Number.between(from: 115, to: 500),
