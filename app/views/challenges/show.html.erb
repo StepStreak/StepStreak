@@ -1,0 +1,67 @@
+<%= turbo_frame_tag :dashboard do %>
+  <div data-controller="navigation">
+    <%= render 'dashboard/partials/navigation' %>
+
+    <div class="flex flex-col max-w-lg p-6 mx-auto text-gray-900 bg-white border border-gray-200 rounded-lg shadow-sm dark:border-gray-700 xl:p-8 dark:bg-gray-800 dark:text-white m-5" data-navigation-target="challengesFrame">
+      <h3 class="mb-4 text-2xl font-semibold"><%= @challenge.title %></h3>
+      <p class="font-light text-gray-500 sm:text-lg dark:text-gray-400"><%= l(@challenge.starts_at.to_date, format: :long) %> - <%= l(@challenge.ends_at.to_date, format: :long) %></p>
+      <div class="flex items-baseline my-8">
+        <span class="mr-2 text-5xl font-extrabold"><%= @challenge.challenge_users.count %></span>
+        <span class="text-gray-500 dark:text-gray-400">participants</span>
+      </div>
+      <!-- List -->
+      <ul role="list" class="mb-8 space-y-4 text-left">
+        <li class="flex items-center space-x-3">
+          <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+          <span><%= @challenge.challenge_type.capitalize %> challenge</span>
+        </li>
+      </ul>
+      <% if @challenge_user %>
+        <%= link_to 'Leave', challenge_challenge_user_path(@challenge, @challenge_user),
+                    data: { turbo_method: :delete, confirm: 'Are you sure you want to leave the challenge?', },
+                    class: 'bg-red-600 hover:bg-red-700 focus:ring-4 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:text-white dark:focus:ring-primary-900' %>
+      <% else %>
+        <%= button_to 'Join', challenge_challenge_users_path(@challenge), method: :post, class: 'w-full bg-primary-600 hover:bg-primary-700 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:text-white dark:focus:ring-primary-900' %>
+      <% end %>
+    </div>
+
+    <div class="flex flex-col mt-6 p-6">
+      <div class="overflow-x-auto rounded-lg">
+        <div class="inline-block min-w-full align-middle">
+          <div class="overflow-hidden shadow sm:rounded-lg">
+            <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-600">
+              <thead class="bg-gray-50 dark:bg-gray-700">
+              <tr>
+                <th scope="col" class="p-4 text-xs font-medium tracking-wider text-left text-gray-500 uppercase dark:text-white">
+                  Rank
+                </th>
+                <th scope="col" class="p-4 text-xs font-medium tracking-wider text-left text-gray-500 uppercase dark:text-white">
+                  User
+                </th>
+                <th scope="col" class="p-4 text-xs font-medium tracking-wider text-left text-gray-500 uppercase dark:text-white">
+                  Score
+                </th>
+              </tr>
+              </thead>
+              <tbody class="bg-white dark:bg-gray-800">
+              <% @challenge_users.each do |challenge_user| %>
+                <tr class="<%= 'dark:bg-blue-600' if challenge_user.id == @challenge_user&.id %>">
+                  <td class="p-4 text-sm font-normal whitespace-nowrap dark:text-white">
+                    <%= challenge_user.rank %>
+                  </td>
+                  <td class="p-4 text-sm font-normal whitespace-nowrap dark:text-white">
+                    <%= challenge_user.user.username %>
+                  </td>
+                  <td class="p-4 text-sm font-normal whitespace-nowrap dark:text-white">
+                    <%= challenge_user.score %>
+                  </td>
+                </tr>
+              <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

@@ -9,6 +9,9 @@ Rails.application.routes.draw do
 
   resources :sessions, only: %i[new create destroy]
   resources :users, only: %w[new create]
+  resources :challenges, only: %w[index show] do
+    resources :challenge_users, only: %w[index create destroy]
+  end
 
   namespace :api, defaults: { format: 'json' }, path: '/api' do
     resources :activities, only: [:create]
