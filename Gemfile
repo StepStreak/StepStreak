@@ -67,7 +67,7 @@ group :development do
   gem 'capistrano3-puma', '~> 6.0.0.beta.1'
   gem 'capistrano-rails', require: false
   gem 'capistrano-rbenv', require: false
-
+  gem 'faker'
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
 
