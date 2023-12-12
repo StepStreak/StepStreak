@@ -36,7 +36,7 @@
                       <% Overview::ActivitiesThisMonthQuery.call.order(:date).each do |activity| %>
                         <tr>
                           <td class="p-4 text-sm font-normal whitespace-nowrap dark:text-white">
-                            <%= activity.date %>
+                            <%= l(activity.date, format: :short) %>
                           </td>
                           <td class="p-4 text-sm font-normal whitespace-nowrap dark:text-white">
                             <%= activity.steps %>
@@ -45,7 +45,7 @@
                             <%= (activity.distance / 1000).round(2) %>
                           </td>
                           <td class="p-4 text-sm font-normal whitespace-nowrap dark:text-white">
-                            <%= activity.calories %>
+                            <%= activity.calories.floor %>
                           </td>
                         </tr>
                       <% end %>

@@ -10,9 +10,6 @@ class ChallengesController < ApplicationController
     @challenge_users = @challenge.challenge_users.select('*, RANK() OVER (ORDER BY score DESC) as rank').preload(:user)
     if @challenge_user
       @challenge_user_rank = @challenge_users.find {|challenge_user| challenge_user.id == @challenge_user.id }.rank
-
-      @challenge_users = @challenge_users.to_a
-      @challenge_users << @challenge_user_rank if @challenge_user_rank > 10
     end
   end
 end
