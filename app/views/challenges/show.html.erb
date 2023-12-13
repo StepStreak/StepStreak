@@ -25,7 +25,8 @@
       <% end %>
     </div>
 
-    <div class="flex flex-col mt-6 p-6">
+    <% if @challenge_user %>
+      <div class="flex flex-col mt-6 p-6">
       <div class="overflow-x-auto rounded-lg">
         <div class="inline-block min-w-full align-middle">
           <div class="overflow-hidden shadow sm:rounded-lg">
@@ -63,5 +64,6 @@
         </div>
       </div>
     </div>
+    <% end %>
   </div>
 <% end %>
