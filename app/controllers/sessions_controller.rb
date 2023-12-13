@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
   def create
     if (user = User.authenticate_by(authentication_params))
       sign_in user
-      redirect_to("#{root_url}?action=replace")
+      redirect_to root_path
     else
       flash.now.alert = "Invalid email or password."
       render :new, status: :unprocessable_entity
