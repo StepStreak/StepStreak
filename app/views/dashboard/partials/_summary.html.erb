@@ -9,8 +9,8 @@
   <div class="items-center justify-between p-4 bg-white border border-gray-200 rounded-lg shadow-sm sm:flex dark:border-gray-700 sm:p-6 dark:bg-gray-800">
     <div class="w-full">
       <h3 class="text-base font-normal text-gray-500 dark:text-gray-400">Distance (KM)</h3>
-      <span class="text-2xl font-bold leading-none text-gray-900 sm:text-3xl dark:text-white"><%= Overview::ActivitiesThisMonthQuery.call.sum(:distance).to_i / 1000 %></span>
-      <%= render 'summary_value', value: Overview::ActivitiesThisMonthQuery.call.sum(:distance).to_i / 1000, last_value: Overview::ActivitiesLastMonthQuery.call.sum(:distance).to_i / 1000 %>
+      <span class="text-2xl font-bold leading-none text-gray-900 sm:text-3xl dark:text-white"><%= format_distance(Overview::ActivitiesThisMonthQuery.call.sum(:distance)) %></span>
+      <%= render 'summary_value', value: format_distance(Overview::ActivitiesThisMonthQuery.call.sum(:distance)), last_value: format_distance(Overview::ActivitiesLastMonthQuery.call.sum(:distance)) %>
     </div>
   </div>
   <div class="items-center justify-between p-4 bg-white border border-gray-200 rounded-lg shadow-sm sm:flex dark:border-gray-700 sm:p-6 dark:bg-gray-800">

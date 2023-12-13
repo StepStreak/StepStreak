@@ -24,4 +24,8 @@ module ApplicationHelper
       'text-gray-500'
     end
   end
+
+  def format_distance(distance)
+    (distance / 1000).round(2)
+  end
 end
