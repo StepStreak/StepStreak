@@ -1,8 +1,4 @@
 module ApplicationHelper
-  def turbo_app_agent
-    turbo_native_app? ? 'turbo_native' : 'turbo_web'
-  end
-
   def arrow_icon(value_difference)
     if value_difference.positive?
       '<svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">

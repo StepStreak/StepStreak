@@ -27,7 +27,7 @@ module Api
         Turbo::StreamsChannel.broadcast_update_to(
           "activities_turbo_native_user_#{current_user.id}",
           target: 'dashboard-details',
-          content: '<turbo-frame id="dashboard" src="http://192.168.0.89:3000/dashboard" data-controller="reload">' )
+          content: "<turbo-frame id='dashboard' src='#{Endpoint.root_url}/dashboard' data-controller='reload'>" )
 
         render json: { message: 'Activity params are missing' }, status: :unprocessable_entity
       end
