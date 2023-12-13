@@ -14,7 +14,7 @@ class ActivitiesJob < ApplicationJob
     end
 
     Turbo::StreamsChannel.broadcast_update_to(
-      "activities_turbo_native",
+      "activities_turbo_native_user_#{user.id}",
       target: 'dashboard-details',
       content: "<turbo-frame id='dashboard' src='#{Endpoint.root_url}/dashboard' data-controller='reload'>" )
   end
