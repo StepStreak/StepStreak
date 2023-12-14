@@ -1,6 +1,6 @@
 <ul class="text-sm font-medium text-center text-gray-500 divide-x divide-gray-200 rounded-lg sm:flex turbo-native:flex flex dark:divide-gray-600 dark:text-gray-400">
   <li class="w-full my-1">
-    <%= link_to 'This Month', dashboard_details_path, id: 'this_month', class: 'inline-block w-full p-4 bg-gray-50 hover:bg-gray-100 focus:outline-none dark:bg-gray-700 dark:hover:bg-gray-600', data: { navigation_target: 'thisMonth' } %>
+    <%= link_to Date.current.strftime('%B'), dashboard_details_path, id: 'this_month', class: 'inline-block w-full p-4 bg-gray-50 hover:bg-gray-100 focus:outline-none dark:bg-gray-700 dark:hover:bg-gray-600', data: { navigation_target: 'thisMonth' } %>
   </li>
   <li class="w-full my-1">
     <%= link_to 'Summary', dashboard_summary_path, id: 'summary', class: 'inline-block w-full p-4 bg-gray-50 hover:bg-gray-100 focus:outline-none dark:bg-gray-700 dark:hover:bg-gray-600', data: { navigation_target: 'summary' } %>

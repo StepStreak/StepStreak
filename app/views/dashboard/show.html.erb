@@ -1,3 +1,4 @@
+<% content_for :title, Date.current.strftime('%B') %>
 <%= turbo_frame_tag :dashboard do %>
   <div data-controller="navigation">
     <%= render 'dashboard/partials/navigation' %>
