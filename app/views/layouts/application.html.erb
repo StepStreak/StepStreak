@@ -35,6 +35,10 @@
       </nav>
     </header>
 
+    <% if turbo_native_app? && current_user %>
+      <%= turbo_stream_from("activities_turbo_native_user_#{current_user.id}") %>
+    <% end %>
+
     <%= yield %>
   </body>
 </html>

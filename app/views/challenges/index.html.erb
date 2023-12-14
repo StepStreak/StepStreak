@@ -1,23 +1,17 @@
-<%= turbo_frame_tag :dashboard do %>
-  <div data-controller="navigation">
-    <%= render 'dashboard/partials/navigation' %>
-
-    <main class="bg-gray-50 dark:bg-gray-900 h-screen" data-navigation-target="challengesFrame">
-      <div class="container px-4 pt-24 mx-auto md:pt-32 lg:px-0 dark:bg-gray-900">
-        <h1 class="mb-3 text-3xl font-bold text-gray-900 sm:text-4xl sm:leading-none sm:tracking-tight dark:text-white">Active challenges</h1>
-        <section class="grid grid-cols-1 space-y-12 md:space-y-0 md:grid-cols-2 lg:grid-cols-3 md:gap-x-6 md:gap-6 pt-9 mb-5">
-          <% @challenges.each do |challenge| %>
-            <% if challenge.locked? && !challenge.joined %>
-                 <%= render 'challenge', challenge: challenge %>
-            <% else %>
-              <%= link_to challenge_path(challenge) do %>
-                <%= render 'challenge', challenge: challenge %>
-              <% end %>
-            <% end %>
+<% content_for :title, 'Challenges' %>
+<main class="bg-gray-50 dark:bg-gray-900 h-screen">
+  <div class="container px-4 pt-10 mx-auto md:pt-32 lg:px-0 dark:bg-gray-900">
+    <h1 class="mb-3 text-3xl font-bold text-gray-900 sm:text-4xl sm:leading-none sm:tracking-tight dark:text-white">Active challenges</h1>
+    <section class="grid grid-cols-1 space-y-12 md:space-y-0 md:grid-cols-2 lg:grid-cols-3 md:gap-x-6 md:gap-6 pt-9 mb-5">
+      <% @challenges.each do |challenge| %>
+        <% if challenge.locked? && !challenge.joined %>
+          <%= render 'challenge', challenge: challenge %>
+        <% else %>
+          <%= link_to challenge_path(challenge) do %>
+            <%= render 'challenge', challenge: challenge %>
           <% end %>
-        </section>
-      </div>
-
-    </main>
+        <% end %>
+      <% end %>
+    </section>
   </div>
-<% end %>
+</main>
