@@ -4,12 +4,8 @@
     <h1 class="mb-3 text-3xl font-bold text-gray-900 sm:text-4xl sm:leading-none sm:tracking-tight dark:text-white">Active challenges</h1>
     <section class="grid grid-cols-1 space-y-12 md:space-y-0 md:grid-cols-2 lg:grid-cols-3 md:gap-x-6 md:gap-6 pt-9 mb-5">
       <% @challenges.each do |challenge| %>
-        <% if challenge.locked? && !challenge.joined %>
+        <%= link_to challenge_path(challenge) do %>
           <%= render 'challenge', challenge: challenge %>
-        <% else %>
-          <%= link_to challenge_path(challenge) do %>
-            <%= render 'challenge', challenge: challenge %>
-          <% end %>
         <% end %>
       <% end %>
     </section>

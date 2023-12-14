@@ -10,7 +10,12 @@ Rails.application.routes.draw do
   resources :sessions, only: %i[new create destroy]
   resources :users, only: %w[new create]
   resources :challenges, only: %w[index show] do
-    resources :challenge_users, only: %w[index create destroy]
+    resources :challenge_users, only: %w[index new create destroy]
+  end
+
+  resources :configurations, only: [] do
+    get :ios, on: :collection
+    get :android, on: :collection
   end
 
   namespace :api, defaults: { format: 'json' }, path: '/api' do

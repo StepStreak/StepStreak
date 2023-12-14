@@ -5,12 +5,17 @@ class ChallengeUsersController < ApplicationController
     @challenge_users = @challenge.challenge_users
   end
 
-  def create
+  def new
     @challenge_user = @challenge.challenge_users.build(user: current_user)
+  end
+
+  def create
+    @challenge_user = @challenge.challenge_users.build(user: current_user, code: params[:code])
     if @challenge_user.save
       redirect_to challenge_path(@challenge), notice: "You have joined the challenge!"
     else
-      redirect_to challenge_path(@challenge), alert: "You could not join the challenge."
+      flash[:alert] = @challenge_user.errors.full_messages.to_sentence
+      render :new, status: :unprocessable_entity
     end
   end
 
