@@ -26,3 +26,11 @@ Challenge.create(title: Faker::Lorem.sentence(word_count: 3),
 User.all.each do |user|
   ChallengeUser.create(user: user, challenge: Challenge.first)
 end
+
+# app = Rpush::Apns2::App.new
+# app.name = "ios_app"
+# app.certificate = File.read("production.pem")
+# app.environment = "production"
+# app.bundle_id = "com.stepstreak.dev"
+# app.connections = 1
+# app.save!

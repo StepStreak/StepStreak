@@ -20,5 +20,6 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: { format: 'json' }, path: '/api' do
     resources :activities, only: [:create]
+    put '/users', to: 'users#update'
   end
 end

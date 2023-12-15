@@ -5,8 +5,11 @@ class User < ApplicationRecord
 
   has_many :challenge_users
   has_many :challenges, through: :challenge_users
+  has_many :notifications, dependent: :destroy
 
   validates :email, presence: true, uniqueness: true
+
+  enum device_type: { ios: 0, android: 1 }
 
   normalizes :email, with: ->(email) { email.strip.downcase }
 end

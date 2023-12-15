@@ -33,7 +33,6 @@ module ApiAuth
 
   def authenticate_user_from_token
     if decoded_token
-      Rails.logger.info "Decoded token: #{decoded_token}"
       user_id = decoded_token[0]['user_id']
       User.find_by(id: user_id)
     end
