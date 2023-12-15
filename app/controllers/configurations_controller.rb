@@ -36,7 +36,7 @@ class ConfigurationsController < ApplicationController
           "patterns": %w[^$ ^/$],
           "properties": {
             "uri": "turbo://fragment/web/home",
-            "presentation": "replace_root"
+            "presentation": "replace"
           }
         },
         {
