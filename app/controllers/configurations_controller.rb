@@ -37,13 +37,13 @@ class ConfigurationsController < ApplicationController
             "presentation": "replace"
           }
         },
-        {
-          "patterns": %w[/welcome],
-          "properties": {
-            "uri": "turbo://fragment/web/home",
-            "presentation": "replace"
-          }
-        },
+        # {
+        #   "patterns": %w[/welcome],
+        #   "properties": {
+        #     "uri": "turbo://fragment/web/home",
+        #     "presentation": "replace"
+        #   }
+        # },
         {
           "patterns": %w[/challenge_users/new /sessions/new],
           "properties": {
