@@ -201,6 +201,8 @@ GEM
     net-smtp (0.4.0)
       net-protocol
     net-ssh (7.2.0)
+    newrelic_rpm (9.6.0)
+      base64
     nio4r (2.7.0)
     nokogiri (1.15.5-arm64-darwin)
       racc (~> 1.4)
@@ -335,6 +337,7 @@ DEPENDENCIES
   jbuilder
   jsbundling-rails
   jwt
+  newrelic_rpm
   pg (~> 1.1)
   puma (~> 6.0)
   rails (~> 7.1.0)

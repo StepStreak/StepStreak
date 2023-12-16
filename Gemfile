@@ -46,6 +46,7 @@ gem 'bunny'
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
 gem "rpush", "~> 7.0", github: "alhajrahmoun/rpush"
+gem 'newrelic_rpm'
 
 # Use Sass to process CSS
 # gem "sassc-rails"
