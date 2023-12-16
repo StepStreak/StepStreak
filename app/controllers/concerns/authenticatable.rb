@@ -18,7 +18,7 @@ module Authenticatable
 
   def authenticate_user!
     if current_user.blank?
-      redirect_to new_session_path
+      redirect_to welcome_path
     end
   end
 

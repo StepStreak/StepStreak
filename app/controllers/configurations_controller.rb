@@ -4,9 +4,7 @@ class ConfigurationsController < ApplicationController
       settings: {},
       rules: [
         {
-          patterns: [
-            "/challenge_users/new$"
-          ],
+          patterns: %w[/challenge_users/new$ /sessions/new$],
           properties: {
             context: "modal"
           }
@@ -40,9 +38,14 @@ class ConfigurationsController < ApplicationController
           }
         },
         {
-          "patterns": [
-            "/challenge_users/new"
-          ],
+          "patterns": %w[/welcome],
+          "properties": {
+            "uri": "turbo://fragment/web/home",
+            "presentation": "replace"
+          }
+        },
+        {
+          "patterns": %w[/challenge_users/new /sessions/new],
           "properties": {
             "context": "modal",
             "uri": "turbo://fragment/web/modal/sheet",

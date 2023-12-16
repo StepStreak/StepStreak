@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   skip_before_action :authenticate_user!
-  before_action :redirect_if_authenticated
+  before_action :redirect_if_authenticated, except: [:destroy]
 
   def new
     @user = User.new
@@ -14,6 +14,12 @@ class UsersController < ApplicationController
     else
       flash.now.alert = @user.errors.full_messages.to_sentence
       render :new, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    if current_user.destroy
+      redirect_to welcome_path
     end
   end
 

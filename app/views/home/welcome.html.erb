@@ -1,0 +1,18 @@
+<main class="bg-gray-50 dark:bg-gray-900">
+  <div class="flex flex-col justify-center items-center px-6 mx-auto h-screen xl:px-0 dark:bg-gray-900">
+    <div class="block mb-5 md:max-w-md">
+      <%= image_tag 'app_icon.png', size: '150', alt: 'app icon' %>
+    </div>
+    <div class="text-center xl:max-w-4xl">
+      <h1 class="mb-3 text-2xl font-bold leading-tight text-gray-900 sm:text-4xl lg:text-5xl dark:text-white">StepStreak: Your Ultimate Activity Tracking Companion</h1>
+      <p class="mb-5 text-base font-normal text-gray-500 md:text-lg dark:text-gray-400">StepStreak offers a dynamic way to track and analyze your daily activities, transforming your smartphone into a powerful activity analyst. It's not just an app; it's your partner in keeping active and engaged.</p>
+
+      <div class="mt-10 flex justify-center gap-x-6">
+        <%= link_to "Get Started", new_session_path, class: 'text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-3 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800' %>
+        <%#= link_to "#", class: "turbo-native:hidden" do %>
+          <%#= image_tag "app_store.png", class: "h-10" %>
+        <%# end %>
+      </div>
+    </div>
+  </div>
+</main>

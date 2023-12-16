@@ -1,3 +1,7 @@
 <div id="dashboard-details">
   <%= turbo_frame_tag(:dashboard, src: dashboard_details_path) %>
 </div>
+
+<%#= link_to "sign out", session_path(current_user), data: { turbo_method: 'delete' } %>
+
+<%= render 'layouts/footer' %>

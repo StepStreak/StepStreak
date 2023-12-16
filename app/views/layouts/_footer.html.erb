@@ -1,0 +1,19 @@
+<footer class="md:flex md:items-center md:justify-between px-4 2xl:px-0 py-6 md:py-10">
+  <ul class="flex flex-wrap items-center justify-center">
+    <li><%= link_to "Privacy Policy", privacy_path,
+                    class: 'mr-4 text-sm font-normal text-gray-500 hover:underline md:mr-6 dark:text-gray-400' %></li>
+
+    <li><%= link_to "Sign out", session_path(current_user),
+                    data: { turbo_method: 'delete'},
+                    class: 'text-sm font-normal text-gray-500 hover:underline dark:text-gray-400' %></li>
+  </ul>
+-
+<br/>
+
+  <ul class="flex flex-wrap items-center justify-center">
+    <li><%= link_to "Delete your account", session_path(current_user),
+              data: { turbo_method: 'delete',
+                      turbo_confirm: "Are you sure you want to delete your account? This cannot be undone."},
+              class: 'text-sm font-normal text-gray-500 hover:underline dark:text-gray-400' %></li>
+  </ul>
+</footer>
