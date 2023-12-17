@@ -3,7 +3,7 @@
     <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Steps this month</h3>
 
     <div class="w-full">
-      <%= line_chart Overview::ActivitiesThisMonthQuery.call.group_by_day(:date).sum(:steps) %>
+      <%= column_chart Overview::ActivitiesThisMonthQuery.call.group_by_day(:date, format: "%d").sum(:steps) %>
     </div>
   </div>
 </div>

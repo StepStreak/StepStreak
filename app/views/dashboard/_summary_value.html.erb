@@ -1,9 +1,7 @@
-<% color = value_color(last_value - value) %>
+<% percentage_change = percentage_change(value, last_value) %>
+<% color = value_color(percentage_change) %>
 
-<p class="flex items-center text-base font-normal text-gray-500 dark:text-gray-400 mt-2">
-  <span class="flex items-center mr-1.5 text-sm <%= color %> dark:<%= color %>">
-  <%= arrow_icon(last_value - value) %>
-    <%= last_value %>
-    Last month
-  </span>
-</p>
+<span class="flex font-normal items-center mr-1.5 text-sm <%= color %> dark:<%= color %>">
+  <%= arrow_icon(value - last_value) %>
+  <%= percentage_change %>%
+</span>
