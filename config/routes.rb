@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   root "dashboard#index"
   get '/', to: 'dashboard#index', as: 'dashboard_index'
   get '/dashboard', to: 'dashboard#show', as: 'dashboard_details'
-  get '/summary', to: 'dashboard#summary', as: 'dashboard_summary'
+  get '/overview', to: 'dashboard#overview', as: 'dashboard_overview'
   get '/welcome', to: 'home#welcome', as: 'welcome'
   get '/privacy', to: 'home#privacy', as: 'privacy'
 

@@ -5,7 +5,7 @@ class DashboardController < ApplicationController
 
   def show; end
 
-  def summary
+  def overview
     @top_20_steps = Top20StepsQuery.call
   end
 
