@@ -24,4 +24,6 @@ Rails.application.routes.draw do
     resources :activities, only: [:create]
     put '/users', to: 'users#update'
   end
+
+  match '*unmatched_route', to: redirect('/404.html'), via: :all
 end
