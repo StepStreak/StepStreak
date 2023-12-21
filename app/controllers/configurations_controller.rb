@@ -4,7 +4,7 @@ class ConfigurationsController < ApplicationController
       settings: {},
       rules: [
         {
-          patterns: %w[/challenge_users/new$ /sessions/new$ /users/new],
+          patterns: %w[/challenge_users/new$ /sessions/new$ /users/new$ /privacy],
           properties: {
             context: "modal"
           }
@@ -15,6 +15,13 @@ class ConfigurationsController < ApplicationController
             "presentation": "replace"
           }
         },
+        {
+          "patterns": %w[/permissions],
+          "properties": {
+            "view_controller": "permissions",
+            "presentation": "replace"
+          }
+        }
       ]
     }
   end
