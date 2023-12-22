@@ -10,8 +10,10 @@ class ApplicationController < ActionController::Base
   def app_version
     if device_type == 'ios'
       request.user_agent.to_s.split('-').last.to_f
-    else
+    elsif device_type == 'android'
       request.user_agent.to_s.split(';').first.split('-').last.to_f
+    else
+      1.0
     end
   end
 
