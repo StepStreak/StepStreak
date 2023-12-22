@@ -5,14 +5,25 @@ class ApplicationController < ActionController::Base
   helper_method :app_version, :device_type
 
   before_action :authenticate_user!, unless: -> { request.format.json? }
-  before_action :prints_request_info
+  before_action :prints_request_info, unless: -> { request.format.json? }
 
   def app_version
-    request.user_agent.to_s.split('-').last.to_f
+    if device_type == 'ios'
+      request.user_agent.to_s.split('-').last.to_f
+    else
+      request.user_agent.to_s.split(';').first.split('-').last.to_f
+    end
   end
 
   def device_type
-    request.user_agent.to_s.match?(/iOS/) ? 'ios' : 'android'
+    case request.user_agent.to_s
+    when /iOS/
+      'ios'
+    when /Android/
+      'android'
+    else
+      'web'
+    end
   end
 
   def prints_request_info

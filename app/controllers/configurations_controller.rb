@@ -58,7 +58,7 @@ class ConfigurationsController < ApplicationController
           }
         },
         {
-          "patterns": %w[/challenge_users/new /sessions/new /users/new],
+          "patterns": %w[/challenge_users/new /sessions/new /users/new /privacy],
           "properties": {
             "context": "modal",
             "uri": "turbo://fragment/web/modal/sheet",

@@ -1,5 +1,5 @@
 <main class="bg-gray-50 dark:bg-gray-900">
-  <div class="flex flex-col justify-center items-center px-6 mx-auto h-screen xl:px-0 dark:bg-gray-900">
+  <div class="flex flex-col justify-center items-center h-screen px-6 mx-auto xl:px-0 dark:bg-gray-900">
     <div class="block mb-5 md:max-w-md">
       <%= image_tag 'app_icon.png', size: '150', alt: 'app icon' %>
     </div>
@@ -16,5 +16,37 @@
         <% end %>
       </div>
     </div>
+
+    <div class="text-center p-3 mt-5">
+      <h2 class="mb-3 text-2xl font-bold leading-tight text-gray-900 sm:text-3xl lg:text-4xl dark:text-white">How We Handle Your Data</h2>
+      <p class="mb-5 text-base font-normal text-gray-500 md:text-lg dark:text-gray-400">At StepStreak, we're committed to transparency and user control when it comes to data. Here's how we handle your activity data:</p>
+    </div>
   </div>
 </main>
+
+<div class="m-4 p-4 bg-white border border-gray-200 rounded-lg shadow-sm dark:border-gray-700 sm:p-6 dark:bg-gray-800">
+  <div class="text-center duration-700 ease-in-out ">
+    <h3 class="mb-4 text-2xl font-medium text-gray-900 dark:text-white">Data Collection for Enhanced Experience</h3>
+    <p class="mb-4 text-gray-500 dark:text-gray-400">StepStreak collects data such as steps taken, distance covered, and overall activity levels. This information helps us provide you with detailed summaries, visually appealing charts, and personalized insights to motivate and track your progress</p>
+  </div>
+
+  <div class="text-center duration-700 ease-in-out pt-5">
+    <h3 class="mb-4 text-2xl font-medium text-gray-900 dark:text-white">Purposeful Use of Data</h3>
+    <p class="mb-4 text-gray-500 dark:text-gray-400">The data you generate is used to enrich your experience with StepStreak. From offering monthly insights into your activity trends to enabling you to participate in fun, community-based challenges, your data plays a key role in making StepStreak a dynamic and engaging companion in your fitness journey</p>
+  </div>
+
+  <div class="text-center duration-700 ease-in-out pt-5">
+    <h3 class="mb-4 text-2xl font-medium text-gray-900 dark:text-white">Your Control Over Your Data</h3>
+    <p class="mb-4 text-gray-500 dark:text-gray-400">Your privacy is paramount. With StepStreak, you have full control over your personal data. You can easily manage, review, or delete your information at any time. We empower you to take charge of your data, ensuring it's used only in ways that benefit you</p>
+  </div>
+
+  <div class="text-center duration-700 ease-in-out pt-5">
+    <h3 class="mb-4 text-2xl font-medium text-gray-900 dark:text-white">Data Security and Privacy</h3>
+    <p class="mb-4 text-gray-500 dark:text-gray-400">We take the security of your data seriously. StepStreak employs robust security measures to protect your information from unauthorized access. Our commitment to data protection is unwavering, and we continually update our practices to keep your data safe</p>
+  </div>
+
+  <div class="text-center duration-700 ease-in-out pt-5">
+    <h3 class="mb-4 text-2xl font-medium text-gray-900 dark:text-white">Open and Accessible Privacy Policy</h3>
+    <p class="mb-4 text-gray-500 dark:text-gray-400">For more detailed information on how we use, store, and protect your data, please visit our <%= link_to "Privacy Policy", privacy_path, class: 'dark:text-blue-500' %>. We've designed it to be clear and understandable, aligning with the latest data protection regulations</p>
+  </div>
+</div>
