@@ -1,10 +1,12 @@
 <% content_for :turbo_native_title, "Sign in" %>
 
 <div class="flex min-h-full flex-col items-center justify-center px-6 mx-auto md:h-screen turbo-native:h-screen dark:bg-gray-900">
+  <%= link_to new_user_path, class: 'inline-flex justify-between items-center py-2 px-1 pr-4 mb-7 text-sm text-gray-700 bg-gray-100 rounded-full dark:bg-gray-800 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700' do %>
+    <span class="px-4 text-sm font-medium">Not registered? Create account!</span>
+    <svg class="ml-2 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>
+  <% end %>
+
   <div class="w-full max-w-xl p-6 space-y-8 sm:p-8 bg-white rounded-lg shadow dark:bg-gray-800">
-    <h2 class="text-2xl font-bold text-gray-900 dark:text-white">
-      Sign in
-    </h2>
     <%= form_with url: sessions_path, html: {"data-turbo-action": "replace"}, class: "mt-8 space-y-6 turbo-native:mt-0" do |form| %>
       <%= render 'shared/flash_errors' %>
 
@@ -17,10 +19,6 @@
         <%= form.password_field :password, autocomplete: "current-password", required: true, class: "bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" %>
       </div>
       <%= form.submit 'Sign In', class: 'w-full px-5 py-3 text-base font-medium text-center text-white bg-primary-700 rounded-lg hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 sm:w-auto dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800' %>
-      <div class="text-sm font-medium text-gray-500 dark:text-gray-400">
-        Not registered? <%= link_to 'Create account', new_user_path, class: 'text-primary-700 hover:underline dark:text-primary-500' %>
-      </div>
-
     <% end %>
   </div>
 </div>

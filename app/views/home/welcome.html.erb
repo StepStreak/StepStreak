@@ -1,52 +1,29 @@
-<main class="bg-gray-50 dark:bg-gray-900">
-  <div class="flex flex-col justify-center items-center h-screen px-6 mx-auto xl:px-0 dark:bg-gray-900">
-    <div class="block mb-5 md:max-w-md">
-      <%= image_tag 'app_icon.png', size: '150', alt: 'app icon' %>
-    </div>
-    <div class="text-center xl:max-w-4xl">
-      <h1 class="mb-3 text-2xl font-bold leading-tight text-gray-900 sm:text-4xl lg:text-5xl dark:text-white">StepStreak: Your Ultimate Activity Tracking Companion</h1>
-      <p class="mb-5 text-base font-normal text-gray-500 md:text-lg dark:text-gray-400">StepStreak offers a dynamic way to track and analyze your daily activities, transforming your smartphone into a powerful activity analyst. It's not just an app; it's your partner in keeping active and engaged.</p>
-
-      <div class="mt-10 flex justify-center gap-x-6">
-        <% if turbo_native_app? %>
-          <%= link_to "Get Started", new_user_path, class: 'text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-3 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800' %>
-        <% end %>
-        <%= link_to "https://apps.apple.com/en/app/stepstreak/id6474273893", class: "turbo-native:hidden" do %>
-          <%= image_tag "app_store.png", class: "h-10" %>
-        <% end %>
+<section class="bg-white dark:bg-gray-900 min-h-screen">
+  <div class="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-10 lg:px-12">
+<!--      <a href="#" class="inline-flex justify-between items-center py-1 px-1 pr-4 mb-7 text-sm text-gray-700 bg-gray-100 rounded-full dark:bg-gray-800 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700" role="alert">-->
+<!--        <span class="text-xs bg-primary-600 rounded-full text-white px-4 py-1.5 mr-3">New</span> <span class="text-sm font-medium">Flowbite is out! See what's new</span>-->
+<!--        <svg class="ml-2 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>-->
+<!--      </a>-->
+    <div class="flex flex-col justify-center items-center px-6 mx-auto xl:px-0 dark:bg-gray-900">
+      <div class="block mb-4 md:max-w-md">
+        <%= image_tag 'app_icon.png', size: '150', alt: 'app icon' %>
       </div>
     </div>
-
-    <div class="text-center p-3 mt-5">
-      <h2 class="mb-3 text-2xl font-bold leading-tight text-gray-900 sm:text-3xl lg:text-4xl dark:text-white">How We Handle Your Data</h2>
-      <p class="mb-5 text-base font-normal text-gray-500 md:text-lg dark:text-gray-400">At StepStreak, we're committed to transparency and user control when it comes to data. Here's how we handle your activity data:</p>
+    <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">Your Ultimate Activity Tracking Companion</h1>
+    <p class="mb-8 text-lg font-normal text-gray-500 lg:text-xl sm:px-16 xl:px-48 dark:text-gray-400">StepStreak offers a dynamic way to track and analyze your daily activities, transforming your smartphone into a powerful activity analyst. It's not just an app; it's your partner in keeping active and engaged.</p>
+    <div class="flex flex-col mb-8 lg:mb-16 space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4">
+      <% if turbo_native_app? %>
+        <%= link_to new_user_path, class: 'inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900' do %>
+          Get Started
+          <svg class="ml-2 -mr-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+        <% end %>
+      <% end %>
+      <%= link_to "Learn how we handle your Data", data_path, class: 'inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-gray-900 rounded-lg border border-gray-300 hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800' %>
+    </div>
+    <div class="flex justify-center gap-x-6">
+      <%= link_to "https://apps.apple.com/en/app/stepstreak/id6474273893", class: "turbo-native:hidden" do %>
+        <%= image_tag "app_store.png", class: "h-14" %>
+      <% end %>
     </div>
   </div>
-</main>
-
-<div class="m-4 p-4 bg-white border border-gray-200 rounded-lg shadow-sm dark:border-gray-700 sm:p-6 dark:bg-gray-800">
-  <div class="text-center duration-700 ease-in-out ">
-    <h3 class="mb-4 text-2xl font-medium text-gray-900 dark:text-white">Data Collection for Enhanced Experience</h3>
-    <p class="mb-4 text-gray-500 dark:text-gray-400">StepStreak collects data such as steps taken, distance covered, and overall activity levels. This information helps us provide you with detailed summaries, visually appealing charts, and personalized insights to motivate and track your progress</p>
-  </div>
-
-  <div class="text-center duration-700 ease-in-out pt-5">
-    <h3 class="mb-4 text-2xl font-medium text-gray-900 dark:text-white">Purposeful Use of Data</h3>
-    <p class="mb-4 text-gray-500 dark:text-gray-400">The data you generate is used to enrich your experience with StepStreak. From offering monthly insights into your activity trends to enabling you to participate in fun, community-based challenges, your data plays a key role in making StepStreak a dynamic and engaging companion in your fitness journey</p>
-  </div>
-
-  <div class="text-center duration-700 ease-in-out pt-5">
-    <h3 class="mb-4 text-2xl font-medium text-gray-900 dark:text-white">Your Control Over Your Data</h3>
-    <p class="mb-4 text-gray-500 dark:text-gray-400">Your privacy is paramount. With StepStreak, you have full control over your personal data. You can easily manage, review, or delete your information at any time. We empower you to take charge of your data, ensuring it's used only in ways that benefit you</p>
-  </div>
-
-  <div class="text-center duration-700 ease-in-out pt-5">
-    <h3 class="mb-4 text-2xl font-medium text-gray-900 dark:text-white">Data Security and Privacy</h3>
-    <p class="mb-4 text-gray-500 dark:text-gray-400">We take the security of your data seriously. StepStreak employs robust security measures to protect your information from unauthorized access. Our commitment to data protection is unwavering, and we continually update our practices to keep your data safe</p>
-  </div>
-
-  <div class="text-center duration-700 ease-in-out pt-5">
-    <h3 class="mb-4 text-2xl font-medium text-gray-900 dark:text-white">Open and Accessible Privacy Policy</h3>
-    <p class="mb-4 text-gray-500 dark:text-gray-400">For more detailed information on how we use, store, and protect your data, please visit our <%= link_to "Privacy Policy", privacy_path, class: 'dark:text-blue-500' %>. We've designed it to be clear and understandable, aligning with the latest data protection regulations</p>
-  </div>
-</div>
+</section>

@@ -4,7 +4,7 @@ class ConfigurationsController < ApplicationController
       settings: {},
       rules: [
         {
-          patterns: %w[/challenge_users/new$ /sessions/new$ /users/new$ /privacy],
+          patterns: %w[/challenge_users/new$ /sessions/new$ /users/new$ /privacy /data],
           properties: {
             context: "modal"
           }
@@ -58,7 +58,7 @@ class ConfigurationsController < ApplicationController
           }
         },
         {
-          "patterns": %w[/challenge_users/new /sessions/new /users/new /privacy],
+          "patterns": %w[/challenge_users/new /sessions/new /users/new /privacy /data],
           "properties": {
             "context": "modal",
             "uri": "turbo://fragment/web/modal/sheet",

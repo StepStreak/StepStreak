@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get '/welcome', to: 'home#welcome', as: 'welcome'
   get '/privacy', to: 'home#privacy', as: 'privacy'
   get '/permissions', to: 'home#permissions', as: 'permissions'
+  get '/data', to: 'home#data', as: 'data'
 
   resources :sessions, only: %i[new create destroy]
   resources :users, only: %w[new create destroy]
