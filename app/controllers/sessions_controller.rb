@@ -7,7 +7,14 @@ class SessionsController < ApplicationController
   def create
     if (user = User.authenticate_by(authentication_params))
       sign_in user
-      redirect_to root_path
+
+      redirect_path = if turbo_native_app? && app_version > 1.0
+                        permissions_path
+                      else
+                        root_path
+                      end
+
+      redirect_to redirect_path
     else
       flash.now.alert = "Invalid email or password."
       render :new, status: :unprocessable_entity
