@@ -170,6 +170,17 @@ GEM
     jsbundling-rails (1.2.1)
       railties (>= 6.0.0)
     jwt (2.7.1)
+    logtail (0.1.13)
+      msgpack (~> 1.0)
+    logtail-rack (0.2.4)
+      logtail (~> 0.1)
+      rack (>= 1.2, < 4.0)
+    logtail-rails (0.2.6)
+      actionpack (>= 5.0.0)
+      activerecord (>= 5.0.0)
+      logtail (~> 0.1)
+      logtail-rack (~> 0.1)
+      railties (>= 5.0.0)
     loofah (2.22.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.12.0)
@@ -337,6 +348,7 @@ DEPENDENCIES
   jbuilder
   jsbundling-rails
   jwt
+  logtail-rails (~> 0.2.6)
   newrelic_rpm
   pg (~> 1.1)
   puma (~> 6.0)

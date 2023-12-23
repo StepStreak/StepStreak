@@ -86,3 +86,5 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
+gem "logtail-rails", "~> 0.2.6"
