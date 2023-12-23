@@ -18,7 +18,7 @@ class ConfigurationsController < ApplicationController
         {
           "patterns": %w[/permissions],
           "properties": {
-            "view_controller": "permissions",
+            "view-controller": "permissions",
             "presentation": "replace"
           }
         }
