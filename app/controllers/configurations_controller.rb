@@ -58,6 +58,13 @@ class ConfigurationsController < ApplicationController
           }
         },
         {
+          "patterns": %w[/permissions],
+          "properties": {
+            "uri": "turbo://fragment/web/permissions",
+            "presentation": "replace"
+          }
+        },
+        {
           "patterns": %w[/challenge_users/new /sessions/new /users/new /privacy /data],
           "properties": {
             "context": "modal",
