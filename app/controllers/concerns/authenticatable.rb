@@ -37,6 +37,8 @@ module Authenticatable
   end
 
   def authenticate_user_from_session
+    return unless cookies.encrypted[:user_id]
+
     User.find_by(id: cookies.encrypted[:user_id])
   end
 end

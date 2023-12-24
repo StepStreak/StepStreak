@@ -43,7 +43,7 @@ class ApplicationController < ActionController::Base
   end
 
   def track
-    if current_user
+    if Rails.env.production? && current_user
       Logtail.with_context(user: { id: current_user.id }) do
         Rails.logger.info("Request: #{request.method} #{request.path}")
       end

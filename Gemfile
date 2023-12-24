@@ -87,4 +87,6 @@ group :test do
   gem "webdrivers"
 end
 
-gem "logtail-rails", "~> 0.2.6"
+group :production do
+  gem "logtail-rails", "~> 0.2.6"
+end
