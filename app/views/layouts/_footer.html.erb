@@ -11,9 +11,9 @@
 <br/>
 
   <ul class="flex flex-wrap items-center justify-center">
-    <li><%= link_to "Delete your account", session_path(current_user),
+    <li><%= link_to "Delete your account", user_path(current_user),
               data: { turbo_method: 'delete',
-                      turbo_confirm: "Are you sure you want to delete your account? This cannot be undone."},
+                      turbo_confirm: "Are you sure you want to delete your account? This will delete you account and all data related to it."},
               class: 'text-sm font-normal text-gray-500 hover:underline dark:text-gray-400' %></li>
   </ul>
 </footer>
