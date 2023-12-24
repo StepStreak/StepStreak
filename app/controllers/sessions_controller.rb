@@ -8,7 +8,9 @@ class SessionsController < ApplicationController
     if (user = User.authenticate_by(authentication_params))
       sign_in user
 
-      redirect_path = if turbo_native_app? && app_version > 1.0
+      redirect_path = if turbo_native_app? &&
+        ((ios_device? && app_version > 1.0) ||
+          (android_device? && app_version >= 1.0))
                         permissions_path
                       else
                         root_path

@@ -29,6 +29,14 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def android_device?
+    device_type == 'android'
+  end
+
+  def ios_device?
+    device_type == 'ios'
+  end
+
   def prints_request_info
     Rails.logger.info app_version
     Rails.logger.info device_type
