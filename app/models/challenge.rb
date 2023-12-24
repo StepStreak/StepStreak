@@ -4,11 +4,11 @@ class Challenge < ApplicationRecord
 
   enum challenge_type: [:solo, :team]
 
-  scope :active, -> { where('starts_at <= ? AND ends_at >= ?', DateTime.current, DateTime.current) }
-  scope :ended, -> { where.not('starts_at <= ? AND ends_at >= ?', DateTime.current, DateTime.current) }
+  scope :active, -> { where('ends_at >= ?', DateTime.current) }
+  scope :ended, -> { where('ends_at < ?', DateTime.current) }
 
   def active?
-    starts_at <= DateTime.current && ends_at >= DateTime.current
+    ends_at >= DateTime.current
   end
 
   def ended?
