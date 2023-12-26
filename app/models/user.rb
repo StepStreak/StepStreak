@@ -7,6 +7,8 @@ class User < ApplicationRecord
   has_many :challenges, through: :challenge_users
   has_many :notifications, dependent: :destroy
 
+  scope :with_notification_token, -> { where.not(notification_token: nil) }
+
   validates :email, presence: true, uniqueness: true
 
   enum device_type: { ios: 0, android: 1 }

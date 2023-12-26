@@ -1,4 +1,3 @@
-
 class ActivitiesJob < ApplicationJob
   include Rails.application.routes.url_helpers
   include Turbo::FramesHelper
