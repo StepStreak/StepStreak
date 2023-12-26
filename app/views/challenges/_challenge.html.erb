@@ -1,24 +1,24 @@
-<div class="flex flex-col max-w-lg px-4 py-4 mx-auto text-gray-900 bg-white border border-gray-200 rounded-lg shadow-sm dark:border-gray-700 xl:p-8 dark:bg-gray-800 dark:text-white">
-  <div class="flex flex-row">
-    <% if challenge.locked? %>
+<div class="relative flex flex-col max-w-lg px-4 py-4 mx-auto text-gray-900 bg-white border border-gray-200 rounded-lg shadow-sm dark:border-gray-700 xl:p-8 dark:bg-gray-800 dark:text-white">
+  <% if challenge.locked? %>
+    <div class="absolute top-0 right-0 mx-1 my-2">
       <svg class="w-6 h-6 pt-1 mr-2 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 20">
         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.5 8V4.5a3.5 3.5 0 1 0-7 0V8M8 12v3M2 8h12a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1Z"/>
       </svg>
-    <% end %>
-    <h3 class="mb-2 text-xl font-semibold"><%= challenge.title %></h3>
-  </div>
+    </div>
+  <% end %>
+  <h3 class="mb-2 text-xl font-semibold"><%= challenge.title %></h3>
   <p class="font-light text-sm text-gray-500 dark:text-gray-400"><%= l(challenge.starts_at.to_date, format: :long) %> - <%= l(challenge.ends_at.to_date, format: :long) %></p>
 
   <div class="flex flex-row mt-4 justify-between">
     <ul role="list" class="flex flex-col justify-center mb-1 space-y-1 text-left">
       <li class="flex items-center space-x-3">
         <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-        <span><%= challenge.challenge_type.capitalize %> challenge</span>
+        <span class="text-sm"><%= challenge.challenge_type.capitalize %> challenge</span>
       </li>
       <% if challenge.joined %>
         <li class="flex items-center space-x-3">
           <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-          <span>Joined</span>
+          <span class="text-sm">Joined</span>
         </li>
       <% end %>
     </ul>
