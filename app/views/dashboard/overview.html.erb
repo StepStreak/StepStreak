@@ -13,19 +13,19 @@
               <div class="items-center justify-between p-4 bg-white border border-gray-200 rounded-lg shadow-sm sm:flex dark:border-gray-700 sm:p-6 dark:bg-gray-800">
                 <div class="w-full">
                   <h3 class="text-base font-normal text-gray-500 dark:text-gray-400">Steps</h3>
-                  <span class="text-2xl font-bold leading-none text-gray-900 sm:text-3xl dark:text-white"><%= current_user.activities.sum(:steps) %></span>
+                  <span class="text-2xl font-bold leading-none text-gray-900 sm:text-3xl dark:text-white"><%= number_with_delimiter(current_user.activities.sum(:steps)) %></span>
                 </div>
               </div>
               <div class="items-center justify-between p-4 bg-white border border-gray-200 rounded-lg shadow-sm sm:flex dark:border-gray-700 sm:p-6 dark:bg-gray-800">
                 <div class="w-full">
                   <h3 class="text-base font-normal text-gray-500 dark:text-gray-400">Distance (KM)</h3>
-                  <span class="text-2xl font-bold leading-none text-gray-900 sm:text-3xl dark:text-white"><%= format_distance(current_user.activities.sum(:distance)) %></span>
+                  <span class="text-2xl font-bold leading-none text-gray-900 sm:text-3xl dark:text-white"><%= number_with_delimiter(format_distance(current_user.activities.sum(:distance))) %></span>
                 </div>
               </div>
               <div class="items-center justify-between p-4 bg-white border border-gray-200 rounded-lg shadow-sm sm:flex dark:border-gray-700 sm:p-6 dark:bg-gray-800">
                 <div class="w-full">
                   <h3 class="text-base font-normal text-gray-500 dark:text-gray-400">Calories (kcal)</h3>
-                  <span class="text-2xl font-bold leading-none text-gray-900 sm:text-3xl dark:text-white"><%= current_user.activities.sum(:calories).to_i %></span>
+                  <span class="text-2xl font-bold leading-none text-gray-900 sm:text-3xl dark:text-white"><%= number_with_delimiter(current_user.activities.sum(:calories).to_i) %></span>
                 </div>
               </div>
             </div>
@@ -45,7 +45,7 @@
                 <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Accumulated Steps</h3>
 
                 <div class="w-full">
-                  <%= line_chart StepsAccumulatedSumQuery.call %>
+                  <%= area_chart StepsAccumulatedSumQuery.call %>
                 </div>
               </div>
             </div>
@@ -65,7 +65,7 @@
                 <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Steps per month/year</h3>
 
                 <div class="w-full">
-                  <%= line_chart TotalStepsPerMonthYear.call %>
+                  <%= bar_chart TotalStepsPerMonthYear.call %>
                 </div>
               </div>
             </div>
