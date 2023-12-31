@@ -6,6 +6,7 @@ class User < ApplicationRecord
   has_many :challenge_users, dependent: :destroy
   has_many :challenges, through: :challenge_users
   has_many :notifications, dependent: :destroy
+  has_many :goals, dependent: :destroy
 
   scope :with_notification_token, -> { where.not(notification_token: nil) }
 

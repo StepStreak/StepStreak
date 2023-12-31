@@ -23,6 +23,8 @@ Rails.application.routes.draw do
     get :android, on: :collection
   end
 
+  resources :goals, only: %w[index new create edit update]
+
   namespace :api, defaults: { format: 'json' }, path: '/api' do
     resources :activities, only: [:create]
     put '/users', to: 'users#update'

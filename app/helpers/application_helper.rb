@@ -29,4 +29,19 @@ module ApplicationHelper
   def format_distance(distance)
     (distance / 1000).round(2)
   end
+
+  def goal_progress(target, progress)
+    return 0 if target.zero?
+    percentage = (progress / target.to_f) * 100
+    percentage = 100 if percentage > 100
+    percentage
+  end
+
+  def goal_label(goal)
+    if goal
+      "#{Date.current.strftime('%B')} goal: #{@goal.target}"
+    else
+      'No goal set for this month'
+    end
+  end
 end
