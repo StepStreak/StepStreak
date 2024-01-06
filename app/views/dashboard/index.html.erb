@@ -3,7 +3,9 @@
 <% end %>
 
 <div id="dashboard-details">
-  <%= turbo_frame_tag(:dashboard, src: dashboard_details_path) %>
+  <%= turbo_frame_tag(:dashboard, src: dashboard_details_path) do %>
+    <%= render 'loading_skeleton' %>
+  <% end %>
 </div>
 
 <%= render 'layouts/footer' %>
