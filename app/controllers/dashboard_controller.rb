@@ -12,8 +12,9 @@ class DashboardController < ApplicationController
   private
 
   def set_encoded_token
-    @encoded_token = JWT.encode({ user_id: current_user.id},
-                                Rails.application.credentials.secret_key_base,
-                                'HS256')
+    expires_at = Time.zone.now.to_i + 10.minutes.to_i
+    payload = { user_id: current_user.id, exp: expires_at }
+
+    @encoded_token = JWT.encode(payload, Rails.application.credentials.secret_key_base, 'HS256')
   end
 end
