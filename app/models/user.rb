@@ -15,4 +15,8 @@ class User < ApplicationRecord
   enum device_type: { ios: 0, android: 1 }
 
   normalizes :email, with: ->(email) { email.strip.downcase }
+
+  def test_user?
+    email == Rails.application.credentials.appstore_test_user_email
+  end
 end

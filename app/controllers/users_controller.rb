@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   skip_before_action :authenticate_user!
   before_action :redirect_if_authenticated, except: [:destroy]
+  before_action :check_if_test_user, only: [:destroy]
 
   def new
     @user = User.new
@@ -34,5 +35,13 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:email, :username, :password, :password_confirmation)
+  end
+
+  def check_if_test_user
+    if current_user.test_user?
+      sign_out current_user
+
+      redirect_to root_path
+    end
   end
 end
