@@ -281,6 +281,10 @@ GEM
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
     set (1.1.0)
+    solid_cache (0.3.0)
+      activejob (>= 7)
+      activerecord (>= 7)
+      railties (>= 7)
     sorted_set (1.0.3)
       rbtree
       set (~> 1.0)
@@ -360,6 +364,7 @@ DEPENDENCIES
   redis (~> 4.0)
   rpush (~> 7.0)!
   selenium-webdriver
+  solid_cache
   sprockets-rails
   stimulus-rails
   turbo-rails

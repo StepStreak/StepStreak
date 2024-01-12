@@ -1,61 +1,63 @@
 <% content_for :title, Date.current.strftime('%B') %>
 <%= turbo_frame_tag :dashboard do %>
-  <div data-controller="navigation">
-    <%= render 'dashboard/partials/navigation' %>
-    <main data-navigation-target="thisMonthFrame">
-      <div class="px-4 pt-6 2xl:px-0">
-        <%= render 'dashboard/partials/bridge' %>
+  <% cache current_user do %>
+    <div data-controller="navigation">
+      <%= render 'dashboard/partials/navigation' %>
+      <main data-navigation-target="thisMonthFrame">
+        <div class="px-4 pt-6 2xl:px-0">
+          <%= render 'dashboard/partials/bridge' %>
 
-        <%= render 'dashboard/partials/summary' %>
+          <%= render 'dashboard/partials/summary' %>
 
-        <%= render 'dashboard/partials/steps_month' %>
+          <%= render 'dashboard/partials/steps_month' %>
 
-        <div class="flex flex-col mt-6">
-          <div class="overflow-x-auto rounded-lg">
-            <div class="inline-block min-w-full align-middle">
-              <div class="overflow-hidden shadow sm:rounded-lg">
-                <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-600">
-                  <thead class="bg-gray-50 dark:bg-gray-700">
-                  <tr>
-                    <th scope="col" class="p-4 text-xs font-medium tracking-wider text-left text-gray-500 uppercase dark:text-white">
-                      Date
-                    </th>
-                    <th scope="col" class="p-4 text-xs font-medium tracking-wider text-left text-gray-500 uppercase dark:text-white">
-                      Steps
-                    </th>
-                    <th scope="col" class="p-4 text-xs font-medium tracking-wider text-left text-gray-500 uppercase dark:text-white">
-                      Distance (KM)
-                    </th>
-                    <th scope="col" class="p-4 text-xs font-medium tracking-wider text-left text-gray-500 uppercase dark:text-white">
-                      Calories (Kcal)
-                    </th>
-                  </tr>
-                  </thead>
-                  <tbody class="bg-white dark:bg-gray-800">
-                  <% Overview::ActivitiesThisMonthQuery.call.order(:date).each do |activity| %>
+          <div class="flex flex-col mt-6">
+            <div class="overflow-x-auto rounded-lg">
+              <div class="inline-block min-w-full align-middle">
+                <div class="overflow-hidden shadow sm:rounded-lg">
+                  <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-600">
+                    <thead class="bg-gray-50 dark:bg-gray-700">
                     <tr>
-                      <td class="p-4 text-sm font-normal whitespace-nowrap dark:text-white">
-                        <%= l(activity.date, format: :short) %>
-                      </td>
-                      <td class="p-4 text-sm font-normal whitespace-nowrap dark:text-white">
-                        <%= activity.steps %>
-                      </td>
-                      <td class="p-4 text-sm font-semibold whitespace-nowrap dark:text-white">
-                        <%= (activity.distance / 1000).round(2) %>
-                      </td>
-                      <td class="p-4 text-sm font-normal whitespace-nowrap dark:text-white">
-                        <%= activity.calories.floor %>
-                      </td>
+                      <th scope="col" class="p-4 text-xs font-medium tracking-wider text-left text-gray-500 uppercase dark:text-white">
+                        Date
+                      </th>
+                      <th scope="col" class="p-4 text-xs font-medium tracking-wider text-left text-gray-500 uppercase dark:text-white">
+                        Steps
+                      </th>
+                      <th scope="col" class="p-4 text-xs font-medium tracking-wider text-left text-gray-500 uppercase dark:text-white">
+                        Distance (KM)
+                      </th>
+                      <th scope="col" class="p-4 text-xs font-medium tracking-wider text-left text-gray-500 uppercase dark:text-white">
+                        Calories (Kcal)
+                      </th>
                     </tr>
-                  <% end %>
-                  </tbody>
-                </table>
+                    </thead>
+                    <tbody class="bg-white dark:bg-gray-800">
+                    <% Overview::ActivitiesThisMonthQuery.call.order(:date).each do |activity| %>
+                      <tr>
+                        <td class="p-4 text-sm font-normal whitespace-nowrap dark:text-white">
+                          <%= l(activity.date, format: :short) %>
+                        </td>
+                        <td class="p-4 text-sm font-normal whitespace-nowrap dark:text-white">
+                          <%= activity.steps %>
+                        </td>
+                        <td class="p-4 text-sm font-semibold whitespace-nowrap dark:text-white">
+                          <%= (activity.distance / 1000).round(2) %>
+                        </td>
+                        <td class="p-4 text-sm font-normal whitespace-nowrap dark:text-white">
+                          <%= activity.calories.floor %>
+                        </td>
+                      </tr>
+                    <% end %>
+                    </tbody>
+                  </table>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
         </div>
-    </main>
-  </div>
+      </main>
+    </div>
+  <% end %>
 <% end %>

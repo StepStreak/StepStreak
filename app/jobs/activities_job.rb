@@ -12,6 +12,9 @@ class ActivitiesJob < ApplicationJob
       challenge_user.update(score: user.activities.where(date: challenge.starts_at.to_date..Date.current).sum(:steps))
     end
 
+    # invalidate cache
+    user.touch
+
     Turbo::StreamsChannel.broadcast_before_to(
       "activities_turbo_native_user_#{user.id}",
       target: 'dashboard',

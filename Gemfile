@@ -47,7 +47,7 @@ gem 'bunny'
 gem "bootsnap", require: false
 gem "rpush", "~> 7.0", github: "alhajrahmoun/rpush"
 gem 'newrelic_rpm'
-
+gem "solid_cache"
 # Use Sass to process CSS
 # gem "sassc-rails"
 

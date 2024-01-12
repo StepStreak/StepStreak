@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_12_31_002557) do
+ActiveRecord::Schema[7.1].define(version: 2024_01_12_230012) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -144,6 +144,13 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_31_002557) do
     t.boolean "dry_run", default: false, null: false
     t.boolean "sound_is_json", default: false
     t.index ["delivered", "failed", "processing", "deliver_after", "created_at"], name: "index_rpush_notifications_multi", where: "((NOT delivered) AND (NOT failed))"
+  end
+
+  create_table "solid_cache_entries", force: :cascade do |t|
+    t.binary "key", null: false
+    t.binary "value", null: false
+    t.datetime "created_at", null: false
+    t.index ["key"], name: "index_solid_cache_entries_on_key", unique: true
   end
 
   create_table "users", force: :cascade do |t|
