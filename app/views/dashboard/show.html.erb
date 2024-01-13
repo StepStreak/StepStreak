@@ -1,17 +1,15 @@
 <% content_for :title, Date.current.strftime('%B') %>
 <%= turbo_frame_tag :dashboard do %>
-  <% cache current_user do %>
     <div data-controller="navigation">
       <%= render 'dashboard/partials/navigation' %>
       <main data-navigation-target="thisMonthFrame">
         <div class="px-4 pt-6 2xl:px-0">
           <%= render 'dashboard/partials/bridge' %>
 
-          <%= render 'dashboard/partials/summary' %>
-
-          <%= render 'dashboard/partials/steps_month' %>
-
-          <div class="flex flex-col mt-6">
+          <% cache current_user do %>
+            <%= render 'dashboard/partials/summary' %>
+            <%= render 'dashboard/partials/steps_month' %>
+            <div class="flex flex-col mt-6">
             <div class="overflow-x-auto rounded-lg">
               <div class="inline-block min-w-full align-middle">
                 <div class="overflow-hidden shadow sm:rounded-lg">
@@ -55,9 +53,9 @@
               </div>
             </div>
           </div>
+          <% end %>
 
         </div>
       </main>
     </div>
-  <% end %>
 <% end %>
