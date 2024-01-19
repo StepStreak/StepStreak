@@ -74,7 +74,11 @@
                     <%= challenge_user.user.username %>
                   </td>
                   <td class="p-4 text-sm font-normal whitespace-nowrap dark:text-white">
-                    <%= challenge_user.score %>
+                    <% if @challenge.started? %>
+                      <%= challenge_user.score %>
+                    <% else %>
+                      -
+                    <% end %>
                   </td>
                 </tr>
               <% end %>

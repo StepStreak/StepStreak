@@ -14,4 +14,8 @@ class Challenge < ApplicationRecord
   def ended?
     ends_at < DateTime.current
   end
+
+  def started?
+    starts_at <= DateTime.current
+  end
 end
