@@ -14,6 +14,7 @@ class ActivitiesJob < ApplicationJob
 
     # invalidate cache
     user.touch
+    user.update(last_sync_at: Time.current)
 
     Turbo::StreamsChannel.broadcast_before_to(
       "activities_turbo_native_user_#{user.id}",

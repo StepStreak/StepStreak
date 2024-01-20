@@ -1,6 +1,6 @@
 Trestle.resource(:challenge_users) do
   menu do
-    item :challenge_users, icon: "fa fa-star"
+    item :challenge_users, icon: "fa fa-star", priority: 4
   end
 
   # Customize the table columns shown on the index view.

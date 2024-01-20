@@ -18,3 +18,6 @@ application.register("navigation", NavigationController)
 
 import ReloadController from "./reload_controller"
 application.register("reload", ReloadController)
+
+import TimeZoneController from "./time_zone_controller"
+application.register("time-zone", TimeZoneController)

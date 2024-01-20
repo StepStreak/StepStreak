@@ -1,0 +1,7 @@
+<% if current_user.last_sync_at? %>
+
+  <div data-controller="time-zone">
+    <span data-time-zone-target="serverSyncTime" hidden><%= current_user.last_sync_at %></span>
+    <span class="flex items-center justify-center mr-1.5 text-sm dark:text-gray-500" data-time-zone-target="clientSyncTime"></span>
+  </div>
+<% end %>

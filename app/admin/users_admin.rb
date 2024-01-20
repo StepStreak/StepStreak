@@ -1,6 +1,6 @@
 Trestle.resource(:users) do
   menu do
-    item :users, icon: "fa fa-star"
+    item :users, icon: "fa fa-star", priority: 1
   end
 
   # Customize the table columns shown on the index view.
@@ -10,6 +10,7 @@ Trestle.resource(:users) do
     column :email
     column :username
     column :created_at, align: :center
+    column :last_sync_at, align: :center
     column :device_type
     column :notification_token
     actions

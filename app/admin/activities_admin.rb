@@ -1,6 +1,6 @@
 Trestle.resource(:activities) do
   menu do
-    item :activities, icon: "fa fa-star"
+    item :activities, icon: "fa fa-star", priority: 2
   end
 
   # Customize the table columns shown on the index view.

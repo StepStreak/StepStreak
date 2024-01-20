@@ -4,6 +4,7 @@
       <%= render 'dashboard/partials/navigation' %>
       <main data-navigation-target="thisMonthFrame">
         <div class="px-4 pt-6 2xl:px-0">
+          <%= render 'dashboard/partials/last_sync' %>
           <%= render 'dashboard/partials/bridge' %>
 
           <% cache current_user do %>
