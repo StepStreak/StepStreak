@@ -6,8 +6,14 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-user1 = User.create(email: 'test1@test.com', username: 'test1', password: '1234', password_confirmation: '1234')
-User.create(email: 'test2@test.com', username: 'test2', password: '1234', password_confirmation: '1234')
+1.upto(5).each do |i|
+  User.create(email: "user#{i}@test",
+              username: "user#{i}",
+              password: '1234',
+              password_confirmation: '1234')
+end
+
+user1 = User.first
 
 1.year.ago.to_date.upto(Date.current) do |date|
   Activity.create(steps: Faker::Number.between(from: 1000, to: 10000),

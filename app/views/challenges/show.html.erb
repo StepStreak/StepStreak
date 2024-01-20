@@ -10,7 +10,7 @@
       </div>
     <% end %>
 
-    <h3 class="mb-4 text-2xl font-semibold"><%= @challenge.title %></h3>
+    <h3 class="mb-4 text-2xl font-semibold turbo-native:hidden"><%= @challenge.title %></h3>
     <p class="font-light text-gray-500 sm:text-lg dark:text-gray-400"><%= l(@challenge.starts_at.to_date, format: :long) %> - <%= l(@challenge.ends_at.to_date, format: :long) %></p>
 
     <div class="flex flex-row mt-5 mb-5 justify-between">
@@ -57,7 +57,7 @@
                   Rank
                 </th>
                 <th scope="col" class="p-4 text-xs font-medium tracking-wider text-left text-gray-500 uppercase dark:text-white">
-                  User
+                  Participant
                 </th>
                 <th scope="col" class="p-4 text-xs font-medium tracking-wider text-left text-gray-500 uppercase dark:text-white">
                   Score
@@ -68,7 +68,11 @@
               <% @challenge_users.each do |challenge_user| %>
                 <tr class="<%= 'dark:bg-blue-600' if challenge_user.id == @challenge_user&.id %>">
                   <td class="p-4 text-sm font-normal whitespace-nowrap dark:text-white">
-                    <%= challenge_user.rank %>
+                    <% if @challenge.started? %>
+                      <%= challenge_rank(challenge_user.rank) %>
+                    <% else %>
+                      -
+                    <% end %>
                   </td>
                   <td class="p-4 text-sm font-normal whitespace-nowrap dark:text-white">
                     <%= challenge_user.user.username %>
