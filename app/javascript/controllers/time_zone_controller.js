@@ -1,25 +1,16 @@
 import { Controller } from "@hotwired/stimulus"
+import moment from 'moment-timezone';
 
-// Connects to data-controller="reload"
 export default class extends Controller {
     static targets = ["serverSyncTime", "clientSyncTime"]
 
     connect() {
         let time = this.serverSyncTimeTarget.textContent;
-        let dateInUTC = new Date(time + ' UTC');
+        let dateInUTC = moment(time);
 
-        let timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-        let options = {
-            timeZone: timeZone,
-            day: '2-digit',
-            month: 'long',
-            year: 'numeric',
-            hour: '2-digit',
-            minute: '2-digit'
-        };
+        let timeZone = moment.tz.guess();
+        console.log(timeZone);
 
-        let timeInTimeZone = dateInUTC.toLocaleString("en-US", options);
-
-        this.clientSyncTimeTarget.textContent = "Last synced: " + timeInTimeZone + "";
+        this.clientSyncTimeTarget.textContent = "Last synced: " + dateInUTC.tz(timeZone).format('MMMM Do YYYY, h:mm:ss a');
     }
 }

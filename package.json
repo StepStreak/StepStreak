@@ -11,6 +11,7 @@
     "chartkick": "^5.0.1",
     "esbuild": "^0.18.10",
     "flowbite": "^1.6.6",
+    "moment-timezone": "^0.5.44",
     "postcss": "^8.4.24",
     "tailwindcss": "^3.3.2"
   },
