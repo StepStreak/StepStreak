@@ -9,7 +9,9 @@ class ActivitiesJob < ApplicationJob
 
     user.challenges.active.each do |challenge|
       challenge_user = challenge.challenge_users.find_by(user: user)
-      challenge_user.update(score: user.activities.where(date: challenge.starts_at.to_date..Date.current).sum(:steps))
+
+      score = user.activities.where(date: challenge.starts_at.to_date..challenge.ends_at.to_date).sum(:steps)
+      challenge_user.update(score: score)
     end
 
     # invalidate cache
