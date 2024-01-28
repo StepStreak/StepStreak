@@ -8,6 +8,7 @@ class ChallengesController < ApplicationController
     @ended_challenges = Challenge.joins(:challenge_users)
                                  .where(challenge_users: { user_id: current_user.id })
                                  .select("challenges.*, true as joined")
+                                 .order(created_at: :desc)
                                  .ended
                                  .load
   end
