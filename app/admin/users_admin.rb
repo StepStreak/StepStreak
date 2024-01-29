@@ -12,6 +12,7 @@ Trestle.resource(:users) do
     column :created_at, align: :center
     column :last_sync_at, align: :center
     column :device_type
+    column :app_version
     column :notification_token
     actions
   end
