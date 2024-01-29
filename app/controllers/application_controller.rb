@@ -7,6 +7,7 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!, unless: -> { request.format.json? }
   before_action :prints_request_info, unless: -> { request.format.json? }
   before_action :track, unless: -> { request.format.json? }
+  before_action :save_app_version, unless: -> { request.format.json? }
 
   def app_version
     if device_type == 'ios'
@@ -40,6 +41,12 @@ class ApplicationController < ActionController::Base
   def prints_request_info
     Rails.logger.info app_version
     Rails.logger.info device_type
+  end
+
+  def save_app_version
+    if current_user && device_type != 'web' && app_version != current_user.app_version
+      current_user.update(app_version: app_version)
+    end
   end
 
   def track
