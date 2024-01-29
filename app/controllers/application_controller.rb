@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
   before_action :save_app_version, unless: -> { request.format.json? }
 
   def redirect_if_old_host
-    if request.host == 'stepstreak.zajelbook.com'
+    if request.host == 'stepstreak.zajelbook.com' && request.path != '/unsupported'
       redirect_to unsupported_path
     end
   end
