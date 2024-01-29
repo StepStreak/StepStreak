@@ -4,10 +4,17 @@ class ApplicationController < ActionController::Base
   protect_from_forgery unless: -> { request.format.json? }
   helper_method :app_version, :device_type
 
+  before_action :redirect_if_old_host, unless: -> { request.format.json? }
   before_action :authenticate_user!, unless: -> { request.format.json? }
   before_action :prints_request_info, unless: -> { request.format.json? }
   before_action :track, unless: -> { request.format.json? }
   before_action :save_app_version, unless: -> { request.format.json? }
+
+  def redirect_if_old_host
+    if request.host == 'stepstreak.zajelbook.com'
+      redirect_to unsupported_path
+    end
+  end
 
   def app_version
     if device_type == 'ios'
