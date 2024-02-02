@@ -11,7 +11,18 @@
     <% end %>
 
     <h3 class="mb-4 text-2xl font-semibold turbo-native:hidden"><%= @challenge.title %></h3>
-    <p class="font-light text-gray-500 sm:text-lg dark:text-gray-400"><%= l(@challenge.starts_at.to_date, format: :long) %> - <%= l(@challenge.ends_at.to_date, format: :long) %></p>
+
+    <div class="flex flex-col items-center">
+      <div data-controller="time-zone">
+        <p data-time-zone-target="serverSyncTime" hidden class="font-light text-gray-500 sm:text-lg dark:text-gray-400"><%= @challenge.starts_at.iso8601 %></p>
+        <p data-time-zone-target="clientSyncTime" class="font-light text-gray-500 sm:text-lg dark:text-gray-400">Starts at:</p>
+      </div>
+
+      <div data-controller="time-zone">
+        <p data-time-zone-target="serverSyncTime" hidden class="font-light text-gray-500 sm:text-lg dark:text-gray-400"><%= @challenge.ends_at.iso8601 %></p>
+        <p data-time-zone-target="clientSyncTime" class="font-light text-gray-500 sm:text-lg dark:text-gray-400">Ends at:</p>
+      </div>
+    </div>
 
     <div class="flex flex-row mt-5 mb-5 justify-between">
       <ul role="list" class="flex flex-col justify-center mb-1 space-y-1 text-left">
