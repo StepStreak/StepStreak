@@ -2,6 +2,6 @@
 
   <div data-controller="time-zone">
     <span data-time-zone-target="serverSyncTime" hidden><%= current_user.last_sync_at.iso8601 %></span>
-    <span class="flex items-center justify-center mr-1.5 text-sm dark:text-gray-500" data-time-zone-target="clientSyncTime"></span>
+    <span class="flex items-center justify-center mr-1.5 text-sm dark:text-gray-500" data-time-zone-target="clientSyncTime">Last synced: </span>
   </div>
 <% end %>

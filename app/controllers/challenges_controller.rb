@@ -17,8 +17,12 @@ class ChallengesController < ApplicationController
     @challenge = Challenge.find(params[:id])
     @challenge_user = @challenge.challenge_users.find_by(user: current_user)
     @challenge_users = @challenge.challenge_users.select('*, RANK() OVER (ORDER BY score DESC) as rank').preload(:user)
-    if @challenge_user
-      @challenge_user_rank = @challenge_users.find {|challenge_user| challenge_user.id == @challenge_user.id }.rank
+
+    if @challenge.team?
+      @teams = @challenge.teams
+                         .left_outer_joins(:challenge_users)
+                         .select('teams.*, coalesce(SUM(challenge_users.score)) as score, RANK() OVER (ORDER BY SUM(challenge_users.score) DESC) as rank')
+                         .group('teams.id' )
     end
   end
 end
