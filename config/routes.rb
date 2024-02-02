@@ -17,6 +17,9 @@ Rails.application.routes.draw do
   resources :users, only: %w[new create destroy]
   resources :challenges, only: %w[index show] do
     resources :challenge_users, only: %w[index new create destroy]
+    resources :teams, only: %w[index new create] do
+      resources :team_challenge_users, only: %w[create]
+    end
   end
 
   resources :configurations, only: [] do

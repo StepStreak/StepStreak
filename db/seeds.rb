@@ -33,6 +33,11 @@ User.all.each do |user|
   ChallengeUser.create(user: user, challenge: Challenge.first)
 end
 
+Challenge.create title: Faker::Lorem.sentence(word_count: 3),
+                  challenge_type: :team,
+                  starts_at: Date.current.beginning_of_week,
+                  ends_at: Date.current.beginning_of_week + 1.week
+
 # app = Rpush::Apns2::App.new
 # app.name = "ios_app"
 # app.certificate = File.read("production.pem")

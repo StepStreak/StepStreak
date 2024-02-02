@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_01_29_213055) do
+ActiveRecord::Schema[7.1].define(version: 2024_02_01_222317) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -46,7 +46,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_29_213055) do
     t.integer "score", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "team_id"
     t.index ["challenge_id"], name: "index_challenge_users_on_challenge_id"
+    t.index ["team_id"], name: "index_challenge_users_on_team_id"
     t.index ["user_id"], name: "index_challenge_users_on_user_id"
   end
 
@@ -168,6 +170,16 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_29_213055) do
     t.index ["key_hash"], name: "index_solid_cache_entries_on_key_hash", unique: true
   end
 
+  create_table "teams", force: :cascade do |t|
+    t.string "name"
+    t.bigint "challenge_id", null: false
+    t.boolean "locked", default: false
+    t.string "code"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["challenge_id"], name: "index_teams_on_challenge_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", null: false
     t.string "username", null: false
@@ -183,7 +195,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_29_213055) do
 
   add_foreign_key "activities", "users", validate: false
   add_foreign_key "challenge_users", "challenges"
+  add_foreign_key "challenge_users", "teams"
   add_foreign_key "challenge_users", "users"
   add_foreign_key "goals", "users"
   add_foreign_key "notifications", "users"
+  add_foreign_key "teams", "challenges"
 end

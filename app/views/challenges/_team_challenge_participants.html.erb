@@ -1,0 +1,59 @@
+
+
+<div id="sticky-banner" tabindex="-1" class="flex justify-between w-full p-4 border-b border-gray-200 bg-gray-50 dark:bg-gray-700 dark:border-gray-600">
+  <div class="flex items-center mx-auto">
+    <p class="flex items-center text-sm font-normal text-gray-500 dark:text-gray-400">
+            <span class="inline-flex p-1 me-3 bg-gray-200 rounded-full dark:bg-gray-600 w-6 h-6 items-center justify-center flex-shrink-0">
+              <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 11h2v5m-2 0h4m-2.6-8.5h0M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+              </svg>
+              <span class="sr-only">Light bulb</span>
+            </span>
+      <span>Click on a team row to view the individual scores of its participants</span>
+    </p>
+  </div>
+</div>
+
+
+<table class="min-w-full divide-y divide-gray-200 dark:divide-gray-600">
+  <thead class="bg-gray-50 dark:bg-gray-700">
+  <tr>
+    <th scope="col" class="p-4 text-xs font-medium tracking-wider text-left text-gray-500 uppercase dark:text-white">
+      Rank
+    </th>
+    <th scope="col" class="p-4 text-xs font-medium tracking-wider text-left text-gray-500 uppercase dark:text-white">
+      Team
+    </th>
+    <th scope="col" class="p-4 text-xs font-medium tracking-wider text-left text-gray-500 uppercase dark:text-white">
+      Score
+    </th>
+  </tr>
+  </thead>
+  <tbody class="bg-white dark:bg-gray-800">
+  <% @teams.each do |team| %>
+    <tr data-popover-target="<%= team.name %>" data-popover-trigger="click"
+        class="<%= 'dark:bg-blue-600' if team.id == @challenge_user&.team_id %>">
+      <td class="p-4 text-sm font-normal whitespace-nowrap dark:text-white">
+        <% if @challenge.started? %>
+          <%= challenge_rank(team.rank) %>
+        <% else %>
+          -
+        <% end %>
+      </td>
+      <td class="p-4 text-sm font-normal whitespace-nowrap dark:text-white">
+        <%= team.name %>
+      </td>
+      <td class="p-4 text-sm font-normal whitespace-nowrap dark:text-white">
+        <% if @challenge.started? %>
+          <%= team.score %>
+        <% else %>
+          -
+        <% end %>
+      </td>
+    </tr>
+
+  <%= render 'team_participants', team: team %>
+
+  <% end %>
+  </tbody>
+</table>
