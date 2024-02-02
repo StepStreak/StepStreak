@@ -13,14 +13,14 @@
     <h3 class="mb-4 text-2xl font-semibold turbo-native:hidden"><%= @challenge.title %></h3>
 
     <div class="flex flex-col items-center">
-      <div data-controller="time-zone">
+      <div data-controller="time-zone" data-time-zone-label-value="Starts at: ">
         <p data-time-zone-target="serverSyncTime" hidden class="font-light text-gray-500 sm:text-lg dark:text-gray-400"><%= @challenge.starts_at.iso8601 %></p>
-        <p data-time-zone-target="clientSyncTime" class="font-light text-gray-500 sm:text-lg dark:text-gray-400">Starts at:</p>
+        <p data-time-zone-target="clientSyncTime" class="font-light text-gray-500 sm:text-lg dark:text-gray-400"></p>
       </div>
 
-      <div data-controller="time-zone">
+      <div data-controller="time-zone" data-time-zone-label-value="Ends at: ">
         <p data-time-zone-target="serverSyncTime" hidden class="font-light text-gray-500 sm:text-lg dark:text-gray-400"><%= @challenge.ends_at.iso8601 %></p>
-        <p data-time-zone-target="clientSyncTime" class="font-light text-gray-500 sm:text-lg dark:text-gray-400">Ends at:</p>
+        <p data-time-zone-target="clientSyncTime" class="font-light text-gray-500 sm:text-lg dark:text-gray-400"></p>
       </div>
     </div>
 

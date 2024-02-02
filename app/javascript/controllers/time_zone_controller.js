@@ -3,6 +3,7 @@ import moment from 'moment-timezone';
 
 export default class extends Controller {
     static targets = ["serverSyncTime", "clientSyncTime"]
+    static values = { label: String }
 
     connect() {
         let time = this.serverSyncTimeTarget.textContent;
@@ -11,6 +12,6 @@ export default class extends Controller {
         let timeZone = moment.tz.guess();
         console.log(timeZone);
 
-        this.clientSyncTimeTarget.textContent += " " + dateInUTC.tz(timeZone).format('MMMM Do YYYY, h:mm:ss a');
+        this.clientSyncTimeTarget.textContent = this.labelValue + dateInUTC.tz(timeZone).format('MMMM Do YYYY, h:mm:ss a');
     }
 }
