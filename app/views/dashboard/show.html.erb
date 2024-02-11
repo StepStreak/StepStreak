@@ -1,7 +1,13 @@
 <% content_for :title, Date.current.strftime('%B') %>
+
 <%= turbo_frame_tag :dashboard do %>
-    <div data-controller="navigation">
+  <div data-controller="navigation">
       <%= render 'dashboard/partials/navigation' %>
+
+       <% if new_update_available? %>
+         <%= render 'dashboard/partials/new_update_available' %>
+       <% end %>
+
       <main data-navigation-target="thisMonthFrame">
         <div class="px-4 pt-6 2xl:px-0">
           <%= render 'dashboard/partials/bridge' %>

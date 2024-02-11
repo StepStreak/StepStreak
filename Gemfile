@@ -57,7 +57,7 @@ gem "groupdate"
 gem "chartkick"
 
 # admin panel
-gem "trestle", "~> 0.9.8"
+gem "trestle", "~> 0.9.8", github: "TrestleAdmin/trestle"
 gem "trestle-auth", "~> 0.4.4"
 
 group :development, :test do

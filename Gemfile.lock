@@ -1,4 +1,14 @@
 GIT
+  remote: https://github.com/TrestleAdmin/trestle.git
+  revision: d89b3b8550879f24faa6a9510f072a3337a0bb38
+  specs:
+    trestle (0.9.8)
+      activemodel (>= 5.2.0)
+      kaminari (>= 1.1.0)
+      railties (>= 5.2.0)
+      sprockets-rails (>= 2.0.0)
+
+GIT
   remote: https://github.com/alhajrahmoun/rpush.git
   revision: 20641ba262f46de2af91cd33c5a66f63b0041c29
   specs:
@@ -305,15 +315,10 @@ GEM
     stringio (3.1.0)
     thor (1.3.0)
     timeout (0.4.1)
-    trestle (0.9.8)
-      activemodel (>= 4.2.0)
-      kaminari (>= 1.1.0)
-      railties (>= 4.2.0)
-      sprockets-rails (>= 2.0.0)
     trestle-auth (0.4.4)
       bcrypt (~> 3.1.7)
       trestle (~> 0.9.0, >= 0.9.3)
-    turbo-rails (2.0.0)
+    turbo-rails (2.0.2)
       actionpack (>= 6.0.0)
       activejob (>= 6.0.0)
       railties (>= 6.0.0)
@@ -373,7 +378,7 @@ DEPENDENCIES
   solid_cache
   sprockets-rails
   stimulus-rails
-  trestle (~> 0.9.8)
+  trestle (~> 0.9.8)!
   trestle-auth (~> 0.4.4)
   turbo-rails
   tzinfo-data
