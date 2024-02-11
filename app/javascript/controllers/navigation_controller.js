@@ -5,7 +5,10 @@ export default class extends Controller {
   static targets = ["thisMonth", "thisMonthFrame", "overview", "overviewFrame"]
 
   thisMonthFrameTargetConnected() {
-      this.thisMonthTarget.classList.add('dark:text-blue-500')
+    let svgElement = this.thisMonthTarget.querySelector('svg');
+    svgElement.classList.remove('dark:text-gray-400');
+    svgElement.classList.add('dark:text-blue-500');
+    this.thisMonthTarget.classList.add('dark:bg-gray-800')
   }
 
   thisMonthFrameTargetDisconnected() {
@@ -13,7 +16,10 @@ export default class extends Controller {
   }
 
   overviewFrameTargetConnected() {
-    this.overviewTarget.classList.add('dark:text-blue-500')
+    let svgElement = this.overviewTarget.querySelector('svg');
+    svgElement.classList.remove('dark:text-gray-400');
+    svgElement.classList.add('dark:text-blue-500');
+    this.overviewTarget.classList.add('dark:bg-gray-800')
   }
 
   overviewFrameTargetDisconnected() {
