@@ -19,6 +19,9 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+
+    <%= turbo_refreshes_with method: :morph, scroll: :preserve  %>
+    <%= yield :head %>
   </head>
 
   <body class="bg-gray-50 dark:bg-gray-800">
