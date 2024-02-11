@@ -7,7 +7,10 @@ export default class extends BridgeComponent {
     syncTargetConnected(target) {
         const syncButton = new BridgeElement(target)
         const syncTitle = syncButton.title
-        this.send("connect", { syncTitle }, () => {
+        const syncX = syncButton.bridgeAttribute("x")
+        const syncY = syncButton.bridgeAttribute("y")
+
+        this.send("connect", { 'syncTitle': syncTitle, 'syncX': syncX , 'syncY': syncY }, () => {
             target.click()
         })
     }

@@ -9,7 +9,11 @@
         Syncing...
       </button>
     </div>
-    <%= tag.div data: { 'bridge--sync-target': 'sync', 'bridge-title': 'Sync data', action: 'click->bridge--sync#showIndicator' } do %>
+    <%= tag.div data: { 'bridge--sync-target': 'sync',
+                        'bridge-title': 'Sync data',
+                        'bridge-x': SyncButton.coordinates(device_type)[:x],
+                        'bridge-y': SyncButton.coordinates(device_type)[:y],
+                        action: 'click->bridge--sync#showIndicator' } do %>
     <% end %>
   <% end %>
 
