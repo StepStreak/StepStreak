@@ -8,6 +8,9 @@
 
 Admin.create(email: 'admin@test', password: '1234', password_confirmation: '1234')
 
+AppConfig.create(app: :ios, version: '1.3')
+AppConfig.create(app: :android, version: '1.3')
+
 1.upto(5).each do |i|
   User.create(email: "user#{i}@test",
               username: "user#{i}",
