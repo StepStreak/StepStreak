@@ -1,6 +1,6 @@
 module Constants
   SYNC_BUTTON_IOS = {
-    x: 100,
+    x: 20,
     y: 50
   }
   SYNC_BUTTON_ANDROID = {
