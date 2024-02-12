@@ -4,7 +4,9 @@ class ChallengesController < ApplicationController
                            .select("challenges.*, CASE WHEN challenge_users.id IS NULL THEN false ELSE true END AS joined")
                            .active
                            .load
+  end
 
+  def ended
     @ended_challenges = Challenge.joins(:challenge_users)
                                  .where(challenge_users: { user_id: current_user.id })
                                  .select("challenges.*, true as joined")

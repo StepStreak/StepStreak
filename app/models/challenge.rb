@@ -1,5 +1,5 @@
 class Challenge < ApplicationRecord
-  has_many :challenge_users
+  has_many :challenge_users, dependent: :delete_all
   has_many :users, through: :challenge_users
   has_many :teams
 

@@ -25,4 +25,12 @@ module ChallengeHelper
       medal
     end
   end
+
+  def challenges_sub_navigation_classes(active)
+    if active
+      'text-white bg-gray-900 dark:bg-gray-300 dark:text-gray-900'
+    else
+      'text-gray-900 hover:bg-gray-200 dark:text-white dark:hover:bg-gray-700'
+    end
+  end
 end
