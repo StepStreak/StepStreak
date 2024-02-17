@@ -42,7 +42,7 @@
       <% if @challenge_user %>
         <%= link_to 'Leave', challenge_challenge_user_path(@challenge, @challenge_user),
                     data: { turbo_method: :delete, confirm: 'Are you sure you want to leave the challenge?', },
-                    class: 'longclick-disabled bg-red-600 hover:bg-red-700 focus:ring-4 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:text-white dark:focus:ring-primary-900' %>
+                    class: 'long-press-disabled bg-red-600 hover:bg-red-700 focus:ring-4 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:text-white dark:focus:ring-primary-900' %>
       <% elsif @challenge.locked? %>
         <%= button_to 'Join with code', new_challenge_challenge_user_path(@challenge),
                       method: :get,

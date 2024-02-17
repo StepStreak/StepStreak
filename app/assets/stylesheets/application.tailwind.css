@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-.longclick-disabled {
+/* On mobile, long pressing on any link will open it in a separate
+   webview, and is not something we would want to happen.
+   This will also disable right clicks in web browsers */
+.long-press-disabled {
     -webkit-touch-callout: none;
 }
