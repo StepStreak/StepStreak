@@ -43,6 +43,21 @@ Challenge.create title: Faker::Lorem.sentence(word_count: 3),
                   starts_at: Date.current.beginning_of_week,
                   ends_at: Date.current.beginning_of_week + 1.week
 
+Tournament.create name: 'Tournament 1', code: 'code'
+TournamentParticipant.create tournament: Tournament.first, user: user1
+
+Challenge.create title: 'solo tournament challenge',
+                 challenge_type: :solo,
+                 starts_at: Date.current.beginning_of_week,
+                 ends_at: Date.current.beginning_of_week + 1.week,
+                 tournament: Tournament.first
+
+Challenge.create title: 'team tournament challenge',
+                 challenge_type: :team,
+                 starts_at: Date.current.beginning_of_week + 1.week,
+                 ends_at: Date.current.beginning_of_week + 2.weeks,
+                 tournament: Tournament.first
+
 # app = Rpush::Apns2::App.new
 # app.name = "ios_app"
 # app.certificate = File.read("production.pem")
