@@ -15,7 +15,7 @@
     <div class="container px-4 pt-5 mx-auto md:pt-32 lg:px-0 dark:bg-gray-900">
       <section class="grid grid-cols-1 space-y-12 md:space-y-0 md:grid-cols-2 lg:grid-cols-3 md:gap-x-6 md:gap-6 pt-6 mb-5">
         <% @challenges.each do |challenge| %>
-          <%= link_to challenge_path(challenge) do %>
+          <%= link_to challenge_path(challenge), class: 'longclick-disabled' do %>
             <%= render 'challenge', challenge: challenge %>
           <% end %>
         <% end %>
