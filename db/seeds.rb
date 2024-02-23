@@ -43,8 +43,10 @@ Challenge.create title: Faker::Lorem.sentence(word_count: 3),
                   starts_at: Date.current.beginning_of_week,
                   ends_at: Date.current.beginning_of_week + 1.week
 
-Tournament.create name: 'Tournament 1', code: 'code'
-TournamentParticipant.create tournament: Tournament.first, user: user1
+Tournament.create name: 'Tournament 1',
+                  code: 'code',
+                  start_date: Date.current.beginning_of_week,
+                  end_date: Date.current.beginning_of_week + 1.week
 
 Challenge.create title: 'solo tournament challenge',
                  challenge_type: :solo,

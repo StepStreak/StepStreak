@@ -24,7 +24,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_17_235428) do
     t.float "heart_rate", default: 0.0
     t.float "resting_heart_rate", default: 0.0
     t.float "max_heart_rate", default: 0.0
-    t.bigint "user_id"
+    t.bigint "user_id", null: false
     t.index ["date", "user_id"], name: "index_activities_on_date_and_user_id", unique: true
     t.index ["user_id"], name: "index_activities_on_user_id"
   end
@@ -202,6 +202,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_17_235428) do
   create_table "tournaments", force: :cascade do |t|
     t.string "name"
     t.string "code"
+    t.date "start_date"
+    t.date "end_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
