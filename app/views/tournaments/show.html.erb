@@ -1,1 +1,90 @@
 <% content_for :title, @tournament.name %>
+
+<div class="h-dvh">
+  <div class="my-3">
+
+    <ol class="flex items-center justify-center w-full p-3 space-x-2 text-sm font-medium text-center text-gray-500 bg-white border border-gray-200 rounded-lg shadow-sm dark:text-gray-400 sm:text-base dark:bg-gray-800 dark:border-gray-700 sm:p-4 sm:space-x-4 rtl:space-x-reverse">
+      <% @tournament.challenges.each_with_index do |challenge, index| %>
+        <% if challenge.started? %>
+          <%= link_to challenge_path(challenge) do %>
+            <%= render 'tournaments/partials/active_challenge_link', challenge: challenge, challenge_order: index + 1 %>
+          <% end %>
+        <% else %>
+          <%= link_to challenge_path(challenge) do %>
+            <%= render 'tournaments/partials/ended_challenge_link', challenge: challenge, challenge_order: index + 1 %>
+          <% end %>
+        <% end %>
+
+        <% unless @tournament.challenges.size == index + 1 %>
+          <svg class="w-3 h-3 ms-2 sm:ms-4 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 12 10">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m7 9 4-4-4-4M1 9l4-4-4-4"/>
+          </svg>
+        <% end %>
+      <% end %>
+    </ol>
+  </div>
+
+  <div class="m-3">
+    <p class="font-semibold text-gray-500 dark:text-gray-400">This is some placeholder content.</p>
+  </div>
+
+  <div class="my-2">
+    <div class="mb-4 border-b border-gray-200 dark:border-gray-700 dark:bg-gray-800">
+      <ul class="flex align-center justify-center flex-wrap -mb-px text-sm font-medium text-center" id="default-tab" data-tabs-toggle="#default-tab-content" role="tablist">
+        <li class="me-2" role="presentation">
+          <button class="inline-block p-4 border-b-2 rounded-t-lg" id="profile-tab" data-tabs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Rules</button>
+        </li>
+        <li class="me-2" role="presentation">
+          <button class="inline-block p-4 border-b-2 rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300" id="dashboard-tab" data-tabs-target="#dashboard" type="button" role="tab" aria-controls="dashboard" aria-selected="false">Ranking</button>
+        </li>
+      </ul>
+    </div>
+    <div id="default-tab-content">
+      <div class="hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-800" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+        <p class="text-sm text-gray-500 dark:text-gray-400">This is some placeholder content.</p>
+      </div>
+      <div class="hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-800" id="dashboard" role="tabpanel" aria-labelledby="dashboard-tab">
+        <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-600">
+          <thead class="bg-gray-50 dark:bg-gray-700">
+          <tr>
+            <th scope="col" class="p-4 text-xs font-medium tracking-wider text-left text-gray-500 uppercase dark:text-white">
+              Rank
+            </th>
+            <th scope="col" class="p-4 text-xs font-medium tracking-wider text-left text-gray-500 uppercase dark:text-white">
+              Participant
+            </th>
+            <th scope="col" class="p-4 text-xs font-medium tracking-wider text-left text-gray-500 uppercase dark:text-white">
+              Score
+            </th>
+          </tr>
+          </thead>
+          <tbody class="bg-white dark:bg-gray-800">
+          <% @tournament_participants.each do |tournament_user| %>
+            <tr class="<%= 'dark:bg-blue-600' if current_user.id == tournament_user&.user_id %>">
+              <td class="p-4 text-sm font-normal whitespace-nowrap dark:text-white">
+                <% if @tournament.started? %>
+                  <%= challenge_rank(tournament_user.rank) %>
+                <% else %>
+                  -
+                <% end %>
+              </td>
+              <td class="p-4 text-sm font-normal whitespace-nowrap dark:text-white">
+                <%= tournament_user.user.username %>
+              </td>
+              <td class="p-4 text-sm font-normal whitespace-nowrap dark:text-white">
+                <% if @tournament.started? %>
+                  <%= tournament_user.score %>
+                <% else %>
+                  -
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+          </tbody>
+        </table>
+
+      </div>
+    </div>
+  </div>
+
+</div>

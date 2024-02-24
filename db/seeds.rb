@@ -48,16 +48,22 @@ Tournament.create name: 'Tournament 1',
                   start_date: Date.current.beginning_of_week,
                   end_date: Date.current.beginning_of_week + 1.week
 
-Challenge.create title: 'solo tournament challenge',
+Challenge.create title: 'Solo',
                  challenge_type: :solo,
                  starts_at: Date.current.beginning_of_week,
                  ends_at: Date.current.beginning_of_week + 1.week,
                  tournament: Tournament.first
 
-Challenge.create title: 'team tournament challenge',
+Challenge.create title: 'Team',
                  challenge_type: :team,
                  starts_at: Date.current.beginning_of_week + 1.week,
                  ends_at: Date.current.beginning_of_week + 2.weeks,
+                 tournament: Tournament.first
+
+Challenge.create title: 'King of the hill',
+                 challenge_type: :solo,
+                 starts_at: Date.current.beginning_of_week + 2.week,
+                 ends_at: Date.current.beginning_of_week + 3.weeks,
                  tournament: Tournament.first
 
 # app = Rpush::Apns2::App.new
