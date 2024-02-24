@@ -3,6 +3,8 @@ class Challenge < ApplicationRecord
   has_many :users, through: :challenge_users
   has_many :teams
 
+  belongs_to :tournament, optional: true
+
   enum challenge_type: [:solo, :team]
 
   scope :active, -> { where('ends_at >= ?', DateTime.current) }

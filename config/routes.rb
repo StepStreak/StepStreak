@@ -30,6 +30,9 @@ Rails.application.routes.draw do
 
   resources :settings
 
+  resources :tournaments
+  resources :tournament_participants
+
   resources :goals, only: %w[index new create edit update]
 
   namespace :api, defaults: { format: 'json' }, path: '/api' do
