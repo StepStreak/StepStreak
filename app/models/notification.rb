@@ -5,6 +5,8 @@ class Notification < ApplicationRecord
 
   after_create_commit :send_notification
 
+  scope :unread, -> { where(read: false) }
+
   private
 
   def send_notification

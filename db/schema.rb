@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_02_11_025748) do
+ActiveRecord::Schema[7.1].define(version: 2024_02_25_231029) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -24,7 +24,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_11_025748) do
     t.float "heart_rate", default: 0.0
     t.float "resting_heart_rate", default: 0.0
     t.float "max_heart_rate", default: 0.0
-    t.bigint "user_id"
+    t.bigint "user_id", null: false
     t.index ["date", "user_id"], name: "index_activities_on_date_and_user_id", unique: true
     t.index ["user_id"], name: "index_activities_on_user_id"
   end
@@ -68,6 +68,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_11_025748) do
     t.datetime "updated_at", null: false
     t.boolean "locked", default: false
     t.string "code"
+    t.bigint "tournament_id"
+    t.index ["tournament_id"], name: "index_challenges_on_tournament_id"
   end
 
   create_table "goals", force: :cascade do |t|
@@ -94,6 +96,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_11_025748) do
     t.string "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "read", default: false
     t.index ["user_id"], name: "index_notifications_on_user_id"
   end
 
@@ -187,6 +190,25 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_11_025748) do
     t.index ["challenge_id"], name: "index_teams_on_challenge_id"
   end
 
+  create_table "tournament_participants", force: :cascade do |t|
+    t.bigint "tournament_id", null: false
+    t.bigint "user_id", null: false
+    t.integer "score", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["tournament_id"], name: "index_tournament_participants_on_tournament_id"
+    t.index ["user_id"], name: "index_tournament_participants_on_user_id"
+  end
+
+  create_table "tournaments", force: :cascade do |t|
+    t.string "name"
+    t.string "code"
+    t.date "start_date"
+    t.date "end_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", null: false
     t.string "username", null: false
@@ -204,7 +226,10 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_11_025748) do
   add_foreign_key "challenge_users", "challenges"
   add_foreign_key "challenge_users", "teams"
   add_foreign_key "challenge_users", "users"
+  add_foreign_key "challenges", "tournaments"
   add_foreign_key "goals", "users"
   add_foreign_key "notifications", "users"
   add_foreign_key "teams", "challenges"
+  add_foreign_key "tournament_participants", "tournaments"
+  add_foreign_key "tournament_participants", "users"
 end
