@@ -15,9 +15,9 @@ module TurboNativeHelper
     if turbo_native_app?
       latest_app_version = case device_type
                            when 'ios'
-                             AppConfig.ios.last.version.to_f
+                             AppConfig.ios.last.version
                            when 'android'
-                              AppConfig.android.last.version.to_f
+                              AppConfig.android.last.version
                            end
 
       latest_app_version > app_version

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_02_25_231029) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_04_014130) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -218,7 +218,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_25_231029) do
     t.integer "device_type"
     t.string "notification_token"
     t.datetime "last_sync_at"
-    t.float "app_version", default: 0.0
+    t.string "app_version", default: "0.0"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
