@@ -1,0 +1,35 @@
+<% content_for :title, 'Notifications' %>
+
+<%= turbo_frame_tag :dashboard do %>
+  <%= render 'layouts/navigation' %>
+
+  <div data-navigation-target="notificationsFrame">
+    <% if @unread_notifications.positive? %>
+      <%= tag.template data: { controller: 'notifications', notifications_url_value: read_all_notifications_url } %>
+    <% end %>
+
+    <div class="w-full border border-gray-100 rounded-lg dark:border-gray-600 <%= 'h-screen' if @notifications.load.size < 6 %>">
+      <ul>
+        <% @notifications.each do |notification| %>
+          <li class="border-b border:gray-100 dark:border-gray-600 <%= 'dark:bg-gray-700' unless notification.read? %>">
+            <div class="w-full px-4 py-3">
+              <p class="font-semibold text-gray-500 dark:text-gray-400"><%= notification.title %></p>
+              <p class="text-sm text-gray-500 dark:text-gray-400"><%= notification.body %></p>
+              <span class="text-xs text-blue-600 dark:text-blue-500"><%= time_ago_in_words(notification.created_at) %> ago</span>
+            </div>
+          </li>
+        <% end %>
+
+        <% if @notifications.empty? %>
+          <div class="flex items-center justify-center min-h-screen">
+            <div class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+              <p class="font-normal text-gray-700 dark:text-gray-400">You have no Notifications</p>
+            </div>
+          </div>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+
+  <%= render 'layouts/footer' %>
+<% end %>

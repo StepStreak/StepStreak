@@ -22,6 +22,9 @@ Rails.application.routes.draw do
       resources :team_challenge_users, only: %w[create]
     end
   end
+  resources :notifications, only: %w[index] do
+    put :read_all, on: :collection
+  end
 
   resources :configurations, only: [] do
     get :ios, on: :collection

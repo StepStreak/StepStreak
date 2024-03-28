@@ -16,6 +16,9 @@ application.register("bridge--token", Bridge__TokenController)
 import NavigationController from "./navigation_controller"
 application.register("navigation", NavigationController)
 
+import NotificationsController from "./notifications_controller"
+application.register("notifications", NotificationsController)
+
 import ReloadController from "./reload_controller"
 application.register("reload", ReloadController)
 

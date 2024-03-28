@@ -9,8 +9,8 @@ class SessionsController < ApplicationController
       sign_in user
 
       redirect_path = if turbo_native_app? &&
-        ((ios_device? && app_version > 1.0) ||
-          (android_device? && app_version >= 1.0))
+        ((ios_device? && app_version > '1.0') ||
+          (android_device? && app_version >= '1.0'))
                         permissions_path
                       else
                         root_path

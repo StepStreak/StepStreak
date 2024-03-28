@@ -12,7 +12,7 @@ class UsersController < ApplicationController
     if @user.valid?
       sign_in @user
 
-      redirect_path = if turbo_native_app? && app_version > 1.0
+      redirect_path = if turbo_native_app? && app_version > '1.0'
                         permissions_path
                       else
                         root_path
