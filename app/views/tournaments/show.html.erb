@@ -1,6 +1,7 @@
 <% content_for :title, @tournament.name %>
 
 <div class="h-dvh">
+
   <div class="my-3">
 
     <ol class="flex items-center justify-center w-full p-3 space-x-2 text-sm font-medium text-center text-gray-500 bg-white border border-gray-200 rounded-lg shadow-sm dark:text-gray-400 sm:text-base dark:bg-gray-800 dark:border-gray-700 sm:p-4 sm:space-x-4 rtl:space-x-reverse">
@@ -10,9 +11,7 @@
             <%= render 'tournaments/partials/active_challenge_link', challenge: challenge, challenge_order: index + 1 %>
           <% end %>
         <% else %>
-          <%= link_to challenge_path(challenge) do %>
-            <%= render 'tournaments/partials/ended_challenge_link', challenge: challenge, challenge_order: index + 1 %>
-          <% end %>
+          <%= render 'tournaments/partials/ended_challenge_link', challenge: challenge, challenge_order: index + 1 %>
         <% end %>
 
         <% unless @tournament.challenges.size == index + 1 %>
@@ -22,10 +21,6 @@
         <% end %>
       <% end %>
     </ol>
-  </div>
-
-  <div class="m-3">
-    <p class="font-semibold text-gray-500 dark:text-gray-400">This is some placeholder content.</p>
   </div>
 
   <div class="my-2">
@@ -41,7 +36,14 @@
     </div>
     <div id="default-tab-content">
       <div class="hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-800" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-        <p class="text-sm text-gray-500 dark:text-gray-400">This is some placeholder content.</p>
+        <p class="text-sm text-gray-500 dark:text-gray-400 mb-3">
+          <%= Faker::Lorem.sentence(word_count: 50) %>
+        </p>
+
+        <p class="text-sm text-gray-500 dark:text-gray-400">
+          <%= Faker::Lorem.sentence(word_count: 100) %>
+        </p>
+
       </div>
       <div class="hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-800" id="dashboard" role="tabpanel" aria-labelledby="dashboard-tab">
         <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-600">
