@@ -14,4 +14,13 @@ class TournamentParticipantsController < ApplicationController
       render :new, status: :unprocessable_entity
     end
   end
+
+  def destroy
+    @tournament = Tournament.find_by(id: params[:tournament_id])
+
+    @tournament_participant = @tournament.tournament_participants.find_by(id: params[:id])
+    @tournament_participant&.destroy
+
+    redirect_to settings_path
+  end
 end
