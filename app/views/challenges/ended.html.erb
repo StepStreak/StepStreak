@@ -3,7 +3,7 @@
 <%= render 'sub_navigation' %>
 
 <% if @ended_challenges.empty? %>
-  <div class="flex items-center justify-center min-h-screen">
+  <div class="flex items-center justify-center mt-5">
     <div class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
       <p class="font-normal text-gray-700 dark:text-gray-400">No Challenges found.</p>
     </div>
@@ -12,8 +12,8 @@
   <% else %>
 
   <main class="bg-gray-50 dark:bg-gray-900 min-h-screen">
-    <div class="container px-4 pt-5 mx-auto md:pt-32 lg:px-0 dark:bg-gray-900">
-      <section class="grid grid-cols-1 space-y-12 md:space-y-0 md:grid-cols-2 lg:grid-cols-3 md:gap-x-6 md:gap-6 pt-6 mb-5">
+    <div class="container px-4 pt-1 mx-auto md:pt-32 lg:px-0 dark:bg-gray-900">
+      <section class="grid grid-cols-1 space-y-4 md:space-y-0 md:grid-cols-2 lg:grid-cols-3 md:gap-x-6 md:gap-6 pt-6 mb-5">
         <% @ended_challenges.each do |challenge| %>
           <%= link_to challenge_path(challenge), class: 'long-press-disabled' do %>
             <%= render 'challenge', challenge: challenge %>
