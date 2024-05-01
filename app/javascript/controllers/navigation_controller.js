@@ -34,12 +34,15 @@ export default class extends Controller {
   }
 
   handleFrameTargetDisconnected(frameTarget) {
+    frameTarget.classList.remove('text-blue-500');
     frameTarget.classList.remove('dark:text-blue-500');
   }
 
   addSVGClassAndBackground(bodyElement, svgElement) {
+    svgElement.classList.remove('text-gray-500');
     svgElement.classList.remove('dark:text-gray-400');
     svgElement.classList.add('dark:text-blue-500');
+    svgElement.classList.add('text-blue-500');
     bodyElement.classList.add('dark:bg-gray-800');
   }
 
