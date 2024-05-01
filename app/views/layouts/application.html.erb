@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html data-<%= platform_identifier %> lang="en" class="dark">
+<html data-<%= platform_identifier %> lang="en" class="light">
   <head>
     <title><%= page_title %></title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1 viewport-fit=cover">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -20,11 +20,11 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
 
-    <%= turbo_refreshes_with method: :morph, scroll: :preserve  %>
+    <%= turbo_refreshes_with method: :morph %>
     <%= yield :head %>
   </head>
 
-  <body class="bg-gray-50 dark:bg-gray-800">
+  <body class="bg-gray-50 dark:bg-gray-800 pb-safe">
     <header class="turbo-native:hidden">
       <nav class="z-30 w-full bg-white border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700 py-3 px-4">
         <div class="flex justify-between items-center max-w-screen-2xl mx-auto">

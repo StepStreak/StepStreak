@@ -30,4 +30,18 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
+  datetime:
+    distance_in_words:
+      less_than_x_minutes:
+        one: 'Now'
+        other: 'Now'
+      x_minutes:
+        one: '1 min'
+        other: '%{count} mins'
+      about_x_hours:
+        one: '1 h'
+        other: '%{count} h'
+      x_hours:
+        one: '1 h'
+        other: '%{count} h'
   hello: "Hello world"

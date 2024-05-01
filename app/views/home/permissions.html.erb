@@ -1,5 +1,5 @@
 <main class="bg-gray-50 dark:bg-gray-900">
-  <div class="flex flex-col justify-center items-center px-6 mx-auto min-h-screen xl:px-0 dark:bg-gray-900 py-5">
+  <div class="flex px-6 xl:px-0 dark:bg-gray-900 py-5">
     <div class="xl:max-w-4xl">
       <h1 class="mb-3 text-2xl font-bold leading-tight text-gray-900 sm:text-4xl lg:text-5xl dark:text-white">We need your permission to access your activity data</h1>
       <p class="mb-5 text-base font-normal text-gray-500 md:text-lg dark:text-gray-400">To make the most out of StepStreak, our app is built on this data to provide you with personalized health charts and insights. Without access to this data, unfortunately, you won't be able to enjoy the experience of our app.</p>
@@ -19,8 +19,8 @@
 
       <p class="mb-5 text-base font-normal text-gray-500 md:text-lg dark:text-gray-400">For more information on how we handle your data, please read our <%= link_to "Privacy Policy", privacy_path, class: 'long-press-disabled dark:text-blue-500' %>.</p>
 
-      <div class="mt-10 flex justify-center gap-x-6">
-        <%= link_to "Continue", root_path, data: { turbo_action: 'replace' }, class: 'long-press-disabled text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-3 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800' %>
+      <div class="mt-10">
+        <%= link_to "Continue", root_path, data: { turbo_action: 'replace' }, class: 'block w-full long-press-disabled text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg px-5 py-2.5 text-center mr-3 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800' %>
       </div>
     </div>
   </div>
