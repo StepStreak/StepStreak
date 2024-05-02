@@ -38,7 +38,7 @@
       </div>
     </div>
 
-    <% if @challenge.active? %>
+    <% if @challenge.active? && @challenge.standalone? %>
       <% if @challenge_user %>
         <%= link_to 'Leave', challenge_challenge_user_path(@challenge, @challenge_user),
                     data: { turbo_method: :delete, turbo_confirm: 'Are you sure you want to leave the challenge?', },

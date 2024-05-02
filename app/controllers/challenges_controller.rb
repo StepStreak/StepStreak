@@ -3,11 +3,13 @@ class ChallengesController < ApplicationController
     @challenges = Challenge.joins("LEFT OUTER JOIN challenge_users ON challenge_users.challenge_id = challenges.id AND challenge_users.user_id = #{current_user.id}")
                            .select("challenges.*, CASE WHEN challenge_users.id IS NULL THEN false ELSE true END AS joined")
                            .active
+                           .standalone
                            .load
   end
 
   def ended
     @ended_challenges = Challenge.joins(:challenge_users)
+                                 .standalone
                                  .where(challenge_users: { user_id: current_user.id })
                                  .select("challenges.*, true as joined")
                                  .order(created_at: :desc)

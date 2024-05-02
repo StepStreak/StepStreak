@@ -7,6 +7,7 @@ class Challenge < ApplicationRecord
 
   enum challenge_type: [:solo, :team]
 
+  scope :standalone, -> { where(tournament_id: :nil) }
   scope :active, -> { where('ends_at >= ?', DateTime.current) }
   scope :ended, -> { where('ends_at < ?', DateTime.current) }
 
@@ -20,5 +21,9 @@ class Challenge < ApplicationRecord
 
   def started?
     starts_at <= DateTime.current
+  end
+
+  def standalone?
+    tournament_id.nil?
   end
 end
