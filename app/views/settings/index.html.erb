@@ -23,6 +23,18 @@
     <% end %>
   </div>
 
+  <p class="font-light font-semibold text-gray-500 dark:text-gray-400 m-3">Useful links</p>
+
+  <div class="my-2 w-full text-gray-900 bg-white border border-gray-200 dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+    <%= link_to privacy_path, class: 'long-press-disabled touch-none relative inline-flex items-center w-full px-4 py-4 text-sm font-medium border-b border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:border-gray-600 dark:hover:bg-gray-600 dark:hover:text-white dark:focus:ring-gray-500 dark:focus:text-white' do %>
+      <svg class="w-6 h-6 me-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M12.4 3a1 1 0 0 0-.8 0l-7 2.7a1 1 0 0 0-.6 1 17.7 17.7 0 0 0 7.4 14.1c.4.3.8.3 1.2 0A17.4 17.4 0 0 0 20 6.7a1 1 0 0 0-.6-1l-7-2.6Z"/>
+      </svg>
+
+      Privacy Policy
+    <% end %>
+  </div>
+
   <p class="font-light font-semibold text-gray-500 dark:text-gray-400 m-3">Account</p>
 
   <div class="my-2 w-full text-gray-900 bg-white border border-gray-200 dark:bg-gray-700 dark:border-gray-600 dark:text-white">
@@ -41,7 +53,8 @@
 <!--    </button>-->
 
     <%= link_to session_path(current_user),
-                data: { turbo_method: 'delete'},
+                data: { turbo_method: 'delete',
+                        turbo_confirm: "Are you sure you want to sign out?" },
                 class: 'long-press-disabled relative inline-flex items-center w-full px-4 py-4 text-sm font-medium border-b border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:border-gray-600 dark:hover:bg-gray-600 dark:hover:text-white dark:focus:ring-gray-500 dark:focus:text-white' do %>
 
       <svg class="w-6 h-6 me-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
@@ -56,25 +69,14 @@
                         turbo_confirm: "Are you sure you want to delete your account? This will delete you account and all data related to it."},
                 class: 'long-press-disabled relative inline-flex items-center w-full px-4 py-4 text-sm font-medium rounded-b-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:border-gray-600 dark:hover:bg-gray-600 dark:hover:text-white dark:focus:ring-gray-500 dark:focus:text-white' do %>
 
-      <svg class="w-6 h-6 me-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+      <svg class="w-6 h-6 me-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="red" viewBox="0 0 24 24">
         <path fill-rule="evenodd" d="M5 8a4 4 0 1 1 8 0 4 4 0 0 1-8 0Zm-2 9a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1Zm13-6a1 1 0 1 0 0 2h4a1 1 0 1 0 0-2h-4Z" clip-rule="evenodd"/>
       </svg>
 
-      Delete Your Account
+      <p class="text-red-600">Delete Your Account</p>
     <% end %>
   </div>
 
-  <p class="font-light font-semibold text-gray-500 dark:text-gray-400 m-3">Useful links</p>
-
-  <div class="my-2 w-full text-gray-900 bg-white border border-gray-200 dark:bg-gray-700 dark:border-gray-600 dark:text-white">
-    <%= link_to privacy_path, class: 'long-press-disabled touch-none relative inline-flex items-center w-full px-4 py-4 text-sm font-medium border-b border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:border-gray-600 dark:hover:bg-gray-600 dark:hover:text-white dark:focus:ring-gray-500 dark:focus:text-white' do %>
-      <svg class="w-6 h-6 me-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-        <path d="M12.4 3a1 1 0 0 0-.8 0l-7 2.7a1 1 0 0 0-.6 1 17.7 17.7 0 0 0 7.4 14.1c.4.3.8.3 1.2 0A17.4 17.4 0 0 0 20 6.7a1 1 0 0 0-.6-1l-7-2.6Z"/>
-      </svg>
-
-      Privacy Policy
-    <% end %>
-  </div>
   <div class="mt-5">
     <span class="flex items-center justify-center mr-1.5 font-semibold dark:text-gray-500">Version <%= current_user.app_version %></span>
   </div>
