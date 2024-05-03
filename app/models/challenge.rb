@@ -26,4 +26,8 @@ class Challenge < ApplicationRecord
   def standalone?
     tournament_id.nil?
   end
+
+  def tournament?
+    !standalone?
+  end
 end
