@@ -11,7 +11,10 @@ class ChallengeUser < ApplicationRecord
   end
 
   after_create_commit :update_score
+  after_create_commit :update_tournament_score, if: -> { challenge.tournament? }
   after_destroy_commit :delete_team, if: -> { challenge.team? && challenge.challenge_users.where(team: team).empty? }
+
+  after_update_commit :update_tournament_score, if: -> { challenge.tournament? && saved_change_to_score? }
 
   def delete_team
     team.destroy
@@ -21,6 +24,16 @@ class ChallengeUser < ApplicationRecord
     score = self.user.activities.where(date: self.challenge.starts_at.to_date..Date.current).sum(:steps)
 
     self.update(score: score)
+  end
+
+  def update_tournament_score
+    if challenge.solo?
+      points = score / 100
+    else
+      points = score / 1000
+    end
+
+    challenge.tournament.tournament_participants.find_by(user: user).update(score: points)
   end
 
   def code_validity
