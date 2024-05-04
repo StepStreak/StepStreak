@@ -7,7 +7,9 @@
     <ol class="flex items-center justify-center w-full p-3 space-x-2 text-sm font-medium text-center text-gray-500 bg-white border border-gray-200 rounded-lg shadow-sm dark:text-gray-400 sm:text-base dark:bg-gray-800 dark:border-gray-700 sm:p-4 sm:space-x-4 rtl:space-x-reverse">
       <% @tournament.challenges.order(created_at: :asc).each_with_index do |challenge, index| %>
         <% if challenge.started? && !challenge.ended? %>
-          <%= render 'tournaments/partials/active_challenge_link', challenge: challenge, challenge_order: index + 1 %>
+          <%= link_to challenge_path(challenge) do %>
+            <%= render 'tournaments/partials/active_challenge_link', challenge: challenge, challenge_order: index + 1 %>
+          <% end %>
         <% else %>
           <%= link_to challenge_path(challenge) do %>
             <%= render 'tournaments/partials/ended_challenge_link', challenge: challenge, challenge_order: index + 1 %>
@@ -24,7 +26,9 @@
   </div>
 
   <% if @current_challenge %>
-    <%= render 'tournaments/partials/current_challenge', current_challenge: @current_challenge %>
+    <%= link_to challenge_path(@current_challenge) do %>
+      <%= render 'tournaments/partials/current_challenge', current_challenge: @current_challenge %>
+    <% end %>
   <% end %>
 
   <div class="my-2">
