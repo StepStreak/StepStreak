@@ -11,6 +11,6 @@ export default class extends Controller {
 
         let timeZone = moment.tz.guess();
 
-        this.clientSyncTimeTarget.textContent = this.labelValue + dateInUTC.tz(timeZone).format('MMMM Do, hh:mm z');
+        this.clientSyncTimeTarget.textContent = this.labelValue + dateInUTC.tz(timeZone).format('MMM Do, hh:mm z');
     }
 }
