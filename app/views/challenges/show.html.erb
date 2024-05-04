@@ -14,7 +14,7 @@
 
     <div class="flex justify-between" data-turbo-permanent>
       <div>
-        <p>Start Time:</p>
+        <p>Start Time</p>
 
         <div data-controller="time-zone" data-time-zone-label-value="">
           <p data-time-zone-target="serverSyncTime" hidden class="font-light text-gray-700 sm:text-lg dark:text-gray-400"><%= @challenge.starts_at.iso8601 %></p>
@@ -23,7 +23,7 @@
       </div>
 
       <div>
-        <p>End Time:</p>
+        <p>End Time</p>
 
         <div data-controller="time-zone" data-time-zone-label-value="">
           <p data-time-zone-target="serverSyncTime" hidden class="font-light text-gray-700 sm:text-lg dark:text-gray-400"><%= @challenge.ends_at.iso8601 %></p>
