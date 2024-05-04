@@ -4,7 +4,7 @@ class ConfigurationsController < ApplicationController
       settings: {},
       rules: [
         {
-          patterns: %w[/challenge_users/new$ /sessions/new$ /users/new$ /privacy /data /teams /teams/new],
+          patterns: %w[/challenge_users/new$ /sessions/new$ /users/new$ /privacy /data /teams /teams/new /tournament_participants/new],
           properties: {
             context: "modal"
           }

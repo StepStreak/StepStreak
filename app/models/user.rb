@@ -20,4 +20,8 @@ class User < ApplicationRecord
   def test_user?
     email == Rails.application.credentials.appstore_test_user_email
   end
+
+  def active_tournament
+    @active_tournament ||= tournament_participants.joins(:tournament).merge(Tournament.active).first&.tournament
+  end
 end

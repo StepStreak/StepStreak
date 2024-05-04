@@ -7,5 +7,7 @@ class TournamentsController < ApplicationController
                                  .preload(:user)
 
     @current_participant = @tournament_participants.find { |tp| tp.user == current_user }
+
+    @current_challenge = @tournament.challenges.active.first
   end
 end

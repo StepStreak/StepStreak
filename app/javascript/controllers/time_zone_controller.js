@@ -10,8 +10,7 @@ export default class extends Controller {
         let dateInUTC = moment(time);
 
         let timeZone = moment.tz.guess();
-        console.log(timeZone);
 
-        this.clientSyncTimeTarget.textContent = this.labelValue + dateInUTC.tz(timeZone).format('MMMM Do YYYY, h:mm:ss a');
+        this.clientSyncTimeTarget.textContent = this.labelValue + dateInUTC.tz(timeZone).format('MMMM Do, hh:mm z');
     }
 }

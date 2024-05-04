@@ -7,21 +7,18 @@
     </div>
   <% end %>
   <h3 class="mb-2 text-xl font-semibold"><%= challenge.title %></h3>
-  <p class="font-light text-sm text-gray-500 dark:text-gray-400"><%= l(challenge.starts_at.to_date, format: :long) %> - <%= l(challenge.ends_at.to_date, format: :long) %></p>
+
+  <div class="items-start">
+    <span class="bg-blue-100 text-blue-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300"><%= l(challenge.starts_at.to_date, format: :long) %> - <%= l(challenge.ends_at.to_date, format: :long) %></span>
+  </div>
 
   <div class="flex flex-row mt-4 justify-between">
-    <ul role="list" class="flex flex-col justify-center mb-1 space-y-1 text-left">
-      <li class="flex items-center space-x-3">
-        <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-        <span class="text-sm"><%= challenge.challenge_type.capitalize %> challenge</span>
-      </li>
+    <div class="flex items-end">
+      <span class="bg-red-100 text-red-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-red-900 dark:text-red-300"><%= challenge.challenge_type.capitalize %></span>
       <% if challenge.joined %>
-        <li class="flex items-center space-x-3">
-          <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-          <span class="text-sm">Joined</span>
-        </li>
+        <span class="bg-green-100 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300">Joined</span>
       <% end %>
-    </ul>
+    </div>
 
     <div class="flex flex-col items-baseline">
       <span class="mr-2 text-3xl font-extrabold"><%= challenge_participants_count(challenge) %></span>

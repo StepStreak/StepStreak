@@ -22,7 +22,7 @@ class ChallengeUsersController < ApplicationController
   def destroy
     @challenge_user = @challenge.challenge_users.find_by(user: current_user)
     if @challenge_user.destroy
-      redirect_to challenge_path(@challenge), notice: "You have left the challenge."
+      redirect_to challenges_path, notice: "You have left the challenge."
     else
       redirect_to challenge_path(@challenge), alert: "You could not leave the challenge."
     end

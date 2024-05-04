@@ -12,9 +12,16 @@
       <%= render 'dashboard/partials/bridge' %>
       <%= render 'dashboard/partials/last_sync' %>
 
+      <% if @active_tournament %>
+        <%= link_to tournament_path(@active_tournament), data: { turbo_frame: '_top' } do %>
+          <%= render 'dashboard/partials/active_tournament_card', active_tournament: @active_tournament %>
+        <% end %>
+      <% end %>
+
       <% cache current_user do %>
         <%= render 'dashboard/partials/summary' %>
         <%= render 'dashboard/partials/steps_month' %>
+
         <div class="flex flex-col mt-6">
           <div class="overflow-x-auto rounded-lg">
             <div class="inline-block min-w-full align-middle">
