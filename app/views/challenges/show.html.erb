@@ -24,7 +24,7 @@
       </div>
     </div>
 
-    <div class="flex flex-row mt-5 mb-5 justify-between">
+    <div class="flex flex-row mt-5 justify-between">
       <ul role="list" class="flex flex-col justify-center mb-1 space-y-1 text-left">
         <li class="flex items-center space-x-3">
           <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
@@ -37,28 +37,6 @@
         <span class="text-sm text-gray-500 dark:text-gray-400"><%= challenge_participants_label(@challenge) %></span>
       </div>
     </div>
-
-    <% if @challenge.active? && @challenge.standalone? %>
-      <% if @challenge_user %>
-        <%= link_to 'Leave', challenge_challenge_user_path(@challenge, @challenge_user),
-                    data: { turbo_method: :delete, turbo_confirm: 'Are you sure you want to leave the challenge?', },
-                    class: 'long-press-disabled bg-red-600 hover:bg-red-700 focus:ring-4 font-medium rounded-lg px-5 py-2.5 text-center text-white dark:text-white dark:focus:ring-primary-900' %>
-      <% elsif @challenge.locked? %>
-        <%= button_to 'Join with code', new_challenge_challenge_user_path(@challenge),
-                      method: :get,
-                      data: { turbo_frame: '_top', turbo_action: 'advance' },
-                      class: 'w-full bg-primary-600 hover:bg-primary-700 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:text-white dark:focus:ring-primary-900' %>
-      <% elsif @challenge.team? %>
-        <%= button_to 'Join a team', challenge_teams_path(@challenge),
-                      method: :get,
-                      data: { turbo_frame: '_top', turbo_action: 'advance' },
-                      class: 'w-full bg-primary-600 hover:bg-primary-700 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:text-white dark:focus:ring-primary-900' %>
-      <% else %>
-        <%= button_to 'Join', challenge_challenge_users_path(@challenge),
-                      method: :post,
-                      class: 'w-full bg-primary-600 hover:bg-primary-700 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:text-white dark:focus:ring-primary-900' %>
-      <% end %>
-    <% end %>
   </div>
 
   <% unless @challenge.locked? && @challenge_user.nil? %>
@@ -76,4 +54,28 @@
       </div>
     </div>
   <% end %>
+
+  <div class="w-full p-6 sm:p-8 fixed bottom-0 z-50">
+    <% if @challenge.active? && @challenge.standalone? %>
+      <% if @challenge_user %>
+        <%= link_to 'Leave', challenge_challenge_user_path(@challenge, @challenge_user),
+                    data: { turbo_method: :delete, turbo_confirm: 'Are you sure you want to leave the challenge?', },
+                    class: 'block long-press-disabled bg-red-600 hover:bg-red-700 focus:ring-4 font-medium rounded-lg px-5 py-2.5 text-center text-white dark:text-white dark:focus:ring-primary-900' %>
+      <% elsif @challenge.locked? %>
+        <%= button_to 'Join with code', new_challenge_challenge_user_path(@challenge),
+                      method: :get,
+                      data: { turbo_frame: '_top', turbo_action: 'advance' },
+                      class: 'block w-full bg-primary-600 hover:bg-primary-700 font-medium rounded-lg px-5 py-2.5 text-center text-white dark:text-white dark:focus:ring-primary-900' %>
+      <% elsif @challenge.team? %>
+        <%= button_to 'Join a team', challenge_teams_path(@challenge),
+                      method: :get,
+                      data: { turbo_frame: '_top', turbo_action: 'advance' },
+                      class: 'block w-full bg-primary-600 hover:bg-primary-700 font-medium rounded-lg px-5 py-2.5 text-center text-white dark:text-white dark:focus:ring-primary-900' %>
+      <% else %>
+        <%= button_to 'Join', challenge_challenge_users_path(@challenge),
+                      method: :post,
+                      class: 'block w-full bg-primary-600 hover:bg-primary-700 font-medium rounded-lg px-5 py-2.5 text-center text-white dark:text-white dark:focus:ring-primary-900' %>
+      <% end %>
+    <% end %>
+  </div>
 </div>
