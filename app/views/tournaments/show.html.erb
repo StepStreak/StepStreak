@@ -5,13 +5,15 @@
   <div class="my-3">
 
     <ol class="flex items-center justify-center w-full p-3 space-x-2 text-sm font-medium text-center text-gray-500 bg-white border border-gray-200 rounded-lg shadow-sm dark:text-gray-400 sm:text-base dark:bg-gray-800 dark:border-gray-700 sm:p-4 sm:space-x-4 rtl:space-x-reverse">
-      <% @tournament.challenges.each_with_index do |challenge, index| %>
-        <% if challenge.started? %>
+      <% @tournament.challenges.order(created_at: :asc).each_with_index do |challenge, index| %>
+        <% if challenge.started? && !challenge.ended? %>
           <%= link_to challenge_path(challenge) do %>
             <%= render 'tournaments/partials/active_challenge_link', challenge: challenge, challenge_order: index + 1 %>
           <% end %>
         <% else %>
-          <%= render 'tournaments/partials/ended_challenge_link', challenge: challenge, challenge_order: index + 1 %>
+          <%= link_to challenge_path(challenge) do %>
+            <%= render 'tournaments/partials/ended_challenge_link', challenge: challenge, challenge_order: index + 1 %>
+          <% end %>
         <% end %>
 
         <% unless @tournament.challenges.size == index + 1 %>

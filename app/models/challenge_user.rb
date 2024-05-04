@@ -21,7 +21,9 @@ class ChallengeUser < ApplicationRecord
   end
 
   def update_score
-    score = self.user.activities.where(date: self.challenge.starts_at.to_date..Date.current).sum(:steps)
+    score = self.user.activities
+                .where(date: self.challenge.starts_at.in_time_zone('Europe/Berlin').to_date..Date.current)
+                .sum(:steps)
 
     self.update(score: score)
   end
@@ -33,7 +35,7 @@ class ChallengeUser < ApplicationRecord
       points = score / 1000
     end
 
-    challenge.tournament.tournament_participants.find_by(user: user).update(score: points)
+    challenge.tournament.tournament_participants.find_by(user: user).increment(:score, points)
   end
 
   def code_validity
