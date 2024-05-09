@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/TrestleAdmin/trestle.git
-  revision: f36fed9556969ee8c9682f908a951bc84955f8b6
+  revision: f692b6dc624da5576264e4bdad8a8465a7d1c6db
   specs:
     trestle (0.9.8)
       activemodel (>= 5.2.0)
@@ -106,7 +106,7 @@ GEM
       sshkit (>= 1.6.1, != 1.7.0)
     base64 (0.2.0)
     bcrypt (3.1.20)
-    bigdecimal (3.1.7)
+    bigdecimal (3.1.8)
     bindex (0.8.1)
     bootsnap (1.18.3)
       msgpack (~> 1.2)
@@ -146,9 +146,9 @@ GEM
     cssbundling-rails (1.4.0)
       railties (>= 6.0.0)
     date (3.3.4)
-    dotenv (3.1.1)
-    dotenv-rails (3.1.1)
-      dotenv (= 3.1.1)
+    dotenv (3.1.2)
+    dotenv-rails (3.1.2)
+      dotenv (= 3.1.2)
       railties (>= 6.1)
     drb (2.2.1)
     erubi (1.12.0)
@@ -160,7 +160,7 @@ GEM
       activesupport (>= 6.1)
     hkdf (0.3.0)
     http-2 (0.11.0)
-    i18n (1.14.4)
+    i18n (1.14.5)
       concurrent-ruby (~> 1.0)
     io-console (0.7.2)
     irb (1.13.1)
@@ -215,7 +215,7 @@ GEM
       connection_pool (~> 2.2)
     net-http2 (0.18.5)
       http-2 (~> 0.11)
-    net-imap (0.4.10)
+    net-imap (0.4.11)
       date
       net-protocol
     net-pop (0.1.2)
@@ -230,7 +230,7 @@ GEM
       net-protocol
     net-ssh (7.2.3)
     newrelic_rpm (9.9.0)
-    nio4r (2.7.1)
+    nio4r (2.7.3)
     nokogiri (1.16.4-arm64-darwin)
       racc (~> 1.4)
     nokogiri (1.16.4-x86_64-linux)
@@ -285,7 +285,7 @@ GEM
       psych (>= 4.0.0)
     redis (4.8.1)
     regexp_parser (2.9.0)
-    reline (0.5.5)
+    reline (0.5.6)
       io-console (~> 0.5)
     rexml (3.2.6)
     rubyzip (2.3.2)
