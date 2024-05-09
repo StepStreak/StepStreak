@@ -30,15 +30,23 @@
       <%= render 'tournaments/partials/current_challenge', current_challenge: @current_challenge %>
     <% end %>
 
-    <% else %>
-    <div class="flex justify-center items-center max-w-lg px-4 py-4 m-3 text-gray-900 bg-white border border-gray-200 rounded-lg shadow-sm dark:border-gray-700 xl:p-8 dark:bg-gray-800 dark:text-white">
-      <div class="mb-4">
-        <h3 class="text-xl font-semibold">Tournament Ended</h3>
-        <p class="text-sm text-gray-500 dark:text-gray-400">
-          Review your performance by checking the ranking overall, or examine individual challenges to assess your performance in each specific one.
+  <% else %>
+    <% if @tournament.start_date > Date.current %>
+      <div class="flex justify-center items-center max-w-lg px-4 py-4 m-3 text-gray-900 bg-white border border-gray-200 rounded-lg shadow-sm dark:border-gray-700 xl:p-8 dark:bg-gray-800 dark:text-white">
+        <p class="text-sm font-bold text-gray-500 dark:text-gray-400">
+          The tournament will start on <%= l(@tournament.start_date, format: :long) %>.
         </p>
       </div>
-    </div>
+    <% else %>
+      <div class="flex justify-center items-center max-w-lg px-4 py-4 m-3 text-gray-900 bg-white border border-gray-200 rounded-lg shadow-sm dark:border-gray-700 xl:p-8 dark:bg-gray-800 dark:text-white">
+        <div>
+          <h3 class="text-xl font-semibold">Tournament Ended</h3>
+          <p class="text-sm text-gray-500 dark:text-gray-400">
+            Review your performance by checking the ranking overall, or examine individual challenges to assess your performance in each specific one.
+          </p>
+        </div>
+      </div>
+    <% end %>
   <% end %>
 
   <div class="my-2">
@@ -53,7 +61,7 @@
       </ul>
     </div>
     <div id="default-tab-content">
-      <div class="hidden p-4 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+      <div class="hidden bg-white border border-gray-200 max-w-lg px-4 py-4 m-3 rounded-lg shadow-sm dark:bg-gray-800" id="profile" role="tabpanel" aria-labelledby="profile-tab">
         <h5 class="mb-3 text-lg font-bold leading-tight text-gray-900 sm:text-4xl lg:text-3xl dark:text-white">
           Welcome to "<%= @tournament.name %>" Tournament!
         </h5>
