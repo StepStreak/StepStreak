@@ -3,8 +3,8 @@
   <div class="flex justify-center items-center mb-4">
     <h3 class="flex text-xl font-semibold justify-center"><%= active_tournament.name %></h3>
     <span class="relative flex h-3 w-3 ms-2">
-      <span class="animate-ping absolute inline-flex h-full w-full rounded-full <%= active_tournament.ended? ? 'bg-red-400' : 'bg-emerald-400' %> opacity-75"></span>
-      <span class="relative inline-flex rounded-full h-3 w-3 <%= active_tournament.ended? ? 'bg-red-500' : 'bg-emerald-500' %>"></span>
+      <span class="animate-ping absolute inline-flex h-full w-full rounded-full <%= tournament_indicator_color(active_tournament, 400) %> opacity-75"></span>
+      <span class="relative inline-flex rounded-full h-3 w-3 <%= tournament_indicator_color(active_tournament, 500) %>"></span>
     </span>
   </div>
 
