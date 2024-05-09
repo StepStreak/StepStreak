@@ -4,6 +4,7 @@ class ChallengeUser < ApplicationRecord
   belongs_to :user
   belongs_to :challenge
   belongs_to :team, optional: true
+  belongs_to :tournament_participant, optional: true
 
   with_options on: :create do
     validates :user_id, uniqueness: { scope: :challenge_id }
@@ -15,6 +16,8 @@ class ChallengeUser < ApplicationRecord
   after_destroy_commit :delete_team, if: -> { challenge.team? && challenge.challenge_users.where(team: team).empty? }
 
   after_update_commit :update_tournament_score, if: -> { challenge.tournament? && saved_change_to_score? }
+
+  delegate :update_tournament_score, to: :tournament_calculator
 
   def delete_team
     team.destroy
@@ -31,14 +34,8 @@ class ChallengeUser < ApplicationRecord
     self.update(score: score)
   end
 
-  def update_tournament_score
-    if challenge.solo?
-      points = score / 100
-    else
-      points = score / 1000
-    end
-
-    challenge.tournament.tournament_participants.find_by(user: user).increment!(:score, points)
+  def tournament_calculator
+    "TournamentCalculators::#{challenge.mode.camelize}ChallengeCalculator".constantize.new(self)
   end
 
   def code_validity

@@ -29,13 +29,23 @@
     <%= link_to challenge_path(@current_challenge) do %>
       <%= render 'tournaments/partials/current_challenge', current_challenge: @current_challenge %>
     <% end %>
+
+    <% else %>
+    <div class="flex justify-center items-center max-w-lg px-4 py-4 m-3 text-gray-900 bg-white border border-gray-200 rounded-lg shadow-sm dark:border-gray-700 xl:p-8 dark:bg-gray-800 dark:text-white">
+      <div class="mb-4">
+        <h3 class="text-xl font-semibold">Tournament Ended</h3>
+        <p class="text-sm text-gray-500 dark:text-gray-400">
+          Review your performance by checking the ranking overall, or examine individual challenges to assess your performance in each specific one.
+        </p>
+      </div>
+    </div>
   <% end %>
 
   <div class="my-2">
     <div class="mb-4 dark:border-gray-700 dark:bg-gray-800">
       <ul class="flex align-center justify-center flex-wrap -mb-px text-sm font-medium text-center" id="default-tab" data-tabs-toggle="#default-tab-content" role="tablist">
         <li class="me-2" role="presentation">
-          <button class="inline-block p-4 border-b-2 rounded-t-lg" id="profile-tab" data-tabs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Rules</button>
+          <button class="inline-block p-4 border-b-2 rounded-t-lg" id="profile-tab" data-tabs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Info</button>
         </li>
         <li class="me-2" role="presentation">
           <button class="inline-block p-4 border-b-2 rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300" id="dashboard-tab" data-tabs-target="#dashboard" type="button" role="tab" aria-controls="dashboard" aria-selected="false">Ranking</button>

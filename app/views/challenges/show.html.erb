@@ -41,7 +41,10 @@
 
           <%= challenge_participants_count(@challenge) %>
         </span>
-        <span class="bg-red-100 text-red-800 text-md font-medium me-2 px-2.5 py-0.5 rounded dark:bg-red-900 dark:text-red-300"><%= @challenge.challenge_type.capitalize %></span>
+        <span class="bg-red-100 text-red-800 text-md font-medium me-2 px-2.5 py-0.5 rounded dark:bg-red-900 dark:text-red-300"><%= @challenge.challenge_type.capitalize.gsub('_', ' ') %></span>
+        <% if @challenge.milestone? %>
+          <span class="bg-gray-100 text-gray-800 text-md font-medium me-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-gray-300"><%= @challenge.goal %></span>
+        <% end %>
       </div>
     </div>
   </div>
@@ -51,10 +54,14 @@
       <div class="overflow-x-auto rounded-lg">
         <div class="inline-block min-w-full align-middle">
           <div class="overflow-hidden shadow sm:rounded-lg">
-            <% if @challenge.solo? %>
+            <% if @challenge.race? %>
               <%= render 'solo_challenge_participants' %>
-            <% else %>
+            <% elsif @challenge.king_of_the_hill? %>
+              <%= render 'king_challenge_participants' %>
+            <% elsif @challenge.team? %>
               <%= render 'team_challenge_participants' %>
+            <% else %>
+              <%= render 'solo_challenge_participants' %>
             <% end %>
           </div>
         </div>

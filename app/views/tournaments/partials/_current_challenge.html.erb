@@ -1,6 +1,13 @@
 <div class="relative flex flex-col max-w-lg px-4 py-4 m-3 text-gray-900 bg-white border border-gray-200 rounded-lg shadow-sm dark:border-gray-700 xl:p-8 dark:bg-gray-800 dark:text-white">
 
-  <h3 class="flex mb-4 text-xl font-semibold justify-center"><%= current_challenge.title %></h3>
+  <div class="flex justify-center items-center mb-4">
+    <h3 class="text-xl font-semibold"><%= current_challenge.title %></h3>
+
+    <span class="relative flex h-3 w-3 ms-2">
+      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+      <span class="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
+    </span>
+  </div>
 
   <div class="flex justify-between" data-turbo-permanent>
     <div>
@@ -32,6 +39,9 @@
           <%= challenge_participants_count(current_challenge) %>
         </span>
       <span class="bg-red-100 text-red-800 text-md font-medium me-2 px-2.5 py-0.5 rounded dark:bg-red-900 dark:text-red-300"><%= current_challenge.challenge_type.capitalize %></span>
+      <% if current_challenge.milestone? %>
+        <span class="bg-gray-100 text-gray-800 text-md font-medium me-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-gray-300"><%= current_challenge.goal %></span>
+      <% end %>
     </div>
   </div>
 </div>

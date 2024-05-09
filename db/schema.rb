@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_04_014130) do
+ActiveRecord::Schema[7.1].define(version: 2024_05_09_171413) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -54,8 +54,11 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_04_014130) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "team_id"
+    t.integer "tournament_score", default: 0
+    t.bigint "tournament_participant_id"
     t.index ["challenge_id"], name: "index_challenge_users_on_challenge_id"
     t.index ["team_id"], name: "index_challenge_users_on_team_id"
+    t.index ["tournament_participant_id"], name: "index_challenge_users_on_tournament_participant_id"
     t.index ["user_id"], name: "index_challenge_users_on_user_id"
   end
 
@@ -69,6 +72,10 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_04_014130) do
     t.boolean "locked", default: false
     t.string "code"
     t.bigint "tournament_id"
+    t.json "states", default: {}
+    t.integer "mode"
+    t.integer "goal", default: 0
+    t.boolean "finished", default: false
     t.index ["tournament_id"], name: "index_challenges_on_tournament_id"
   end
 
@@ -225,6 +232,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_04_014130) do
   add_foreign_key "activities", "users", validate: false
   add_foreign_key "challenge_users", "challenges"
   add_foreign_key "challenge_users", "teams"
+  add_foreign_key "challenge_users", "tournament_participants"
   add_foreign_key "challenge_users", "users"
   add_foreign_key "challenges", "tournaments"
   add_foreign_key "goals", "users"

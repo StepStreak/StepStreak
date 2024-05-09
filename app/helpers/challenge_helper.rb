@@ -12,6 +12,15 @@ module ChallengeHelper
     end
   end
 
+  def challenge_king_of_the_hill?(rank)
+    case rank
+    when 1
+      challenge_rank_medal('👑')
+    else
+      '-'
+    end
+  end
+
   def challenge_participants_count(challenge)
     challenge.team? ? challenge.teams.count : challenge.challenge_users.count
   end

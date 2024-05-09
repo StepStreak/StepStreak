@@ -40,6 +40,7 @@ end
 
 Challenge.create title: Faker::Lorem.sentence(word_count: 3),
                   challenge_type: :team,
+                  mode: :race,
                   starts_at: Date.current.beginning_of_week,
                   ends_at: Date.current.beginning_of_week + 1.week
 
@@ -50,6 +51,7 @@ Tournament.create name: 'Tournament 1',
 
 Challenge.create title: 'Solo',
                  challenge_type: :solo,
+                 mode: :race,
                  starts_at: Date.current.beginning_of_week,
                  ends_at: Date.current.beginning_of_week + 1.week,
                  tournament: Tournament.first
@@ -57,8 +59,17 @@ Challenge.create title: 'Solo',
 
 Challenge.create title: 'King of the hill',
                  challenge_type: :solo,
+                 mode: :king_of_the_hill,
                  starts_at: Date.current.beginning_of_week + 1.week,
                  ends_at: Date.current.beginning_of_week + 2.weeks,
+                 tournament: Tournament.first
+
+Challenge.create title: 'Milestone',
+                 challenge_type: :solo,
+                 mode: :milestone,
+                 goal: 25000,
+                 starts_at: Date.current.beginning_of_week + 2.week,
+                 ends_at: Date.current.beginning_of_week + 3.weeks,
                  tournament: Tournament.first
 
 # app = Rpush::Apns2::App.new
