@@ -1,6 +1,6 @@
 <% content_for :title, @tournament.name %>
 
-<div class="h-dvh">
+<div class="min-h-screen">
 
   <div class="my-3">
 
@@ -54,20 +54,82 @@
     </div>
     <div id="default-tab-content">
       <div class="hidden p-4 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-        <p class="text-sm text-gray-500 dark:text-gray-400 mb-3">
-          Challenge rules
+        <h5 class="mb-3 text-lg font-bold leading-tight text-gray-900 sm:text-4xl lg:text-3xl dark:text-white">
+          Welcome to "<%= @tournament.name %>" Tournament!
+        </h5>
+
+        <p class="mb-5 text-base font-normal text-gray-500 md:text-lg dark:text-gray-400">
+          Get ready to step up your game in our thrilling three-part challenge where your steps count more than ever! Here’s everything you need to know about each challenge and the rules to accumulate points:
         </p>
 
-        <p class="text-sm text-gray-500 dark:text-gray-400">
-          1- You can only submit your solution once. <br>
-          2- You can only submit your solution after the challenge has started. <br>
-          3- You can only submit your solution before the challenge ends. <br>
-          4- You can only submit your solution if you have not already submitted a solution. <br>
-          5- You can only submit your solution if you have not already solved the challenge. <br>
-          6- You can only submit your solution if you have not already been disqualified. <br>
+        <h3 class="mt-7 mb-3 text-medium font-bold leading-tight text-gray-900 sm:text-4xl lg:text-3xl dark:text-white">1. Race Challenge</h3>
+        <h2 class="mb-2 text-medium font-semibold text-gray-900 dark:text-white">Objective:</h2>
+
+        <p class="mb-5 text-base font-normal text-gray-500 md:text-lg dark:text-gray-400">
+          Walk as many steps as possible. The participant with the highest step count by the end of the challenge wins.
         </p>
 
+        <h2 class="mb-2 text-medium font-semibold text-gray-900 dark:text-white">Scoring:</h2>
+        <ol class="max-w-md space-y-1 text-gray-500 list-decimal list-inside dark:text-gray-400">
+          <li>
+            Earn
+            <span class="font-semibold text-gray-900 dark:text-white">1 point for every 100 steps</span> you take.
+          </li>
+          <li>
+            Gain an
+            <span class="font-semibold text-gray-900 dark:text-white">additional 10 points for every 5,000 steps</span> you achieve.
+          </li>
+        </ol>
+
+        <h3 class="mt-7 mb-3 text-medium font-bold leading-tight text-gray-900 sm:text-4xl lg:text-3xl dark:text-white">2. King of the Hill Challenge</h3>
+        <h2 class="mb-2 text-medium font-semibold text-gray-900 dark:text-white">Objective:</h2>
+
+        <p class="mb-5 text-base font-normal text-gray-500 md:text-lg dark:text-gray-400">
+          Be the first to reach 7,500 steps to become the king. Afterward, anyone who adds 500 steps more than the current king claims the crown.
+        </p>
+
+        <h2 class="mb-2 text-medium font-semibold text-gray-900 dark:text-white">Scoring:</h2>
+        <ol class="max-w-md space-y-1 text-gray-500 list-decimal list-inside dark:text-gray-400">
+          <li>
+            The first participant to become king earns
+            <span class="font-semibold text-gray-900 dark:text-white">25 points</span>.
+          </li>
+          <li>
+            Subsequent kings earn
+            <span class="font-semibold text-gray-900 dark:text-white">1 point for every 500 steps</span>
+            they add beyond the king's step count, plus
+            <span class="font-semibold text-gray-900 dark:text-white">15 extra points</span>
+            for becoming the new king.
+          </li>
+          <li>
+            Each king earns
+            <span class="font-semibold text-gray-900 dark:text-white">1 point for every 15 minutes</span>
+            they remain in the top position.
+          </li>
+        </ol>
+
+        <h3 class="mt-7 mb-3 text-medium font-bold leading-tight text-gray-900 sm:text-4xl lg:text-3xl dark:text-white">3. Milestone Challenge</h3>
+        <h2 class="mb-2 text-medium font-semibold text-gray-900 dark:text-white">Objective:</h2>
+
+        <p class="mb-5 text-base font-normal text-gray-500 md:text-lg dark:text-gray-400">
+          The race to 25,000 steps! Be the first to hit this milestone and win the challenge.
+        </p>
+
+        <h2 class="mb-2 text-medium font-semibold text-gray-900 dark:text-white">Scoring:</h2>
+        <ol class="max-w-md space-y-1 text-gray-500 list-decimal list-inside dark:text-gray-400">
+          <li>
+            The first participant to reach 25,000 steps earns
+            <span class="font-semibold text-gray-900 dark:text-white">50 points</span>.
+          </li>
+        </ol>
+
+        <h3 class="mt-10 mb-3 text-lg font-bold leading-tight text-gray-900 sm:text-4xl lg:text-3xl dark:text-white">Overall Tournament Victory:</h3>
+
+        <p class="mb-5 text-base font-normal text-gray-500 md:text-lg dark:text-gray-400">
+          The participant with the highest total points from all challenges combined will be crowned the winner of the Beta Runners Tournament.
+        </p>
       </div>
+
       <div class="hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-800" id="dashboard" role="tabpanel" aria-labelledby="dashboard-tab">
         <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-600">
           <thead class="bg-gray-200 dark:bg-gray-700">
@@ -119,3 +181,4 @@
   </div>
 </div>
 
+<footer class="h-20"></footer>
