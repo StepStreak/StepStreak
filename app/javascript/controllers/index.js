@@ -13,6 +13,9 @@ application.register("bridge--sync", Bridge__SyncController)
 import Bridge__TokenController from "./bridge/token_controller"
 application.register("bridge--token", Bridge__TokenController)
 
+import CountdownController from "./countdown_controller"
+application.register("countdown", CountdownController)
+
 import NavigationController from "./navigation_controller"
 application.register("navigation", NavigationController)
 

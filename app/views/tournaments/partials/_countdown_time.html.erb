@@ -1,0 +1,41 @@
+<div class="flex items-center justify-center w-full gap-0.5 count-down-main" data-controller="countdown" data-countdown-tournament-start-at-value="<%= tournament.start_date.to_datetime.iso8601 %>">
+  <div class="timer">
+    <div
+      class="rounded-xl border border-blue-600 py-1.5 min-w-[80px] flex items-center justify-center flex-col gap-0 aspect-square px-1.5">
+      <h3
+        class="countdown`-element days font-manrope font-semibold text-2xl text-blue-600 text-center" data-countdown-target="countdownElement">
+      </h3>
+      <p class="text-sm font-inter capitalize font-normal text-blue-600 text-center w-full">days</p>
+    </div>
+  </div>
+  <h3 class="font-manrope font-semibold text-2xl text-gray-900">:</h3>
+  <div class="timer">
+    <div
+      class="rounded-xl border border-blue-600 py-1.5 min-w-[80px] flex items-center justify-center flex-col gap-0 aspect-square px-1.5">
+      <h3
+        class="countdown-element hours font-manrope font-semibold text-2xl text-blue-600 text-center" data-countdown-target="countdownElement">
+      </h3>
+      <p class="text-sm font-inter capitalize font-normal text-blue-600 text-center w-full">Hour</p>
+    </div>
+  </div>
+  <h3 class="font-manrope font-semibold text-2xl text-gray-900">:</h3>
+  <div class="timer">
+    <div
+      class="rounded-xl border border-blue-600 py-1.5 min-w-[80px] flex items-center justify-center flex-col gap-0 aspect-square px-1.5">
+      <h3
+        class="countdown-element minutes font-manrope font-semibold text-2xl text-blue-600 text-center" data-countdown-target="countdownElement">
+      </h3>
+      <p class="text-sm font-inter capitalize font-normal text-blue-600 text-center w-full">Minutes</p>
+    </div>
+  </div>
+  <h3 class="font-manrope font-semibold text-2xl text-gray-900">:</h3>
+  <div class="timer">
+    <div
+      class="rounded-xl border border-blue-600 py-1.5 min-w-[80px] flex items-center justify-center flex-col gap-0 aspect-square px-1.5">
+      <h3
+        class="countdown-element seconds sec font-manrope font-semibold text-2xl text-blue-600 text-center" data-countdown-target="countdownElement">
+      </h3>
+      <p class="text-sm font-inter capitalize font-normal text-blue-600 text-center w-full">Seconds</p>
+    </div>
+  </div>
+</div>
