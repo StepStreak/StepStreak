@@ -54,12 +54,12 @@
       <div class="overflow-x-auto rounded-lg">
         <div class="inline-block min-w-full align-middle">
           <div class="overflow-hidden shadow sm:rounded-lg">
-            <% if @challenge.race? %>
+            <% if @challenge.team? %>
+              <%= render 'team_challenge_participants' %>
+            <% elsif @challenge.race? %>
               <%= render 'solo_challenge_participants' %>
             <% elsif @challenge.king_of_the_hill? %>
               <%= render 'king_challenge_participants' %>
-            <% elsif @challenge.team? %>
-              <%= render 'team_challenge_participants' %>
             <% else %>
               <%= render 'solo_challenge_participants' %>
             <% end %>

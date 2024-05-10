@@ -155,7 +155,7 @@
           </thead>
           <tbody class="bg-white dark:bg-gray-800">
           <% @tournament_participants.each do |tournament_user| %>
-            <tr class="<%= 'dark:bg-blue-600' if current_user.id == tournament_user&.user_id %>">
+            <tr class="<%= 'bg-blue-300 dark:bg-blue-600' if current_user.id == tournament_user&.user_id %>">
               <td class="p-4 text-sm font-normal whitespace-nowrap dark:text-white">
                 <% if @tournament.started? %>
                   <%= challenge_rank(tournament_user.rank) %>
