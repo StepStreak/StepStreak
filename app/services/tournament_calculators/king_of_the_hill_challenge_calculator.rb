@@ -16,9 +16,11 @@ module TournamentCalculators
         current_king_points = (time_difference_in_minutes / 15) * 1
         current_king_id = @challenge.current_king_id
 
-        TournamentParticipant.find_by(id: @challenge.current_king_id)
+        tournament_participant = TournamentParticipant.find_by(id: @challenge.current_king_id)
                              .challenge_users.find_by(challenge_id: @challenge.id)
                              .increment!(:tournament_score, current_king_points)
+
+        tournament_participant.update(score: tournament_participant.challenge_users.sum(:tournament_score))
 
         new_king_points = (remaining_score / 500) + 15
 
