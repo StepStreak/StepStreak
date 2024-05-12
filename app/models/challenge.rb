@@ -1,5 +1,5 @@
 class Challenge < ApplicationRecord
-  store :states, accessors: %i[king_id king_at king_score], coder: JSON
+  store :states, accessors: %i[current_king_id last_king_id king_at king_score], coder: JSON
 
   has_many :challenge_users, dependent: :delete_all
   has_many :users, through: :challenge_users
@@ -37,6 +37,6 @@ class Challenge < ApplicationRecord
   end
 
   def king_appointed?
-    !!king_id
+    !!current_king_id
   end
 end

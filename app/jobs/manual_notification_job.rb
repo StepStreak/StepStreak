@@ -9,8 +9,5 @@ class ManualNotificationJob < ApplicationJob
         title: notification.title,
         body: notification.body)
     end
-
-    Rpush.push
-    Rpush.apns_feedback
   end
 end

@@ -18,6 +18,9 @@ class Notification < ApplicationRecord
     when "android"
       send_android_notification
     end
+
+    Rpush.push
+    Rpush.apns_feedback
   end
 
   def send_ios_notification
