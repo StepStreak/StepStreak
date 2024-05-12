@@ -38,7 +38,17 @@
             STARTING IN ...
           </p>
 
-          <%= render 'tournaments/partials/countdown_time', tournament: @tournament %>
+          <%= render 'tournaments/partials/countdown_time', resource: @tournament %>
+        </div>
+      </div>
+    <% elsif (next_challenge = @tournament.challenges.upcoming.first) %>
+      <div class="flex justify-center items-center max-w-lg px-4 py-4 m-3 text-gray-900 bg-white border border-gray-200 rounded-lg shadow-sm dark:border-gray-700 xl:p-8 dark:bg-gray-800 dark:text-white">
+        <div>
+          <p class="text-md font-semibold text-blue-600 dark:text-gray-400 mb-2 ps-0.5">
+            NEXT CHALLENGE IN ...
+          </p>
+
+          <%= render 'tournaments/partials/countdown_time', resource: next_challenge %>
         </div>
       </div>
     <% else %>

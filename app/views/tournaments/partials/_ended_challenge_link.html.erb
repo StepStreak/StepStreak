@@ -1,5 +1,5 @@
-<li class="flex items-center">
-  <span class="flex items-center justify-center w-5 h-5 me-2 text-xs border border-gray-500 rounded-full shrink-0 dark:border-gray-400">
+<li class="flex items-center <%= 'text-red-500' if challenge.ended? %>">
+  <span class="flex items-center justify-center w-5 h-5 me-2 text-xs border <%= challenge.ended? ? 'border-red-500' : 'border-gray-500' %> rounded-full shrink-0 dark:border-gray-400">
      <%= challenge_order %>
   </span>
   <%= challenge.title %>

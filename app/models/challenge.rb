@@ -39,4 +39,8 @@ class Challenge < ApplicationRecord
   def king_appointed?
     !!current_king_id
   end
+
+  def start_at_in_iso8601
+    starts_at.in_time_zone('Europe/Berlin').iso8601
+  end
 end

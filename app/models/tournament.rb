@@ -22,7 +22,7 @@ class Tournament < ApplicationRecord
     start_date <= Date.current
   end
 
-  def start_date_in_iso8601
+  def start_at_in_iso8601
     start_date.to_datetime.in_time_zone('Europe/Berlin').beginning_of_day.iso8601
   end
 end
