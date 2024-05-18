@@ -20,7 +20,10 @@ class ChallengesController < ApplicationController
   def show
     @challenge = Challenge.find(params[:id])
     @challenge_user = @challenge.challenge_users.find_by(user: current_user)
-    @challenge_users = @challenge.challenge_users.select('*, RANK() OVER (ORDER BY score DESC) as rank').preload(:user)
+
+    @challenge_users = @challenge.challenge_users
+                                 .select("*, RANK() OVER (ORDER BY (tournament_score, score) DESC) as rank")
+                                 .preload(:user)
 
     if @challenge.team?
       @teams = @challenge.teams
