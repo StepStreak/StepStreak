@@ -11,22 +11,22 @@ Admin.create(email: 'admin@test', password: '1234', password_confirmation: '1234
 AppConfig.create(app: :ios, version: '1.3')
 AppConfig.create(app: :android, version: '1.3')
 
-1.upto(5).each do |i|
+1.upto(10).each do |i|
   User.create(email: "user#{i}@test",
               username: "user#{i}",
               password: '1234',
               password_confirmation: '1234')
 end
 
-user1 = User.first
-
-1.year.ago.to_date.upto(Date.current) do |date|
-  Activity.create(steps: Faker::Number.between(from: 1000, to: 10000),
-                  distance: Faker::Number.between(from: 1000, to: 10000),
-                  calories: Faker::Number.between(from: 115, to: 500),
-                  heart_rate: Faker::Number.between(from: 80, to: 130),
-                  date: date,
-                  user: user1)
+User.all.each do |user|
+  1.year.ago.to_date.upto(Date.current) do |date|
+    Activity.create(steps: Faker::Number.between(from: 1000, to: 10000),
+                    distance: Faker::Number.between(from: 1000, to: 10000),
+                    calories: Faker::Number.between(from: 115, to: 500),
+                    heart_rate: Faker::Number.between(from: 80, to: 130),
+                    date: date,
+                    user: user)
+  end
 end
 
 Challenge.create(title: Faker::Lorem.sentence(word_count: 3),
@@ -46,31 +46,35 @@ Challenge.create title: Faker::Lorem.sentence(word_count: 3),
 
 Tournament.create name: 'Tournament 1',
                   code: 'code',
-                  start_date: Date.current.beginning_of_week,
-                  end_date: Date.current.beginning_of_week + 1.week
+                  start_date: Date.current - 1.day,
+                  end_date: Date.current + 1.week
 
 Challenge.create title: 'Solo',
                  challenge_type: :solo,
                  mode: :race,
-                 starts_at: Date.current.beginning_of_week,
-                 ends_at: Date.current.beginning_of_week + 1.week,
+                 starts_at: Date.current - 1.day,
+                 ends_at: Date.current,
                  tournament: Tournament.first
 
 
 Challenge.create title: 'King of the hill',
                  challenge_type: :solo,
                  mode: :king_of_the_hill,
-                 starts_at: Date.current.beginning_of_week + 1.week,
-                 ends_at: Date.current.beginning_of_week + 2.weeks,
+                 starts_at: Date.current,
+                 ends_at: Date.current + 1.days,
                  tournament: Tournament.first
 
 Challenge.create title: 'Milestone',
                  challenge_type: :solo,
                  mode: :milestone,
                  goal: 25000,
-                 starts_at: Date.current.beginning_of_week + 2.week,
-                 ends_at: Date.current.beginning_of_week + 3.weeks,
+                 starts_at: Date.current + 1.days,
+                 ends_at: Date.current + 2.days,
                  tournament: Tournament.first
+
+User.all.each do |user|
+  TournamentParticipant.create(user: user, tournament: Tournament.first)
+end
 
 # app = Rpush::Apns2::App.new
 # app.name = "ios_app"
