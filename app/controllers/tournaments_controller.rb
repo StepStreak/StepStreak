@@ -9,5 +9,7 @@ class TournamentsController < ApplicationController
     @current_participant = @tournament_participants.find { |tp| tp.user == current_user }
 
     @current_challenge = @tournament.challenges.active.first
+
+    @winner = @tournament_participants.first
   end
 end
