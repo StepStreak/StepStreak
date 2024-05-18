@@ -18,14 +18,14 @@ module TournamentNotifiers
     private
 
     def send_new_king_appointed
-      current_king = TournamentParticipant.find_by(id: @challenge.current_king_id).user
+      current_king = ChallengeUser.find_by(id: @challenge.current_king_id).user
 
       Notification.create(user: current_king, title: 'You are the new king!',
                           body: 'You have been appointed as the new king of the hill')
 
       return if @challenge.last_king_id.nil?
 
-      old_king = TournamentParticipant.find_by(id: @challenge.last_king_id).user
+      old_king = ChallengeUser.find_by(id: @challenge.last_king_id).user
 
       Notification.create(user: old_king, title: 'You have been dethroned!',
                           body: 'You have been dethroned as the king of the hill')
