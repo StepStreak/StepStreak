@@ -31,6 +31,7 @@ end
 
 Challenge.create(title: Faker::Lorem.sentence(word_count: 3),
                  challenge_type: :solo,
+                 mode: :race,
                  starts_at: Date.current.beginning_of_week,
                  ends_at: Date.current.beginning_of_week + 1.week)
 

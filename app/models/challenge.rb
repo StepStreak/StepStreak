@@ -1,20 +1,18 @@
 class Challenge < ApplicationRecord
-  store :states, accessors: %i[current_king_id last_king_id king_at king_score], coder: JSON
+  include TournamentChallenge
 
   has_many :challenge_users, dependent: :delete_all
   has_many :users, through: :challenge_users
   has_many :teams
 
-  belongs_to :tournament, optional: true
-
   enum challenge_type: [:solo, :team]
   enum mode: [:race, :milestone, :king_of_the_hill]
-
-  scope :standalone, -> { where(tournament_id: nil) }
 
   scope :upcoming, -> { where('ends_at >= ?', DateTime.current) }
   scope :active, -> { where('starts_at <= ? AND ends_at >= ? AND finished IS false', DateTime.current, DateTime.current) }
   scope :ended, -> { where('ends_at < ? OR finished IS true', DateTime.current) }
+
+  after_create_commit :schedule_reminder_job
 
   def active?
     ends_at >= DateTime.current
@@ -28,19 +26,11 @@ class Challenge < ApplicationRecord
     starts_at <= DateTime.current
   end
 
-  def standalone?
-    tournament_id.nil?
-  end
-
-  def tournament?
-    !standalone?
-  end
-
-  def king_appointed?
-    !!current_king_id
-  end
-
   def start_at_in_iso8601
     starts_at.in_time_zone('Europe/Berlin').iso8601
+  end
+
+  def schedule_reminder_job
+    ChallengeReminderJob.set(wait_until: ends_at - 5.hours).perform_later(self)
   end
 end
