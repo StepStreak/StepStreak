@@ -6,8 +6,6 @@ module TournamentNotifiers
 
     def call(type)
       case type
-      when :reminder
-        send_reminder
       when :result
         send_result
       else
@@ -16,18 +14,9 @@ module TournamentNotifiers
     end
 
     private
-    def send_reminder
-      @challenge.users.find_each do |user|
-        Notification.create(user: user, title: "#{@challenge.title} is still on!",
-                            body: 'Do you have what it takes to win?')
-      end
-    end
-
     def send_result
-      @challenge.users.find_each do |user|
-        Notification.create(user: user, title: "#{@challenge.title}'s goal has been reached!",
-                            body: 'Check out the results to see how you did!')
-      end
+      @challenge.notify_participants(title: '🏁 Milestone Challenge Over!',
+                                      body: 'The Milestone Challenge has ended. Check the results and see who reached the goal first!')
     end
   end
 end

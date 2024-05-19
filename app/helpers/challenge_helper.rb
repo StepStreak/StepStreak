@@ -12,8 +12,8 @@ module ChallengeHelper
     end
   end
 
-  def challenge_king_of_the_hill?(king_id, tournament_participant_id)
-    if king_id == tournament_participant_id
+  def challenge_king_of_the_hill?(king_id, challenge_user_id)
+    if king_id == challenge_user_id
       challenge_rank_medal('👑')
     else
       '-'
