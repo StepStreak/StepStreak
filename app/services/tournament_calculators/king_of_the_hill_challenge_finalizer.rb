@@ -1,4 +1,4 @@
-class KingOfTheHillChallengeFinalizer
+class TournamentCalculators::KingOfTheHillChallengeFinalizer
   def initialize(challenge)
     @challenge = challenge
     @challenge_user = ChallengeUser.find_by(id: challenge.current_king_id)

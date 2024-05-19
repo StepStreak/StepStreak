@@ -1,4 +1,4 @@
-class RaceChallengeFinalizer
+class TournamentCalculators::RaceChallengeFinalizer
   def initialize(challenge)
     @challenge = challenge
   end
