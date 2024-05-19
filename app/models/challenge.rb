@@ -33,4 +33,10 @@ class Challenge < ApplicationRecord
   def schedule_reminder_job
     ChallengeReminderJob.set(wait_until: ends_at - 5.hours).perform_later(self)
   end
+
+  def notify_participants(title:, body:)
+    users.find_each do |user|
+      Notification.create(user: user, title: title, body: body)
+    end
+  end
 end

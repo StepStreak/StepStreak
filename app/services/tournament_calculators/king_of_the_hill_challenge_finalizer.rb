@@ -9,6 +9,8 @@ class KingOfTheHillChallengeFinalizer
     calculate_king_points
 
     update_tournament_participant_score
+
+    TournamentNotifiers::KingOfTheHillChallengeNotifier.new(@challenge).call(:result)
   end
 
   private
