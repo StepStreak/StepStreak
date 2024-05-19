@@ -10,7 +10,7 @@ module TournamentChallenge
 
     delegate :schedule_finalizer_job, to: :challenge_type_class
 
-    after_create_commit :schedule_finalizer_job
+    after_create_commit :schedule_finalizer_job, if: :tournament?
   end
 
   def standalone?
