@@ -35,10 +35,6 @@ module TournamentCalculators
       end
 
       super
-
-      if @challenge.current_king_id.present?
-        TournamentNotifiers::KingOfTheHillChallengeNotifier.new(@challenge).call(:new_king_appointed)
-      end
     end
 
     private

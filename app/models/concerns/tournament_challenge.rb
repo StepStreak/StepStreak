@@ -11,6 +11,8 @@ module TournamentChallenge
     delegate :schedule_finalizer_job, to: :challenge_type_class
 
     after_create_commit :schedule_finalizer_job, if: :tournament?
+
+    after_update :new_king_notification, if: -> { saved_change_to_current_king_id? }
   end
 
   def standalone?
@@ -27,5 +29,9 @@ module TournamentChallenge
 
   def challenge_type_class
     "Challenges::#{mode.to_s.camelize}".constantize.new(self)
+  end
+
+  def new_king_notification
+    TournamentNotifiers::KingOfTheHillChallengeNotifier.new(self).call(:new_king_appointed)
   end
 end
