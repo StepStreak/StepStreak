@@ -8,7 +8,7 @@ class Challenge < ApplicationRecord
   enum challenge_type: [:solo, :team]
   enum mode: [:race, :milestone, :king_of_the_hill]
 
-  scope :upcoming, -> { where('ends_at >= ?', DateTime.current) }
+  scope :upcoming, -> { where('ends_at >= ? AND finished IS false', DateTime.current) }
   scope :active, -> { where('starts_at <= ? AND ends_at >= ? AND finished IS false', DateTime.current, DateTime.current) }
   scope :ended, -> { where('ends_at < ? OR finished IS true', DateTime.current) }
 
