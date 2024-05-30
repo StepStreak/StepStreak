@@ -14,7 +14,7 @@ set :linked_dirs, %w[log tmp/pids tmp/cache tmp/sockets vendor/bundle public/sys
 
 set :keep_releases, 2
 set :puma_user, fetch(:user)
-set :puma_threads, [5, 5]
+set :puma_threads, [3, 3]
 set :puma_workers, 1
 set :puma_conf, "#{shared_path}/puma.rb"
 set :puma_bind, "unix://#{shared_path}/tmp/sockets/#{fetch(:application)}-puma.sock" # accept array for multi-bind
