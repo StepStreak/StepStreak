@@ -29,7 +29,7 @@ module Api
           target: 'dashboard-details',
           content: "<turbo-frame id='dashboard' src='#{Endpoint.root_url}/dashboard' data-controller='reload'>" )
 
-        render json: { message: 'Activity params are missing' }, status: :unprocessable_entity
+        render json: { message: 'Activity params are missing' }, status: :unprocessable_content
       end
     end
   end

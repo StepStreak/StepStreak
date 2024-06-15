@@ -4,7 +4,7 @@ module Api
       if current_user.update(user_params)
         render plain: "OK"
       else
-        render json: current_user.errors, status: :unprocessable_entity
+        render json: current_user.errors, status: :unprocessable_content
       end
     end
 

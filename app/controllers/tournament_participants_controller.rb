@@ -11,7 +11,7 @@ class TournamentParticipantsController < ApplicationController
       redirect_to @tournament
     else
       flash[:alert] = 'Invalid tournament code'
-      render :new, status: :unprocessable_entity
+      render :new, status: :unprocessable_content
     end
   end
 

@@ -14,7 +14,7 @@ class TeamsController < ApplicationController
     if @team.save && @challenge.challenge_users.create(user: current_user, team: @team)
       redirect_to challenge_path(@challenge), notice: "Team created successfully!"
     else
-      render :new, status: :unprocessable_entity
+      render :new, status: :unprocessable_content
     end
   end
 

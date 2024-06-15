@@ -8,7 +8,7 @@ class TeamChallengeUsersController < ApplicationController
       redirect_to challenge_path(@challenge), notice: "You have joined the challenge!"
     else
       flash[:alert] = @challenge_user.errors.full_messages.to_sentence
-      render :new, status: :unprocessable_entity
+      render :new, status: :unprocessable_content
     end
   end
 
