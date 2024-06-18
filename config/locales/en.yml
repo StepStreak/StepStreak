@@ -30,6 +30,9 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
+  date:
+    formats:
+      month_year: "%B %Y"
   datetime:
     distance_in_words:
       less_than_x_minutes:
