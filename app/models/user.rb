@@ -17,11 +17,21 @@ class User < ApplicationRecord
 
   normalizes :email, with: ->(email) { email.strip.downcase }
 
+  after_create_commit :send_welcome_notification
+
   def test_user?
     email == Rails.application.credentials.appstore_test_user_email
   end
 
   def active_tournament
     @active_tournament ||= tournament_participants.joins(:tournament).merge(Tournament.active).first&.tournament
+  end
+
+  def send_welcome_notification
+    Notification.create(
+      user: self,
+      title: 'Welcome to StepStreak!',
+      body: 'We hope you enjoy using the app. why dont you start by creating a goal or joining a challenge?'
+    )
   end
 end
