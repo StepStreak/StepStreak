@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/TrestleAdmin/trestle.git
-  revision: 014dc16950c453cbe1daec44388cc146ed758ce5
+  revision: f86492bfb855c3db3d5290a9c40b9a156467dcaa
   specs:
     trestle (0.10.0.pre)
       activemodel (>= 5.2.0)
@@ -190,7 +190,7 @@ GEM
     logtail-rack (0.2.5)
       logtail (~> 0.1)
       rack (>= 1.2, < 4.0)
-    logtail-rails (0.2.6)
+    logtail-rails (0.2.7)
       actionpack (>= 5.0.0)
       activerecord (>= 5.0.0)
       logtail (~> 0.1)
@@ -241,7 +241,7 @@ GEM
     puma (6.4.2)
       nio4r (~> 2.0)
     racc (1.8.0)
-    rack (3.1.6)
+    rack (3.1.7)
     rack-session (2.0.0)
       rack (>= 3.0.0)
     rack-test (2.1.0)
@@ -337,7 +337,7 @@ GEM
       hkdf (~> 0.2)
       jwt (~> 2.0)
     webrick (1.8.1)
-    websocket (1.2.10)
+    websocket (1.2.11)
     websocket-driver (0.7.6)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
