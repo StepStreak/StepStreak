@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/TrestleAdmin/trestle.git
-  revision: 3246821b44acf52c1932698d2371179078746262
+  revision: 35688e8431766989eb2a4c060b716bdd4587da58
   specs:
     trestle (0.10.0)
       activemodel (>= 6.0.0)
@@ -188,7 +188,7 @@ GEM
     logtail-rack (0.2.5)
       logtail (~> 0.1)
       rack (>= 1.2, < 4.0)
-    logtail-rails (0.2.7)
+    logtail-rails (0.2.8)
       actionpack (>= 5.0.0)
       activerecord (>= 5.0.0)
       logtail (~> 0.1)
@@ -208,7 +208,7 @@ GEM
     minitest (5.25.1)
     msgpack (1.7.2)
     multi_json (1.15.0)
-    net-http-persistent (4.0.2)
+    net-http-persistent (4.0.4)
       connection_pool (~> 2.2)
     net-http2 (0.18.5)
       http-2 (~> 0.11)
@@ -234,7 +234,7 @@ GEM
       racc (~> 1.4)
     ostruct (0.6.0)
     pg (1.5.8)
-    propshaft (0.9.1)
+    propshaft (1.0.0)
       actionpack (>= 7.0.0)
       activesupport (>= 7.0.0)
       rack
@@ -297,7 +297,7 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
-    solid_cache (1.0.5)
+    solid_cache (1.0.6)
       activejob (>= 7.2)
       activerecord (>= 7.2)
       railties (>= 7.2)
