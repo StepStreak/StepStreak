@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/TrestleAdmin/trestle.git
-  revision: 35688e8431766989eb2a4c060b716bdd4587da58
+  revision: f4ecf9b6bb6cda41c6c5370ec80f3f4150abbd96
   specs:
     trestle (0.10.0)
       activemodel (>= 6.0.0)
@@ -142,9 +142,9 @@ GEM
     cssbundling-rails (1.4.1)
       railties (>= 6.0.0)
     date (3.3.4)
-    dotenv (3.1.2)
-    dotenv-rails (3.1.2)
-      dotenv (= 3.1.2)
+    dotenv (3.1.4)
+    dotenv-rails (3.1.4)
+      dotenv (= 3.1.4)
       railties (>= 6.1)
     drb (2.2.1)
     erubi (1.13.0)
@@ -157,18 +157,18 @@ GEM
     hkdf (0.3.0)
     http-2 (0.12.0)
       base64
-    i18n (1.14.5)
+    i18n (1.14.6)
       concurrent-ruby (~> 1.0)
     io-console (0.7.2)
     irb (1.14.0)
       rdoc (>= 4.0.0)
       reline (>= 0.4.2)
-    jbuilder (2.12.0)
+    jbuilder (2.13.0)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
     jsbundling-rails (1.3.1)
       railties (>= 6.0.0)
-    jwt (2.8.2)
+    jwt (2.9.0)
       base64
     kaminari (1.2.2)
       activesupport (>= 4.1.0)
@@ -242,7 +242,7 @@ GEM
     psych (5.1.2)
       stringio
     public_suffix (6.0.1)
-    puma (6.4.2)
+    puma (6.4.3)
       nio4r (~> 2.0)
     racc (1.8.1)
     rack (3.1.7)
@@ -315,9 +315,8 @@ GEM
     trestle-auth (0.5.0)
       bcrypt (~> 3.1.7)
       trestle (~> 0.10.0)
-    turbo-rails (2.0.7)
+    turbo-rails (2.0.9)
       actionpack (>= 6.0.0)
-      activejob (>= 6.0.0)
       railties (>= 6.0.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
