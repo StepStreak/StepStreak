@@ -17,6 +17,9 @@
                   <span class="text-2xl font-bold leading-none text-gray-900 sm:text-3xl dark:text-white"><%= number_with_delimiter(current_user.activities.sum(:steps)) %></span>
                 </div>
               </div>
+            </div>
+
+            <div class="grid w-full grid-cols-2 gap-4 mt-4 xl:grid-cols-3 2xl:grid-cols-3">
               <div class="items-center justify-between p-4 bg-white border border-gray-200 rounded-lg shadow-sm sm:flex dark:border-gray-700 sm:p-6 dark:bg-gray-800">
                 <div class="w-full">
                   <h3 class="text-base font-normal text-gray-500 dark:text-gray-400">Distance (KM)</h3>
@@ -43,30 +46,10 @@
 
             <div class="grid w-full grid-cols-1 gap-4 mt-4 xl:grid-cols-1 2xl:grid-cols-1">
               <div class="p-4 mb-4 bg-white border border-gray-200 rounded-lg shadow-sm sm:p-6 dark:border-gray-700 dark:bg-gray-800 xl:mb-0">
-                <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Accumulated Steps</h3>
-
-                <div class="w-full">
-                  <%= area_chart StepsAccumulatedSumQuery.call %>
-                </div>
-              </div>
-            </div>
-
-            <div class="grid w-full grid-cols-1 gap-4 mt-4 xl:grid-cols-1 2xl:grid-cols-1">
-              <div class="p-4 mb-4 bg-white border border-gray-200 rounded-lg shadow-sm sm:p-6 dark:border-gray-700 dark:bg-gray-800 xl:mb-0">
                 <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Steps per month</h3>
 
                 <div class="w-full">
                   <%= line_chart TotalStepsPerMonth.call %>
-                </div>
-              </div>
-            </div>
-
-            <div class="grid w-full grid-cols-1 gap-4 mt-4 xl:grid-cols-1 2xl:grid-cols-1">
-              <div class="p-4 mb-4 bg-white border border-gray-200 rounded-lg shadow-sm sm:p-6 dark:border-gray-700 dark:bg-gray-800 xl:mb-0">
-                <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Steps per month/year</h3>
-
-                <div class="w-full">
-                  <%= bar_chart TotalStepsPerMonthYear.call %>
                 </div>
               </div>
             </div>
@@ -85,7 +68,7 @@
 
             <div class="grid w-full grid-cols-1 gap-4 mt-4 xl:grid-cols-1 2xl:grid-cols-1">
               <div class="p-4 bg-white border border-gray-200 rounded-lg shadow-sm dark:border-gray-700 sm:p-6 dark:bg-gray-800">
-                <h3 class="flex items-center mb-4 text-lg font-semibold text-gray-900 dark:text-white">Top 20 activities</h3>
+                <h3 class="flex items-center mb-4 text-lg font-semibold text-gray-900 dark:text-white">Top 20</h3>
                 <div id="fullWidthTabContent" class="border-t border-gray-200 dark:border-gray-600">
                   <div class="pt-4" id="faq" role="tabpanel" aria-labelledby="faq-tab">
                     <ul role="list" class="divide-y divide-gray-200 dark:divide-gray-700">
