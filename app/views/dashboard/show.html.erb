@@ -46,7 +46,7 @@
         <% end %>
       <% end %>
 
-      <% cache "#{current_user.cache_key}_#{params[:date]}" do %>
+      <% cache "#{current_user.updated_at.iso8601}_#{params[:date]}" do %>
         <%= render 'dashboard/partials/summary' %>
         <%= render 'dashboard/partials/steps_month' %>
 
