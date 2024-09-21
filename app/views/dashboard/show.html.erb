@@ -15,7 +15,7 @@
       <div class="flex items-center justify-center mr-1.5 dark:text-gray-500 mb-2 mt-2">
         <% if current_user.created_at <= date_from_params(params[:date]).prev_month %>
           <kbd class="inline-flex items-center px-2 py-1.5 text-gray-800 bg-gray-100 border border-gray-200 rounded-lg dark:bg-gray-600 dark:text-gray-100 dark:border-gray-500">
-            <%= link_to dashboard_index_path(date: date_from_params(params[:date]).prev_month.strftime('%Y-%m')), 'data-turbo-frame': '_top', 'data-turbo-action': 'replace' do %>
+            <%= link_to dashboard_details_path(date: date_from_params(params[:date]).prev_month.strftime('%Y-%m')), 'data-turbo-action': 'replace' do %>
               <svg class="w-2.5 h-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 10 16">
                 <path d="M8.766.566A2 2 0 0 0 6.586 1L1 6.586a2 2 0 0 0 0 2.828L6.586 15A2 2 0 0 0 10 13.586V2.414A2 2 0 0 0 8.766.566Z"/>
               </svg>
@@ -30,7 +30,7 @@
 
         <% if Date.current >= date_from_params(params[:date]).next_month %>
           <kbd class="rtl:rotate-180 inline-flex items-center px-2 py-1.5 text-gray-800 bg-gray-100 border border-gray-200 rounded-lg dark:bg-gray-600 dark:text-gray-100 dark:border-gray-500">
-            <%= link_to dashboard_index_path(date: date_from_params(params[:date]).next_month.strftime('%Y-%m')), 'data-turbo-frame': '_top', 'data-turbo-action': 'replace' do %>
+            <%= link_to dashboard_details_path(date: date_from_params(params[:date]).next_month.strftime('%Y-%m')), 'data-turbo-action': 'replace' do %>
               <svg class="w-2.5 h-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 10 16">
                 <path d="M3.414 1A2 2 0 0 0 0 2.414v11.172A2 2 0 0 0 3.414 15L9 9.414a2 2 0 0 0 0-2.828L3.414 1Z"/>
               </svg>
