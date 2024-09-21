@@ -12,7 +12,7 @@
       <%= render 'dashboard/partials/bridge' %>
       <%= render 'dashboard/partials/last_sync' %>
 
-      <div class="flex items-center justify-center mr-1.5 dark:text-gray-500 mb-2">
+      <div class="flex items-center justify-center mr-1.5 dark:text-gray-500 mb-2 mt-2">
         <% if current_user.created_at <= date_from_params(params[:date]).prev_month %>
           <kbd class="inline-flex items-center px-2 py-1.5 text-gray-800 bg-gray-100 border border-gray-200 rounded-lg dark:bg-gray-600 dark:text-gray-100 dark:border-gray-500">
             <%= link_to dashboard_index_path(date: date_from_params(params[:date]).prev_month.strftime('%Y-%m')), 'data-turbo-frame': '_top', 'data-turbo-action': 'replace' do %>
@@ -46,7 +46,7 @@
         <% end %>
       <% end %>
 
-      <% cache current_user do %>
+      <% cache "#{current_user.cache_key}_#{params[:date]}" do %>
         <%= render 'dashboard/partials/summary' %>
         <%= render 'dashboard/partials/steps_month' %>
 
