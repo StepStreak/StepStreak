@@ -5,8 +5,8 @@ class Challenge < ApplicationRecord
   has_many :users, through: :challenge_users
   has_many :teams
 
-  enum challenge_type: [:solo, :team]
-  enum mode: [:race, :milestone, :king_of_the_hill]
+  enum :challenge_type, [:solo, :team]
+  enum :mode, [:race, :milestone, :king_of_the_hill]
 
   scope :upcoming, -> { where('ends_at >= ? AND finished IS false', DateTime.current) }
   scope :active, -> { where('starts_at <= ? AND ends_at >= ? AND finished IS false', DateTime.current, DateTime.current) }

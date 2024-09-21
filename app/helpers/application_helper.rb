@@ -44,4 +44,8 @@ module ApplicationHelper
       'No steps goal set for this month'
     end
   end
+
+  def date_from_params(params_date)
+    params_date ? Date.strptime(params_date, '%Y-%m') : Date.strptime(Date.current.strftime('%Y-%m'), '%Y-%m')
+  end
 end

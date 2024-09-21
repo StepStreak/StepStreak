@@ -1,17 +1,19 @@
 <div class="grid w-full grid-cols-1 gap-4 mt-4 xl:grid-cols-3 2xl:grid-cols-3">
-  <%= turbo_frame_tag(:goals, src: goals_path) %>
+  <%= turbo_frame_tag(:goals, src: goals_path) unless params[:date] %>
   <div class="items-center justify-between p-4 bg-white border border-gray-200 rounded-lg shadow-sm sm:flex dark:border-gray-700 sm:p-6 dark:bg-gray-800">
     <div class="w-full">
       <h3 class="text-base font-normal text-gray-500 dark:text-gray-400">Steps</h3>
       <div class="flex justify-between">
-        <span class="flex items-center text-2xl font-bold leading-none text-gray-900 sm:text-3xl dark:text-white"><%= Overview::ActivitiesThisMonthQuery.call.sum(:steps) %>
+        <span class="flex items-center text-2xl font-bold leading-none text-gray-900 sm:text-3xl dark:text-white"><%= Overview::ActivitiesThisMonthQuery.call(params[:date]).sum(:steps) %>
         </span>
-        <p class="flex items-center text-base font-normal text-gray-500 dark:text-gray-400">
-        <span class="flex items-center mr-1.5 text-sm dark:text-gray-400">
-          <%= render 'summary_value', value: Overview::ActivitiesThisMonthQuery.call.sum(:steps), last_value: Overview::ActivitiesLastMonthQuery.call.sum(:steps)  %>
-          vs Last month
-        </span>
-        </p>
+        <% unless params[:date] %>
+          <p class="flex items-center text-base font-normal text-gray-500 dark:text-gray-400">
+          <span class="flex items-center mr-1.5 text-sm dark:text-gray-400">
+            <%= render 'summary_value', value: Overview::ActivitiesThisMonthQuery.call.sum(:steps), last_value: Overview::ActivitiesLastMonthQuery.call.sum(:steps)  %>
+            vs Last month
+          </span>
+          </p>
+        <% end %>
       </div>
     </div>
   </div>
@@ -21,7 +23,7 @@
     <div class="w-full">
       <h3 class="text-base font-normal text-gray-500 dark:text-gray-400">Distance (KM)</h3>
       <div class="">
-        <span class="text-2xl font-bold leading-none text-gray-900 sm:text-3xl dark:text-white"><%= format_distance(Overview::ActivitiesThisMonthQuery.call.sum(:distance)) %></span>
+        <span class="text-2xl font-bold leading-none text-gray-900 sm:text-3xl dark:text-white"><%= format_distance(Overview::ActivitiesThisMonthQuery.call(params[:date]).sum(:distance)) %></span>
       </div>
     </div>
   </div>
@@ -29,7 +31,7 @@
     <div class="w-full">
       <h3 class="text-base font-normal text-gray-500 dark:text-gray-400">Calories (kcal)</h3>
       <div class="flex justify-between">
-        <span class="text-2xl font-bold leading-none text-gray-900 sm:text-3xl dark:text-white"><%= Overview::ActivitiesThisMonthQuery.call.sum(:calories).to_i %></span>
+        <span class="text-2xl font-bold leading-none text-gray-900 sm:text-3xl dark:text-white"><%= Overview::ActivitiesThisMonthQuery.call(params[:date]).sum(:calories).to_i %></span>
       </div>
     </div>
   </div>

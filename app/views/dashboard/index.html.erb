@@ -3,7 +3,7 @@
 <% end %>
 
 <div id="dashboard-details">
-  <%= turbo_frame_tag(:dashboard, src: dashboard_details_path) do %>
+  <%= turbo_frame_tag(:dashboard, src: dashboard_details_path(date: params[:date])) do %>
     <%= render 'loading_skeleton' %>
   <% end %>
 </div>
