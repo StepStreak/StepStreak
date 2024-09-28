@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_email: MyString
+  remote_id: MyString
+  controller_class: MyString
+  original_path: MyString
+  method: MyString
+  country: MyString
+  city: MyString
+
+two:
+  user_email: MyString
+  remote_id: MyString
+  controller_class: MyString
+  original_path: MyString
+  method: MyString
+  country: MyString
+  city: MyString

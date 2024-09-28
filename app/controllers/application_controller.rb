@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   include Authenticatable
+  include PreRequest
 
   protect_from_forgery unless: -> { request.format.json? }
   helper_method :app_version, :device_type

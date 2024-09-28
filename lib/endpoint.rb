@@ -3,7 +3,7 @@ class Endpoint
     if Rails.env.production?
       'https://stepstreak.xyz/'
     else
-      'http://192.168.0.89:3000'
+      'http://192.168.0.91:3000'
     end
   end
 end

@@ -90,4 +90,5 @@ end
 
 group :production do
   gem "logtail-rails", "~> 0.2.6"
+  gem "IPinfo", "~> 2.2"
 end

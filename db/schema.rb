@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_05_09_171413) do
+ActiveRecord::Schema[7.2].define(version: 2024_09_28_134949) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -227,6 +227,18 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_09_171413) do
     t.datetime "last_sync_at"
     t.string "app_version", default: "0.0"
     t.index ["email"], name: "index_users_on_email", unique: true
+  end
+
+  create_table "web_requests", force: :cascade do |t|
+    t.string "user_email"
+    t.string "remote_ip"
+    t.string "controller_class"
+    t.string "original_path"
+    t.string "method"
+    t.string "country"
+    t.string "city"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_foreign_key "activities", "users", validate: false
