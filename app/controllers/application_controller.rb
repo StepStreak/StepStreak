@@ -2,20 +2,16 @@ class ApplicationController < ActionController::Base
   include Authenticatable
   include PreRequest
 
-  protect_from_forgery unless: -> { request.format.json? }
-  helper_method :app_version, :device_type
+  with_options unless: -> { request.format.json? } do
+    protect_from_forgery
 
-  before_action :redirect_if_old_host, unless: -> { request.format.json? }
-  before_action :authenticate_user!, unless: -> { request.format.json? }
-  before_action :prints_request_info, unless: -> { request.format.json? }
-  before_action :track, unless: -> { request.format.json? }
-  before_action :save_app_version, unless: -> { request.format.json? }
-
-  def redirect_if_old_host
-    if request.host == 'stepstreak.zajelbook.com' && request.path != '/unsupported'
-      redirect_to unsupported_path
-    end
+    before_action :authenticate_user!
+    before_action :prints_request_info
+    before_action :track
+    before_action :save_app_version
   end
+
+  helper_method :app_version, :device_type
 
   def app_version
     if device_type == 'ios'
