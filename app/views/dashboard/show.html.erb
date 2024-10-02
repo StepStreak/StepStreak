@@ -48,67 +48,10 @@
 
       <% cache "#{current_user.updated_at.iso8601}_#{params[:date]}" do %>
         <%= render 'dashboard/partials/summary' %>
-        <%= render 'dashboard/partials/steps_month' %>
-
-        <div class="grid w-full grid-cols-1 gap-4 mt-4 xl:grid-cols-1 2xl:grid-cols-1">
-          <div class="p-4 mb-4 bg-white border border-gray-200 rounded-lg shadow-sm sm:p-6 dark:border-gray-700 dark:bg-gray-800 xl:mb-0">
-            <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Heart Rate this month</h3>
-
-            <div class="w-full">
-              <%= line_chart [:heart_rate, :max_heart_rate].map { |type|
-                { name: type, data: MaxHeartRatePerDay.call(type, params[:date]) }
-              } %>
-            </div>
-          </div>
-        </div>
-
-        <div class="flex flex-col mt-6">
-          <div class="overflow-x-auto rounded-lg">
-            <div class="inline-block min-w-full align-middle">
-              <div class="overflow-hidden shadow sm:rounded-lg">
-                <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-600">
-                  <thead class="bg-gray-200 dark:bg-gray-700">
-                  <tr>
-                    <th scope="col" class="p-4 text-xs font-medium tracking-wider text-left text-gray-500 uppercase dark:text-white">
-                      Date
-                    </th>
-                    <th scope="col" class="p-4 text-xs font-medium tracking-wider text-left text-gray-500 uppercase dark:text-white">
-                      Steps
-                    </th>
-                    <th scope="col" class="p-4 text-xs font-medium tracking-wider text-left text-gray-500 uppercase dark:text-white">
-                      Distance (KM)
-                    </th>
-                    <th scope="col" class="p-4 text-xs font-medium tracking-wider text-left text-gray-500 uppercase dark:text-white">
-                      Calories (Kcal)
-                    </th>
-                  </tr>
-                  </thead>
-                  <tbody class="bg-white dark:bg-gray-800">
-                  <% Overview::ActivitiesThisMonthQuery.call(params[:date]).order(:date).each do |activity| %>
-                    <tr>
-                      <td class="p-4 text-sm font-normal whitespace-nowrap dark:text-white">
-                        <%= l(activity.date, format: :short) %>
-                      </td>
-                      <td class="p-4 text-sm font-normal whitespace-nowrap dark:text-white">
-                        <%= activity.steps %>
-                      </td>
-                      <td class="p-4 text-sm font-semibold whitespace-nowrap dark:text-white">
-                        <%= (activity.distance / 1000).round(2) %>
-                      </td>
-                      <td class="p-4 text-sm font-normal whitespace-nowrap dark:text-white">
-                        <%= activity.calories.floor %>
-                      </td>
-                    </tr>
-                  <% end %>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-        </div>
+        <%= render 'dashboard/partials/daily_steps' %>
+        <%= render 'dashboard/partials/daily_heart_rate' %>
+        <%= render 'dashboard/partials/activities_table' %>
       <% end %>
-
     </div>
   </main>
-
 <% end %>

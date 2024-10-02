@@ -5,6 +5,19 @@ class DashboardController < ApplicationController
 
   def show
     @active_tournament = current_user.active_tournament
+    @daily_steps = Overview::ActivitiesThisMonthQuery.call(params[:date])
+                                                         .group_by_day(:date, format: "%d")
+                                                         .sum(:steps)
+    @daily_heart_rate = {}
+    [:heart_rate, :max_heart_rate].each { |type|
+      @daily_heart_rate[type] = MaxHeartRatePerDay.call(type, params[:date])
+    }
+
+    @steps_this_month = Overview::ActivitiesThisMonthQuery.call(params[:date]).sum(:steps)
+    @steps_last_month = Overview::ActivitiesLastMonthQuery.call.sum(:steps)
+    @distance_this_month = Overview::ActivitiesThisMonthQuery.call(params[:date]).sum(:distance)
+    @calories_this_month = Overview::ActivitiesThisMonthQuery.call(params[:date]).sum(:calories)
+    @activities_this_month = Overview::ActivitiesThisMonthQuery.call(params[:date]).order(:date)
   end
 
   def overview

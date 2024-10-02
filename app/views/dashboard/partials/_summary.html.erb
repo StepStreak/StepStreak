@@ -4,12 +4,12 @@
     <div class="w-full">
       <h3 class="text-base font-normal text-gray-500 dark:text-gray-400">Steps</h3>
       <div class="flex justify-between">
-        <span class="flex items-center text-2xl font-bold leading-none text-gray-900 sm:text-3xl dark:text-white"><%= Overview::ActivitiesThisMonthQuery.call(params[:date]).sum(:steps) %>
+        <span class="flex items-center text-2xl font-bold leading-none text-gray-900 sm:text-3xl dark:text-white"><%= @steps_this_month %>
         </span>
         <% unless params[:date] %>
           <p class="flex items-center text-base font-normal text-gray-500 dark:text-gray-400">
           <span class="flex items-center mr-1.5 text-sm dark:text-gray-400">
-            <%= render 'summary_value', value: Overview::ActivitiesThisMonthQuery.call.sum(:steps), last_value: Overview::ActivitiesLastMonthQuery.call.sum(:steps)  %>
+            <%= render 'summary_value', value: @steps_this_month, last_value: @steps_last_month  %>
             vs Last month
           </span>
           </p>
@@ -23,7 +23,7 @@
     <div class="w-full">
       <h3 class="text-base font-normal text-gray-500 dark:text-gray-400">Distance (KM)</h3>
       <div class="">
-        <span class="text-2xl font-bold leading-none text-gray-900 sm:text-3xl dark:text-white"><%= format_distance(Overview::ActivitiesThisMonthQuery.call(params[:date]).sum(:distance)) %></span>
+        <span class="text-2xl font-bold leading-none text-gray-900 sm:text-3xl dark:text-white"><%= format_distance(@distance_this_month) %></span>
       </div>
     </div>
   </div>
@@ -31,7 +31,7 @@
     <div class="w-full">
       <h3 class="text-base font-normal text-gray-500 dark:text-gray-400">Calories (kcal)</h3>
       <div class="flex justify-between">
-        <span class="text-2xl font-bold leading-none text-gray-900 sm:text-3xl dark:text-white"><%= Overview::ActivitiesThisMonthQuery.call(params[:date]).sum(:calories).to_i %></span>
+        <span class="text-2xl font-bold leading-none text-gray-900 sm:text-3xl dark:text-white"><%= @calories_this_month.to_i %></span>
       </div>
     </div>
   </div>

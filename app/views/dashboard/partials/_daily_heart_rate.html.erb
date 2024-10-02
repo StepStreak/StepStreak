@@ -1,0 +1,11 @@
+<div class="grid w-full grid-cols-1 gap-4 mt-4 xl:grid-cols-1 2xl:grid-cols-1">
+  <div class="p-4 mb-4 bg-white border border-gray-200 rounded-lg shadow-sm sm:p-6 dark:border-gray-700 dark:bg-gray-800 xl:mb-0">
+    <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Heart Rate this month</h3>
+
+    <div class="w-full">
+      <%= line_chart [:heart_rate, :max_heart_rate].map { |type|
+        { name: type, data: Decorators::DailyDataDecorator.new(@daily_heart_rate[type], params[:date]).decorate }
+      } %>
+    </div>
+  </div>
+</div>

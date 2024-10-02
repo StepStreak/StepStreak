@@ -15,11 +15,12 @@ AppConfig.create(app: :android, version: '1.3')
   User.create(email: "user#{i}@test",
               username: "user#{i}",
               password: '1234',
-              password_confirmation: '1234')
+              password_confirmation: '1234',
+              created_at: 4.years.ago)
 end
 
 User.all.each do |user|
-  1.year.ago.to_date.upto(Date.current) do |date|
+  4.year.ago.to_date.upto(Date.current) do |date|
     Activity.create(steps: Faker::Number.between(from: 1000, to: 10000),
                     distance: Faker::Number.between(from: 1000, to: 10000),
                     calories: Faker::Number.between(from: 115, to: 500),
