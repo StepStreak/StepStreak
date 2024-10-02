@@ -13,7 +13,7 @@ class GoalsController < ApplicationController
     @goal = current_user.goals.new(goal_params)
     @goal.month = "#{Date.current.month}/#{Date.current.year}"
     if @goal.save
-      redirect_to goals_path, notice: "Goal was successfully created."
+      redirect_to goals_path
     else
       render :new
     end
@@ -24,7 +24,7 @@ class GoalsController < ApplicationController
 
   def update
     if @goal.update(goal_params)
-      redirect_to goals_path, notice: "Goal was successfully updated."
+      redirect_to goals_path
     else
       render :edit
     end

@@ -12,7 +12,7 @@ class TeamsController < ApplicationController
   def create
     @team = @challenge.teams.build(team_params)
     if @team.save && @challenge.challenge_users.create(user: current_user, team: @team)
-      redirect_to challenge_path(@challenge), notice: "Team created successfully!"
+      redirect_to challenge_path(@challenge)
     else
       render :new, status: :unprocessable_content
     end

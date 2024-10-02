@@ -5,7 +5,7 @@ class TeamChallengeUsersController < ApplicationController
   def create
     @challenge_user = @challenge.challenge_users.build(user: current_user, team: @team)
     if @challenge_user.save
-      redirect_to challenge_path(@challenge), notice: "You have joined the challenge!"
+      redirect_to challenge_path(@challenge)
     else
       flash[:alert] = @challenge_user.errors.full_messages.to_sentence
       render :new, status: :unprocessable_content

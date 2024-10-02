@@ -18,14 +18,14 @@ class SessionsController < ApplicationController
 
       redirect_to redirect_path
     else
-      flash.now.alert = "Invalid email or password."
+      flash[:alert] = t('.errors.invalid_credentials')
       render :new, status: :unprocessable_content
     end
   end
 
   def destroy
     sign_out current_user
-    redirect_to root_path, notice: "You are no longer signed in."
+    redirect_to root_path
   end
 
   private

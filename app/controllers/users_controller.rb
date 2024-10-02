@@ -18,9 +18,9 @@ class UsersController < ApplicationController
                         root_path
                       end
 
-      redirect_to redirect_path, notice: "You are now signed in."
+      redirect_to redirect_path
     else
-      flash.now.alert = @user.errors.full_messages.to_sentence
+      flash[:alert] = @user.errors.full_messages.to_sentence
       render :new, status: :unprocessable_content
     end
   end

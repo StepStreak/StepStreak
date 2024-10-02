@@ -32,7 +32,7 @@ class ChallengeUser < ApplicationRecord
 
   def code_validity
     if self.code != self.challenge.code
-      errors.add(:code, "is invalid")
+      errors.add(:code, :invalid)
     end
   end
 end

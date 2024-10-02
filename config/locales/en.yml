@@ -47,4 +47,16 @@ en:
       x_hours:
         one: '1 h'
         other: '%{count} h'
-  hello: "Hello world"
+  activerecord:
+    errors:
+      models:
+        challenge_user:
+          attributes:
+            code:
+              invalid: Code is invalid
+  tournament_participants:
+    errors:
+      invalid_code: Invalid tournament code
+  sessions:
+    errors:
+      invalid_credentials: Invalid email or password

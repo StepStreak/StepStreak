@@ -10,7 +10,7 @@ class TournamentParticipantsController < ApplicationController
       @tournament_participant = TournamentParticipant.create(tournament: @tournament, user: current_user)
       redirect_to @tournament
     else
-      flash[:alert] = 'Invalid tournament code'
+      flash[:alert] = t('.errors.invalid_code')
       render :new, status: :unprocessable_content
     end
   end
