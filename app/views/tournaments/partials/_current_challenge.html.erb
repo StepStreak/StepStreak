@@ -11,7 +11,7 @@
 
   <div class="flex justify-between" data-turbo-permanent>
     <div>
-      <p class="text-md font-semibold">Start Time</p>
+      <p class="text-md font-semibold"><%= t('.start_time') %></p>
 
       <div data-controller="time-zone" data-time-zone-label-value="">
         <p data-time-zone-target="serverSyncTime" hidden class="font-light text-gray-700 sm:text-lg dark:text-gray-400"><%= current_challenge.starts_at.iso8601 %></p>
@@ -20,7 +20,7 @@
     </div>
 
     <div>
-      <p class="text-md font-semibold">End Time</p>
+      <p class="text-md font-semibold"><%= t('.end_time') %></p>
 
       <div data-controller="time-zone" data-time-zone-label-value="">
         <p data-time-zone-target="serverSyncTime" hidden class="font-light text-gray-700 sm:text-lg dark:text-gray-400"><%= current_challenge.ends_at.iso8601 %></p>

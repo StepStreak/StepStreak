@@ -14,7 +14,7 @@
 
     <div class="flex justify-between" data-turbo-permanent>
       <div>
-        <p class="text-md font-semibold">Start Time</p>
+        <p class="text-md font-semibold"><%= t('.start_time') %></p>
 
         <div data-controller="time-zone" data-time-zone-label-value="">
           <p data-time-zone-target="serverSyncTime" hidden class="font-light text-gray-700 sm:text-lg dark:text-gray-400"><%= @challenge.starts_at.iso8601 %></p>
@@ -23,7 +23,7 @@
       </div>
 
       <div>
-        <p class="text-md font-semibold">End Time</p>
+        <p class="text-md font-semibold"><%= t('.end_time') %></p>
 
         <div data-controller="time-zone" data-time-zone-label-value="">
           <p data-time-zone-target="serverSyncTime" hidden class="font-light text-gray-700 sm:text-lg dark:text-gray-400"><%= @challenge.ends_at.iso8601 %></p>
@@ -72,21 +72,21 @@
   <div class="w-full p-6 sm:p-8 fixed bottom-0 z-50">
     <% if @challenge.active? && @challenge.standalone? %>
       <% if @challenge_user %>
-        <%= link_to 'Leave', challenge_challenge_user_path(@challenge, @challenge_user),
-                    data: { turbo_method: :delete, turbo_confirm: 'Are you sure you want to leave the challenge?', },
+        <%= link_to t('.leave'), challenge_challenge_user_path(@challenge, @challenge_user),
+                    data: { turbo_method: :delete, turbo_confirm: t('.leave_confirmation'), },
                     class: 'block long-press-disabled bg-red-600 hover:bg-red-700 focus:ring-4 font-medium rounded-lg px-5 py-2.5 text-center text-white dark:text-white dark:focus:ring-primary-900' %>
       <% elsif @challenge.locked? %>
-        <%= button_to 'Join with code', new_challenge_challenge_user_path(@challenge),
+        <%= button_to t('.join_with_code'), new_challenge_challenge_user_path(@challenge),
                       method: :get,
                       data: { turbo_frame: '_top', turbo_action: 'advance' },
                       class: 'block w-full bg-primary-600 hover:bg-primary-700 font-medium rounded-lg px-5 py-2.5 text-center text-white dark:text-white dark:focus:ring-primary-900' %>
       <% elsif @challenge.team? %>
-        <%= button_to 'Join a team', challenge_teams_path(@challenge),
+        <%= button_to t('.join_team'), challenge_teams_path(@challenge),
                       method: :get,
                       data: { turbo_frame: '_top', turbo_action: 'advance' },
                       class: 'block w-full bg-primary-600 hover:bg-primary-700 font-medium rounded-lg px-5 py-2.5 text-center text-white dark:text-white dark:focus:ring-primary-900' %>
       <% else %>
-        <%= button_to 'Join', challenge_challenge_users_path(@challenge),
+        <%= button_to t('join'), challenge_challenge_users_path(@challenge),
                       method: :post,
                       class: 'block w-full bg-primary-600 hover:bg-primary-700 font-medium rounded-lg px-5 py-2.5 text-center text-white dark:text-white dark:focus:ring-primary-900' %>
       <% end %>

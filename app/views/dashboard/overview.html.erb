@@ -7,13 +7,13 @@
       <div id="main-content" class="relative w-full max-w-screen-2xl mx-auto h-full overflow-y-auto bg-gray-50 dark:bg-gray-900">
         <main>
           <div class="px-4 pt-6 2xl:px-0">
-            <p class="font-light font-semibold text-center text-gray-500 dark:text-gray-400"><%= l(current_user.created_at.to_date, format: :month_year) %> - Today</p>
+            <p class="font-light font-semibold text-center text-gray-500 dark:text-gray-400"><%= l(current_user.created_at.to_date, format: :month_year) %> - <%= t('.today') %></p>
 
             <div class="grid w-full grid-cols-1 gap-4 mt-4 xl:grid-cols-3 2xl:grid-cols-3">
 
               <div class="items-center justify-between p-4 bg-white border border-gray-200 rounded-lg shadow-sm sm:flex dark:border-gray-700 sm:p-6 dark:bg-gray-800">
                 <div class="w-full">
-                  <h3 class="text-base font-normal text-gray-500 dark:text-gray-400">Steps</h3>
+                  <h3 class="text-base font-normal text-gray-500 dark:text-gray-400"><%= t('.steps') %></h3>
                   <span class="text-2xl font-bold leading-none text-gray-900 sm:text-3xl dark:text-white"><%= number_with_delimiter(current_user.activities.sum(:steps)) %></span>
                 </div>
               </div>
@@ -22,13 +22,13 @@
             <div class="grid w-full grid-cols-2 gap-4 mt-4 xl:grid-cols-3 2xl:grid-cols-3">
               <div class="items-center justify-between p-4 bg-white border border-gray-200 rounded-lg shadow-sm sm:flex dark:border-gray-700 sm:p-6 dark:bg-gray-800">
                 <div class="w-full">
-                  <h3 class="text-base font-normal text-gray-500 dark:text-gray-400">Distance (KM)</h3>
+                  <h3 class="text-base font-normal text-gray-500 dark:text-gray-400"><%= t('.distance') %></h3>
                   <span class="text-2xl font-bold leading-none text-gray-900 sm:text-3xl dark:text-white"><%= number_with_delimiter(format_distance(current_user.activities.sum(:distance))) %></span>
                 </div>
               </div>
               <div class="items-center justify-between p-4 bg-white border border-gray-200 rounded-lg shadow-sm sm:flex dark:border-gray-700 sm:p-6 dark:bg-gray-800">
                 <div class="w-full">
-                  <h3 class="text-base font-normal text-gray-500 dark:text-gray-400">Calories (kcal)</h3>
+                  <h3 class="text-base font-normal text-gray-500 dark:text-gray-400"><%= t('.calories') %></h3>
                   <span class="text-2xl font-bold leading-none text-gray-900 sm:text-3xl dark:text-white"><%= number_with_delimiter(current_user.activities.sum(:calories).to_i) %></span>
                 </div>
               </div>
@@ -36,7 +36,7 @@
 
             <div class="grid w-full grid-cols-1 gap-4 mt-4 xl:grid-cols-1 2xl:grid-cols-1">
               <div class="p-4 mb-4 bg-white border border-gray-200 rounded-lg shadow-sm sm:p-6 dark:border-gray-700 dark:bg-gray-800 xl:mb-0">
-                <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Steps per year</h3>
+                <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4"><%= t('.steps_per_year_chart_title') %></h3>
 
                 <div class="w-full">
                   <%= line_chart TotalStepsPerYear.call %>
@@ -46,7 +46,7 @@
 
             <div class="grid w-full grid-cols-1 gap-4 mt-4 xl:grid-cols-1 2xl:grid-cols-1">
               <div class="p-4 mb-4 bg-white border border-gray-200 rounded-lg shadow-sm sm:p-6 dark:border-gray-700 dark:bg-gray-800 xl:mb-0">
-                <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Steps per month</h3>
+                <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4"><%= t('.steps_per_month_chart_title') %></h3>
 
                 <div class="w-full">
                   <%= line_chart TotalStepsPerMonth.call %>
@@ -56,7 +56,7 @@
 
             <div class="grid w-full grid-cols-1 gap-4 mt-4 xl:grid-cols-1 2xl:grid-cols-1">
               <div class="p-4 mb-4 bg-white border border-gray-200 rounded-lg shadow-sm sm:p-6 dark:border-gray-700 dark:bg-gray-800 xl:mb-0">
-                <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Heart Rate</h3>
+                <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4"><%= t('.heart_rate_per_month_chart_title') %></h3>
 
                 <div class="w-full">
                   <%= line_chart [:heart_rate, :max_heart_rate].map { |type|
@@ -68,7 +68,7 @@
 
             <div class="grid w-full grid-cols-1 gap-4 mt-4 xl:grid-cols-1 2xl:grid-cols-1">
               <div class="p-4 bg-white border border-gray-200 rounded-lg shadow-sm dark:border-gray-700 sm:p-6 dark:bg-gray-800">
-                <h3 class="flex items-center mb-4 text-lg font-semibold text-gray-900 dark:text-white">Top 20</h3>
+                <h3 class="flex items-center mb-4 text-lg font-semibold text-gray-900 dark:text-white"><%= t('.top_twenty') %></h3>
                 <div id="fullWidthTabContent" class="border-t border-gray-200 dark:border-gray-600">
                   <div class="pt-4" id="faq" role="tabpanel" aria-labelledby="faq-tab">
                     <ul role="list" class="divide-y divide-gray-200 dark:divide-gray-700">

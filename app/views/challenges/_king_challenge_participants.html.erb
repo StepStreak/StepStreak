@@ -2,17 +2,17 @@
   <thead class="bg-gray-200 dark:bg-gray-700">
   <tr>
     <th scope="col" class="p-4 text-xs font-medium tracking-wider text-left text-gray-500 uppercase dark:text-white">
-      Status
+      <%= t('.status') %>
     </th>
     <th scope="col" class="p-4 text-xs font-medium tracking-wider text-left text-gray-500 uppercase dark:text-white">
-      Participant
+      <%= t('.participants') %>
     </th>
     <th scope="col" class="p-4 text-xs font-medium tracking-wider text-left text-gray-500 uppercase dark:text-white">
-      Steps
+      <%= t('.steps') %>
     </th>
     <% if @challenge.tournament? %>
       <th scope="col" class="p-4 text-xs font-medium tracking-wider text-left text-gray-500 uppercase dark:text-white">
-        Score
+        <%= t('.score') %>
       </th>
     <% end %>
   </tr>

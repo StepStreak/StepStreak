@@ -35,7 +35,7 @@
       <div class="flex justify-center items-center max-w-lg px-4 py-4 m-3 text-gray-900 bg-white border border-gray-200 rounded-lg shadow-sm dark:border-gray-700 xl:p-8 dark:bg-gray-800 dark:text-white">
         <div>
           <p class="text-md font-semibold text-blue-600 dark:text-gray-400 mb-2 ps-0.5">
-            STARTING IN ...
+            <%= t('.starting_in') %>
           </p>
 
           <%= render 'tournaments/partials/countdown_time', resource: @tournament %>
@@ -45,7 +45,7 @@
       <div class="flex justify-center items-center max-w-lg px-4 py-4 m-3 text-gray-900 bg-white border border-gray-200 rounded-lg shadow-sm dark:border-gray-700 xl:p-8 dark:bg-gray-800 dark:text-white">
         <div>
           <p class="text-md font-semibold text-blue-600 dark:text-gray-400 mb-2 ps-0.5">
-            NEXT CHALLENGE IN ...
+            <%= t('.next_challenge_in') %>
           </p>
 
           <%= render 'tournaments/partials/countdown_time', resource: next_challenge %>
@@ -54,7 +54,7 @@
     <% else %>
       <div class="flex justify-center items-center max-w-lg px-4 py-4 m-3 text-gray-900 bg-white border border-gray-200 rounded-lg shadow-sm dark:border-gray-700 xl:p-8 dark:bg-gray-800 dark:text-white">
         <div>
-          <h3 class="text-xl font-semibold">Tournament Ended</h3>
+          <h3 class="text-xl font-semibold"><%= t('.tournament_ended') %></h3>
 
           <div class="flex flex-col justify-center items-center mt-2">
             <span style="font-size:50px;">🥇</span>
@@ -70,10 +70,10 @@
     <div class="mb-4 dark:border-gray-700 dark:bg-gray-800">
       <ul class="flex align-center justify-center flex-wrap -mb-px text-sm font-medium text-center" id="default-tab" data-tabs-toggle="#default-tab-content" role="tablist">
         <li class="me-2" role="presentation">
-          <button class="inline-block p-4 border-b-2 rounded-t-lg" id="profile-tab" data-tabs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Info</button>
+          <button class="inline-block p-4 border-b-2 rounded-t-lg" id="profile-tab" data-tabs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false"><%= t('.info') %></button>
         </li>
         <li class="me-2" role="presentation">
-          <button class="inline-block p-4 border-b-2 rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300" id="dashboard-tab" data-tabs-target="#dashboard" type="button" role="tab" aria-controls="dashboard" aria-selected="false">Ranking</button>
+          <button class="inline-block p-4 border-b-2 rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300" id="dashboard-tab" data-tabs-target="#dashboard" type="button" role="tab" aria-controls="dashboard" aria-selected="false"><%= t('.ranking') %></button>
         </li>
       </ul>
     </div>
@@ -160,13 +160,13 @@
           <thead class="bg-gray-200 dark:bg-gray-700">
           <tr>
             <th scope="col" class="p-4 text-xs font-medium tracking-wider text-left text-gray-500 uppercase dark:text-white">
-              Rank
+              <%= t('.ranking_table_rank') %>
             </th>
             <th scope="col" class="p-4 text-xs font-medium tracking-wider text-left text-gray-500 uppercase dark:text-white">
-              Participant
+              <%= t('.ranking_table_participant') %>
             </th>
             <th scope="col" class="p-4 text-xs font-medium tracking-wider text-left text-gray-500 uppercase dark:text-white">
-              Score
+              <%= t('.ranking_table_score') %>
             </th>
           </tr>
           </thead>
@@ -200,8 +200,8 @@
   </div>
 
   <div class="w-full p-6 sm:p-8 fixed bottom-0 z-50">
-    <%= link_to 'Leave', tournament_participant_path(@current_participant, tournament_id: @tournament.id),
-                data: { turbo_method: :delete, turbo_action: 'replace',turbo_confirm: 'Are you sure you want to leave the tournament?', },
+    <%= link_to t('.leave'), tournament_participant_path(@current_participant, tournament_id: @tournament.id),
+                data: { turbo_method: :delete, turbo_action: 'replace',turbo_confirm: t('.leave_confirmation'), },
                 class: 'w-full block long-press-disabled bg-red-600 hover:bg-red-700 focus:ring-4 font-medium rounded-lg px-5 py-2.5 text-center text-white dark:text-white dark:focus:ring-primary-900' %>
   </div>
 </div>

@@ -1,5 +1,5 @@
 <%= turbo_frame_tag :dashboard do %>
-  <% content_for :title, 'Notifications' %>
+  <% content_for :title, t('.page_title') %>
 
   <%= render 'layouts/navigation' %>
 
@@ -43,7 +43,7 @@
         <% if @notifications.empty? %>
           <div class="flex items-center justify-center mt-10">
             <div class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
-              <p class="font-normal text-gray-700 dark:text-gray-400">You have no Notifications</p>
+              <p class="font-normal text-gray-700 dark:text-gray-400"><%= t('.no_notifications') %></p>
             </div>
           </div>
         <% end %>

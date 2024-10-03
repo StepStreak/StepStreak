@@ -9,7 +9,7 @@
       <div class="w-full p-6 sm:p-8">
         <div class="p-4 mb-4 bg-white border border-gray-200 rounded-lg shadow-sm 2xl:col-span-2 dark:border-gray-700 sm:p-6 dark:bg-gray-800">
           <div class="flow-root">
-            <h3 class="text-xl font-semibold dark:text-white">Teams</h3>
+            <h3 class="text-xl font-semibold dark:text-white"><%= t('.teams') %></h3>
             <ul class="divide-y divide-gray-200 dark:divide-gray-700">
               <% @teams.each do |team| %>
                 <li class="py-4">
@@ -30,11 +30,11 @@
                         <%= team.name %>
                       </p>
                       <p class="text-sm font-normal text-gray-500 truncate dark:text-gray-400">
-                        <%= team.challenge_users.count %> members
+                        <%= team.challenge_users.count %> <%= t('.members') %>
                       </p>
                     </div>
                     <div class="inline-flex items-center">
-                      <%= button_to 'Join', challenge_team_team_challenge_users_path(@challenge, team),
+                      <%= button_to t('join'), challenge_team_team_challenge_users_path(@challenge, team),
                                     method: :post,
                                     class: 'px-3 py-2 mb-3 mr-3 text-sm font-medium text-center text-gray-900 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-primary-300 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700' %>
                     </div>
@@ -44,7 +44,7 @@
             </ul>
           </div>
         </div>
-        <%= button_to 'Create a team', new_challenge_team_path(@challenge),
+        <%= button_to t('.create_team'), new_challenge_team_path(@challenge),
                       method: :get,
                       data: { turbo_frame: '_top', turbo_action: 'advance' },
                       class: 'w-full bg-primary-600 hover:bg-primary-700 font-medium rounded-lg px-5 py-2.5 text-center text-white dark:text-white dark:focus:ring-primary-900' %>

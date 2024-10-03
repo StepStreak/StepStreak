@@ -7,7 +7,7 @@
               </svg>
               <span class="sr-only">Light bulb</span>
             </span>
-      <span>Click on a team row to view the individual scores of its participants</span>
+      <span><%= t('.team_challenge_table_info') %></span>
     </p>
   </div>
 </div>
@@ -16,13 +16,13 @@
   <thead class="bg-gray-200 dark:bg-gray-700">
   <tr>
     <th scope="col" class="p-4 text-xs font-medium tracking-wider text-left text-gray-500 uppercase dark:text-white">
-      Rank
+      <%= t('.rank') %>
     </th>
     <th scope="col" class="p-4 text-xs font-medium tracking-wider text-left text-gray-500 uppercase dark:text-white">
-      Team
+      <%= t('.team') %>
     </th>
     <th scope="col" class="p-4 text-xs font-medium tracking-wider text-left text-gray-500 uppercase dark:text-white">
-      Steps
+      <%= t('.steps') %>
     </th>
   </tr>
   </thead>

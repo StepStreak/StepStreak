@@ -1,62 +1,195 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t "hello"
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t("hello") %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   "true": "foo"
-#
-# To learn more, please read the Rails Internationalization guide
-# available at https://guides.rubyonrails.org/i18n.html.
-
+---
 en:
-  date:
-    formats:
-      month_year: "%B %Y"
-  datetime:
-    distance_in_words:
-      less_than_x_minutes:
-        one: 'Now'
-        other: 'Now'
-      x_minutes:
-        one: '1 min'
-        other: '%{count} mins'
-      about_x_hours:
-        one: '1 h'
-        other: '%{count} h'
-      x_hours:
-        one: '1 h'
-        other: '%{count} h'
   activerecord:
     errors:
       models:
         challenge_user:
           attributes:
             code:
-              invalid: Code is invalid
-  tournament_participants:
-    errors:
-      invalid_code: Invalid tournament code
+              invalid: is invalid
+  application_helper:
+    goal_label:
+      month_steps_goal: Month steps goal
+      no_goal: No goal
+  bottom: Bottom
+  challenge_users:
+    new:
+      code_prompt: Enter the challenge code
+  challenges:
+    challenge:
+      joined: Joined
+      participants: Participants
+      teams: Teams
+    ended:
+      ended_challenges_title: Ended Challenges
+      no_challenges_found: No Challenges found.
+    index:
+      active_challenges_title: Active Challenges
+      no_challenges_found: No Challenges found.
+    king_challenge_participants:
+      participants: Participant
+      score: Score
+      status: Status
+      steps: Steps
+    show:
+      end_time: End time
+      join_team: Join a team
+      join_with_code: Join with code
+      leave: Leave
+      leave_confirmation: Are you sure you want to leave the challenge?
+      start_time: Start time
+    solo_challenge_participants:
+      participants: Participant
+      rank: Rank
+      score: Score
+      steps: Steps
+    team_challenge_participants:
+      rank: Rank
+      steps: Steps
+      team: Team
+      team_challenge_table_info: Click on a team row to view the individual scores
+        of its participants
+  dashboard:
+    overview:
+      calories: Calories (kcal)
+      distance: Distance (KM)
+      heart_rate_per_month_chart_title: Monthly avg/max heart rate
+      steps: Steps
+      steps_per_month_chart_title: Steps per month
+      steps_per_year_chart_title: Steps per year
+      today: Today
+      top_twenty: Top 20
+    partials:
+      activities_table:
+        calories: Calories (Kcal)
+        date: Date
+        distance: Distance (KM)
+        steps: Steps
+      bridge:
+        syncing: Syncing
+      daily_heart_rate:
+        heart_rate_chart_title: Heart Rate this month
+      daily_steps:
+        steps_chart_title: Steps this month
+      new_update_available:
+        new_update_alert: We've rolled out a new update for StepStreak. Don't miss
+          out on our latest features and improvements. Update now!
+      summary:
+        calories: Calories (kcal)
+        compared_to_last_month: vs Last month
+        distance: Distance (KM)
+        steps: Steps
+  date:
+    formats:
+      month_year: "%B %Y"
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: 1 h
+        other: "%{count} h"
+      less_than_x_minutes:
+        one: Now
+        other: Now
+      x_hours:
+        one: 1 h
+        other: "%{count} h"
+      x_minutes:
+        one: 1 min
+        other: "%{count} mins"
+  goals:
+    edit:
+      update_goal: Update your steps goal
+    index:
+      month_steps_goal: "%{month} steps goal"
+      no_goal: No steps goal set for this month
+    new:
+      set_goal: Set your steps goal
+  home:
+    data:
+      data_page_title: How we handle your data?
+    permissions:
+      continue: Continue
+    privacy:
+      privacy_policy_page_title: Privacy Policy
+    welcome:
+      data_link: Learn how we handle your Data
+      get_started: Get Started
+      privacy_link: Read our Privacy Policy
+      sub_title: StepStreak offers a dynamic way to track and analyze your daily activities,
+        transforming your smartphone into a powerful activity analyst. It's not just
+        an app; it's your partner in keeping active and engaged.
+      title: Your Ultimate Activity Tracking Companion
+  join: Join
+  left: Left
+  notifications:
+    index:
+      no_notifications: You have no notifications
+      page_title: Notifications
+  right: Right
+  save: Save
   sessions:
+    create:
+      errors:
+        invalid_credentials: Invalid credentials
     errors:
       invalid_credentials: Invalid email or password
+    new:
+      page_title: Sign in
+      register_new_account: Don't have an account?
+      sign_in: Sign In
+      sign_up: Sign up
+      sub_title: Let's sign you in to your StepStreak account
+      title: Sign In
+  settings:
+    index:
+      account: Account
+      challenges: Challenges
+      delete_account: Delete Your Account
+      delete_account_confirmation: Are you sure you want to delete your account? This
+        will delete you account and all data related to it.
+      modes: Modes
+      privacy_policy: Privacy Policy
+      sign_out: Sign Out
+      sign_out_confirmation: Are you sure you want to sign out?
+      tournaments: Tournaments
+      useful_links: Useful links
+      version: Version
+  teams:
+    new:
+      name_field_label: Enter your team's name
+  top: Top
+  tournament_participants:
+    create:
+      errors:
+        invalid_code: Invalid code
+    errors:
+      invalid_code: Invalid tournament code
+    new:
+      code_prompt: Enter tournament code
+  tournaments:
+    partials:
+      countdown_time:
+        days: Days
+        hours: Hours
+        minutes: Minutes
+        seconds: Seconds
+      current_challenge:
+        end_time: End time
+        start_time: Start time
+    show:
+      info: Info
+      leave: Leave
+      leave_confirmation: Are you sure you want to leave the tournament?
+      next_challenge_in: NEXT CHALLENGE IN ...
+      ranking: Ranking
+      ranking_table_participant: Participant
+      ranking_table_rank: Rank
+      ranking_table_score: Score
+      starting_in: STARTING IN ...
+      tournament_ended: Tournament Ended
+  users:
+    new:
+      page_title: Create an account
+      sign_in: Sign in
+      sign_in_instead: Already have an account?
+      sign_up: Sign Up

@@ -39,9 +39,9 @@ module ApplicationHelper
 
   def goal_label(goal)
     if goal
-      "#{Date.current.strftime('%B')} steps goal: #{@goal.target}"
+      "#{t('.month_steps_goal', month: Date.current.strftime('%B'))}: #{@goal.target}"
     else
-      'No steps goal set for this month'
+      t('.no_goal')
     end
   end
 

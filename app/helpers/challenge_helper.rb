@@ -25,7 +25,7 @@ module ChallengeHelper
   end
 
   def challenge_participants_label(challenge)
-    challenge.team? ? 'Teams' : 'Participants'
+    challenge.team? ? t('.teams') : t('.participants')
   end
 
   def challenge_rank_medal(medal)

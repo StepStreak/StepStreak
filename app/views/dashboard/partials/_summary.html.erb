@@ -2,7 +2,7 @@
   <%= turbo_frame_tag(:goals, src: goals_path) unless params[:date] %>
   <div class="items-center justify-between p-4 bg-white border border-gray-200 rounded-lg shadow-sm sm:flex dark:border-gray-700 sm:p-6 dark:bg-gray-800">
     <div class="w-full">
-      <h3 class="text-base font-normal text-gray-500 dark:text-gray-400">Steps</h3>
+      <h3 class="text-base font-normal text-gray-500 dark:text-gray-400"><%= t('.steps') %></h3>
       <div class="flex justify-between">
         <span class="flex items-center text-2xl font-bold leading-none text-gray-900 sm:text-3xl dark:text-white"><%= @steps_this_month %>
         </span>
@@ -10,7 +10,7 @@
           <p class="flex items-center text-base font-normal text-gray-500 dark:text-gray-400">
           <span class="flex items-center mr-1.5 text-sm dark:text-gray-400">
             <%= render 'summary_value', value: @steps_this_month, last_value: @steps_last_month  %>
-            vs Last month
+            <%= t('.compared_to_last_month') %>
           </span>
           </p>
         <% end %>
@@ -21,7 +21,7 @@
 <div class="grid w-full grid-cols-2 gap-4 mt-4 xl:grid-cols-3 2xl:grid-cols-3">
   <div class="items-center justify-between p-4 bg-white border border-gray-200 rounded-lg shadow-sm sm:flex dark:border-gray-700 sm:p-6 dark:bg-gray-800">
     <div class="w-full">
-      <h3 class="text-base font-normal text-gray-500 dark:text-gray-400">Distance (KM)</h3>
+      <h3 class="text-base font-normal text-gray-500 dark:text-gray-400"><%= t('.distance') %></h3>
       <div class="">
         <span class="text-2xl font-bold leading-none text-gray-900 sm:text-3xl dark:text-white"><%= format_distance(@distance_this_month) %></span>
       </div>
@@ -29,7 +29,7 @@
   </div>
   <div class="items-center justify-between p-4 bg-white border border-gray-200 rounded-lg shadow-sm sm:flex dark:border-gray-700 sm:p-6 dark:bg-gray-800">
     <div class="w-full">
-      <h3 class="text-base font-normal text-gray-500 dark:text-gray-400">Calories (kcal)</h3>
+      <h3 class="text-base font-normal text-gray-500 dark:text-gray-400"><%= t('.calories') %></h3>
       <div class="flex justify-between">
         <span class="text-2xl font-bold leading-none text-gray-900 sm:text-3xl dark:text-white"><%= @calories_this_month.to_i %></span>
       </div>
