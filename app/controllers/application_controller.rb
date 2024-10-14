@@ -1,12 +1,10 @@
 class ApplicationController < ActionController::Base
   include Authenticatable
-  include PreRequest
 
   with_options unless: -> { request.format.json? } do
     protect_from_forgery
 
     before_action :authenticate_user!
-    before_action :prints_request_info
     before_action :track
     before_action :save_app_version
   end
@@ -42,10 +40,7 @@ class ApplicationController < ActionController::Base
     device_type == 'ios'
   end
 
-  def prints_request_info
-    Rails.logger.info app_version
-    Rails.logger.info device_type
-  end
+  include PreRequest
 
   def save_app_version
     if current_user && device_type != 'web' && app_version != current_user.app_version
