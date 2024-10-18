@@ -7,7 +7,7 @@ module PreRequest
     before_action :log_request
 
     def log_request
-      # return if Rails.env.development?
+      return if Rails.env.development?
 
       WebRequest.create(user_email: current_user&.email,
                         remote_ip: request.remote_ip,
