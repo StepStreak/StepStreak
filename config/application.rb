@@ -21,7 +21,11 @@ module StepStreak
     #
     # These settings can be overridden in specific environments using the files
     # in config/environments, which are processed later.
-    #
+    I18n.available_locales = [:en, :ar]
+
+    # Set default locale to something other than :en
+    I18n.default_locale = :en
+
     config.time_zone = "Europe/Berlin"
     # config.eager_load_paths << Rails.root.join("extras")
 

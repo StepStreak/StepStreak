@@ -1,4 +1,12 @@
 module ApplicationHelper
+  def rtl?
+    I18n.locale == :ar
+  end
+
+  def ltr?
+    !rtl?
+  end
+
   def arrow_icon(value_difference)
     if value_difference.positive?
       '<svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -39,7 +47,7 @@ module ApplicationHelper
 
   def goal_label(goal)
     if goal
-      "#{t('.month_steps_goal', month: Date.current.strftime('%B'))}: #{@goal.target}"
+      "#{t('.month_steps_goal', month: l(Date.current, format: :month_only))}: #{@goal.target}"
     else
       t('.no_goal')
     end

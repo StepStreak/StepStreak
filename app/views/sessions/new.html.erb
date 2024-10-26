@@ -9,11 +9,11 @@
       <%= render 'shared/flash_errors' %>
 
       <div>
-        <%= form.label :email, class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white" %>
+        <%= form.label :email, t('activerecord.attributes.user.email'), class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white" %>
         <%= form.email_field :email, autocomplete: "email", required: true, class: "bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" %>
       </div>
       <div>
-        <%= form.label :password, class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white" %>
+        <%= form.label :password, t('activerecord.attributes.user.password'), class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white" %>
         <%= form.password_field :password, autocomplete: "current-password", required: true, class: "bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" %>
       </div>
       <%= form.submit t('.sign_in'), class: 'w-full px-5 py-3 text-base font-medium text-center text-white bg-primary-700 rounded-lg hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 sm:w-auto dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800' %>
@@ -23,7 +23,7 @@
   <div class="bottom-0 mt-5">
     <div class="flex items-center justify-center">
       <span class="font-medium dark:text-white"><%= t('.register_new_account') %></span>
-      <%= link_to t('.sign_up'), new_user_path, class: 'long-press-disabled py-2 px-1 pr-4 text-blue-700 dark:text-blue-400 font-bold rounded-full' %>
+      <%= link_to t('.sign_up'), new_user_path, class: 'long-press-disabled py-2 px-1 text-blue-700 dark:text-blue-400 font-bold rounded-full' %>
     </div>
   </div>
 </div>

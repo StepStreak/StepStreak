@@ -4,7 +4,7 @@
 
     <div class="w-full">
       <%= line_chart [:heart_rate, :max_heart_rate].map { |type|
-        { name: type, data: Decorators::DailyDataDecorator.new(@daily_heart_rate[type], params[:date]).decorate }
+        { name: t(".#{type}"), data: Decorators::DailyDataDecorator.new(@daily_heart_rate[type], params[:date]).decorate }
       } %>
     </div>
   </div>

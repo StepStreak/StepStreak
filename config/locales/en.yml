@@ -1,12 +1,20 @@
 ---
 en:
   activerecord:
+    attributes:
+      user:
+        email: Email
+        password: Password
+        password_confirmation: Password Confirmation
+        username: Username
     errors:
       models:
         challenge_user:
           attributes:
             code:
               invalid: is invalid
+    models:
+      user: User
   application_helper:
     goal_label:
       month_steps_goal: Month steps goal
@@ -21,9 +29,11 @@ en:
       participants: Participants
       teams: Teams
     ended:
+      ended_challenges_tab: Ended
       ended_challenges_title: Ended Challenges
       no_challenges_found: No Challenges found.
     index:
+      active_challenges_tab: Active
       active_challenges_title: Active Challenges
       no_challenges_found: No Challenges found.
     king_challenge_participants:
@@ -68,7 +78,9 @@ en:
       bridge:
         syncing: Syncing
       daily_heart_rate:
+        heart_rate: Heart Rate
         heart_rate_chart_title: Heart Rate this month
+        max_heart_rate: Max Heart Rate
       daily_steps:
         steps_chart_title: Steps this month
       new_update_available:
@@ -81,6 +93,7 @@ en:
         steps: Steps
   date:
     formats:
+      month_only: "%B"
       month_year: "%B %Y"
   datetime:
     distance_in_words:
@@ -290,6 +303,7 @@ en:
       invalid_code: Invalid tournament code
     new:
       code_prompt: Enter tournament code
+      join_custom_tournament: Join a custom tournament
   tournaments:
     partials:
       countdown_time:

@@ -41,7 +41,7 @@
 
           <%= challenge_participants_count(@challenge) %>
         </span>
-        <span class="bg-red-100 text-red-800 text-md font-medium me-2 px-2.5 py-0.5 rounded dark:bg-red-900 dark:text-red-300"><%= @challenge.challenge_type.capitalize.gsub('_', ' ') %></span>
+        <span class="bg-red-100 text-red-800 text-md font-medium me-2 px-2.5 py-0.5 rounded dark:bg-red-900 dark:text-red-300"><%= t("enums.challenge.challenge_type.#{@challenge.challenge_type}") %></span>
         <% if @challenge.milestone? %>
           <span class="bg-gray-100 text-gray-800 text-md font-medium me-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-gray-300"><%= @challenge.goal %></span>
         <% end %>
