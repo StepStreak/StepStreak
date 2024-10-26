@@ -1,26 +1,39 @@
 <main class="bg-gray-50 dark:bg-gray-900">
   <div class="flex px-6 xl:px-0 dark:bg-gray-900 py-5">
     <div class="xl:max-w-4xl">
-      <h1 class="mb-3 text-2xl font-bold leading-tight text-gray-900 sm:text-4xl lg:text-5xl dark:text-white">We need your permission to access your activity data</h1>
-      <p class="mb-5 text-base font-normal text-gray-500 md:text-lg dark:text-gray-400">To make the most out of StepStreak, our app is built on this data to provide you with personalized health charts and insights. Without access to this data, unfortunately, you won't be able to enjoy the experience of our app.</p>
-      <h3 class="mb-3 text-1xl font-bold leading-tight text-gray-900 sm:text-1xl lg:text-1xl dark:text-white">🌟 Why Allow Access?</h3>
+      <h1 class="mb-3 text-2xl font-bold leading-tight text-gray-900 sm:text-4xl lg:text-5xl dark:text-white">
+        <%= t('.title') %>
+      </h1>
+      <p class="mb-5 text-base font-normal text-gray-500 md:text-lg dark:text-gray-400">
+        <%= t('.description') %>
+      </p>
+
+      <h3 class="mb-3 text-1xl font-bold leading-tight text-gray-900 sm:text-1xl lg:text-1xl dark:text-white">
+        <%= t('.why_allow.title') %>
+      </h3>
       <ul class="pl-4 mb-4 space-y-3 text-gray-500 list-disc dark:text-gray-400">
-        <li>Essential for using StepStreak and its features.</li>
-        <li>Get customized health charts and statistics based on your data.</li>
-        <li>Monitor your progress and enjoy a tailored experience.</li>
+        <% t('.why_allow.benefits').each do |benefit| %>
+          <li><%= benefit %></li>
+        <% end %>
       </ul>
 
-      <h3 class="mb-3 text-1xl font-bold leading-tight text-gray-900 sm:text-1xl lg:text-1xl dark:text-white">🔒 Your Privacy Is Our Priority</h3>
+      <h3 class="mb-3 text-1xl font-bold leading-tight text-gray-900 sm:text-1xl lg:text-1xl dark:text-white">
+        <%= t('.privacy.title') %>
+      </h3>
       <ul class="pl-4 mb-4 space-y-3 text-gray-500 list-disc dark:text-gray-400">
-        <li>Access is strictly limited to necessary activity data.</li>
-        <li>You can modify your permissions at any time in settings.</li>
-        <li>Feel free to delete your account whenever you choose.</li>
+        <% t('.privacy.guarantees').each do |guarantee| %>
+          <li><%= guarantee %></li>
+        <% end %>
       </ul>
 
-      <p class="mb-5 text-base font-normal text-gray-500 md:text-lg dark:text-gray-400">For more information on how we handle your data, please read our <%= link_to "Privacy Policy", privacy_path, class: 'long-press-disabled dark:text-blue-500' %>.</p>
+      <p class="mb-5 text-base font-normal text-gray-500 md:text-lg dark:text-gray-400">
+        <%= t('.privacy_notice_html', privacy_policy_link: link_to(t('.privacy_policy_link_text'), privacy_path, class: 'long-press-disabled text-blue-500')) %>
+      </p>
 
       <div class="mt-10">
-        <%= link_to t('.continue'), root_path, data: { turbo_action: 'replace' }, class: 'block w-full long-press-disabled text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg px-5 py-2.5 text-center mr-3 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800' %>
+        <%= link_to t('.continue'), root_path,
+                    data: { turbo_action: 'replace' },
+                    class: 'block w-full long-press-disabled text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg px-5 py-2.5 text-center mr-3 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800' %>
       </div>
     </div>
   </div>

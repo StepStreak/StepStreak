@@ -107,10 +107,134 @@ en:
   home:
     data:
       data_page_title: How we handle your data?
+      header:
+        description: We're committed to transparency and user control when it comes
+          to data. Here's how we handle your activity data.
+        title: At StepStreak
+      sections:
+        data_collection:
+          content: StepStreak collects data such as steps taken, distance covered,
+            and overall activity levels. This information helps us provide you with
+            detailed summaries, visually appealing charts, and personalized insights
+            to motivate and track your progress.
+          title: Data Collection for Enhanced Experience
+        data_control:
+          content: Your privacy is paramount. With StepStreak, you have full control
+            over your personal data. You can easily manage, review, or delete your
+            information at any time. We empower you to take charge of your data, ensuring
+            it's used only in ways that benefit you.
+          title: Your Control Over Your Data
+        privacy_policy:
+          content_html: For more detailed information on how we use, store, and protect
+            your data, please visit our %{privacy_policy_link}. We've designed it
+            to be clear and understandable, aligning with the latest data protection
+            regulations.
+          privacy_policy_link_text: Privacy Policy
+          title: Open and Accessible Privacy Policy
+        purposeful_use:
+          content: The data you generate is used to enrich your experience with StepStreak.
+            From offering monthly insights into your activity trends to enabling you
+            to participate in fun, community-based challenges, your data plays a key
+            role in making StepStreak a dynamic and engaging companion in your fitness
+            journey.
+          title: Purposeful Use of Data
+        security:
+          content: We take the security of your data seriously. StepStreak employs
+            robust security measures to protect your information from unauthorized
+            access. Our commitment to data protection is unwavering, and we continually
+            update our practices to keep your data safe.
+          title: Data Security and Privacy
     permissions:
       continue: Continue
+      description: To make the most out of StepStreak, our app is built on this data
+        to provide you with personalized health charts and insights. Without access
+        to this data, unfortunately, you won't be able to enjoy the experience of
+        our app.
+      privacy:
+        guarantees:
+        - Access is strictly limited to necessary activity data.
+        - You can modify your permissions at any time in settings.
+        - Feel free to delete your account whenever you choose.
+        title: "🔒 Your Privacy Is Our Priority"
+      privacy_notice_html: For more information on how we handle your data, please
+        read our %{privacy_policy_link}.
+      privacy_policy_link_text: Privacy Policy
+      title: We need your permission to access your activity data
+      why_allow:
+        benefits:
+        - Essential for using StepStreak and its features.
+        - Get customized health charts and statistics based on your data.
+        - Monitor your progress and enjoy a tailored experience.
+        title: "🌟 Why Allow Access?"
     privacy:
+      account_deletion:
+        process:
+          content: If you choose to delete your account, you can do so through the
+            link in the settings. Upon deletion, all your personal data associated
+            with the account will be permanently removed from our servers.
+          label: 'Deletion Process:'
+        title: 5. Account Deletion
+      contact:
+        feedback:
+          content: If you have any questions or concerns about this Privacy Policy
+            or our data practices, please don't hesitate to contact us at mrahmoun93@gmail.com.
+          label: 'Feedback and Queries:'
+        title: 7. Contact Us
+      data_collection:
+        google_api_link_text: Google API Services User Data Policy
+        google_api_notice: Stepstreak's use and transfer of information received from
+          Google APIs to any other app will adhere to
+        google_api_notice_2: including the Limited Use requirements.
+        purpose:
+          content: The data we collect is used to offer you personalized activity
+            summaries, detailed graphs, and insights. It enables participation in
+            our App's challenge mode, where you can compete with others and track
+            your progress in a fun and engaging way.
+          label: 'Purpose of Collection:'
+        title: 1. Data Collection and Use
+        what_we_collect:
+          content: We collect data related to your physical activities, including
+            and only limited to steps taken, distance traveled, calories burned, and
+            heart rate. This collection happens when you sync your smartphone with
+            our App.
+          label: 'What We Collect:'
+      data_control:
+        management:
+          content: We provide easy-to-use tools within the App that allow you to adjust
+            your data preferences and settings, ensuring you have full autonomy over
+            your information.
+          label: 'Data Management Tools:'
+        rights:
+          content: You maintain full control over your data. Within the App, you can
+            access, review, and manage your data anytime.
+          label: 'Your Rights:'
+        title: 2. Data Control and Access
+      data_security:
+        commitment:
+          content: Protecting your data is a top priority for us. We implement a range
+            of security measures to safeguard your personal information from unauthorized
+            access, alteration, disclosure, or destruction.
+          label: 'Commitment to Security:'
+        title: 4. Data Security
+      data_sharing:
+        internal_use:
+          content: We do not share your personal data with third-party marketers.
+            Your data is used exclusively within StepStreak to enhance and personalize
+            your experience.
+          label: 'Internal Use Only:'
+        title: 3. Data Sharing and Disclosure
+      effective_date: 'Effective Date: 15/12/2023'
+      policy_changes:
+        title: 6. Changes to This Policy
+        updates:
+          content: We may update this Privacy Policy periodically. Any changes will
+            be posted on this page, and we will endeavor to notify you of significant
+            changes through the App or via email.
+          label: 'Policy Updates:'
       privacy_policy_page_title: Privacy Policy
+      welcome_text: Welcome to StepStreak, your dynamic companion for tracking and
+        analyzing daily activities. We transform your smartphone into a powerful activity
+        analyst, dedicated to keeping you active and engaged.
     welcome:
       data_link: Learn how we handle your Data
       get_started: Get Started
