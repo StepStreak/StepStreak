@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
-  skip_before_action :authenticate_user!
-  before_action :redirect_if_authenticated, except: [:destroy]
+  skip_before_action :authenticate_user!, only: [:new, :create]
+  before_action :set_user, only: [:edit, :update]
+  before_action :redirect_if_authenticated, except: [:edit, :update, :destroy]
   before_action :check_if_test_user, only: [:destroy]
 
   def new
@@ -25,6 +26,17 @@ class UsersController < ApplicationController
     end
   end
 
+  def edit; end
+
+  def update
+    if @user.update(user_params)
+      redirect_to edit_user_path
+    else
+      flash[:alert] = @user.errors.full_messages.to_sentence
+      render :edit, status: :unprocessable_content
+    end
+  end
+
   def destroy
     if current_user.destroy
       redirect_to welcome_path
@@ -34,7 +46,11 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:email, :username, :password, :password_confirmation)
+    params.require(:user).permit(:email, :username, :password, :password_confirmation, :locale)
+  end
+
+  def set_user
+    @user = current_user
   end
 
   def check_if_test_user

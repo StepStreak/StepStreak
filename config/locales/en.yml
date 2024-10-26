@@ -4,6 +4,7 @@ en:
     attributes:
       user:
         email: Email
+        locale: App Language
         password: Password
         password_confirmation: Password Confirmation
         username: Username
@@ -109,6 +110,19 @@ en:
       x_minutes:
         one: 1 min
         other: "%{count} mins"
+  enums:
+    challenge:
+      challenge_type:
+        solo: Solo
+        team: Team
+      mode:
+        king_of_the_hill: King of the Hill
+        milestone: Milestone
+        race: Race
+    user:
+      locale:
+        ar: العربية
+        en: English
   goals:
     edit:
       update_goal: Update your steps goal
@@ -280,6 +294,7 @@ en:
   settings:
     index:
       account: Account
+      app_settings: App Settings
       challenges: Challenges
       delete_account: Delete Your Account
       delete_account_confirmation: Are you sure you want to delete your account? This
@@ -326,6 +341,10 @@ en:
       starting_in: STARTING IN ...
       tournament_ended: Tournament Ended
   users:
+    edit:
+      locale_change_note: Changes will take effect immediately, but restarting the
+        app is recommended for optimal performance.
+      page_title: App Settings
     new:
       page_title: Create an account
       sign_in: Sign in

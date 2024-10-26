@@ -4,6 +4,7 @@ ar:
     attributes:
       user:
         email: البريد الإلكتروني
+        locale: لغة واجهة التطبيق
         password: كلمة المرور
         password_confirmation: تأكيد كلمة المرور
         username: اسم المستخدم
@@ -246,6 +247,10 @@ ar:
         king_of_the_hill: ملك التل
         milestone: معلم
         race: سباق
+    user:
+      locale:
+        ar: العربية
+        en: English
   errors:
     format: "%{message}"
     messages:
@@ -523,6 +528,7 @@ ar:
   settings:
     index:
       account: الحساب
+      app_settings: خصائص التطبيق
       challenges: التحديات
       delete_account: حذف حسابك
       delete_account_confirmation: هل أنت متأكد أنك تريد حذف حسابك؟ سيؤدي هذا إلى
@@ -581,6 +587,10 @@ ar:
       starting_in: يبدأ في ...
       tournament_ended: انتهت البطولة
   users:
+    edit:
+      locale_change_note: سيتم تطبيق التغييرات فوراً، ولكن يُنصح بإعادة تشغيل التطبيق
+        للحصول على أفضل أداء.
+      page_title: خصائص التطبيق
     new:
       page_title: إنشاء حساب
       sign_in: تسجيل الدخول

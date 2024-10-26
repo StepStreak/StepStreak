@@ -7,6 +7,14 @@ module ApplicationHelper
     !rtl?
   end
 
+  def current_locale
+    current_user&.locale || I18n.default_locale
+  end
+
+  def locale_direction
+    current_locale.to_sym == :ar ? 'rtl' : 'ltr'
+  end
+
   def arrow_icon(value_difference)
     if value_difference.positive?
       '<svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">

@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   get '/data', to: 'home#data', as: 'data'
 
   resources :sessions, only: %i[new create destroy]
-  resources :users, only: %w[new create destroy]
+  resources :users
   resources :challenges, only: %w[index show] do
     get :ended, on: :collection
     resources :challenge_users, only: %w[index new create destroy]
