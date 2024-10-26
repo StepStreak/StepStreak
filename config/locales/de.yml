@@ -70,7 +70,9 @@ de:
     overview:
       calories: Kalorien (kcal)
       distance: Distanz (KM)
+      heart_rate: Herzfrequenz
       heart_rate_per_month_chart_title: Monatlicher Durchschnitt/Maximum Herzfrequenz
+      max_heart_rate: Maximale Herzfrequenz
       steps: Schritte
       steps_per_month_chart_title: Schritte pro Monat
       steps_per_year_chart_title: Schritte pro Jahr

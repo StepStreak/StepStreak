@@ -60,7 +60,7 @@
 
                 <div class="w-full">
                   <%= line_chart [:heart_rate, :max_heart_rate].map { |type|
-                    { name: type, data: MaxHeartRatePerMonth.call(type) }
+                    { name: t(".#{type}"), data: MaxHeartRatePerMonth.call(type) }
                   } %>
                 </div>
               </div>

@@ -68,7 +68,9 @@ ar:
     overview:
       calories: السعرات الحرارية (كيلو كالوري)
       distance: المسافة (كم)
+      heart_rate: معدل ضربات القلب
       heart_rate_per_month_chart_title: متوسط/أقصى معدل ضربات القلب الشهري
+      max_heart_rate: أقصى معدل لضربات القلب
       steps: الخطوات
       steps_per_month_chart_title: الخطوات في الشهر
       steps_per_year_chart_title: الخطوات في السنة

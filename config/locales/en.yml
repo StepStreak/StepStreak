@@ -64,7 +64,9 @@ en:
     overview:
       calories: Calories (kcal)
       distance: Distance (KM)
+      heart_rate: Heart Rate
       heart_rate_per_month_chart_title: Monthly avg/max heart rate
+      max_heart_rate: Max Heart Rate
       steps: Steps
       steps_per_month_chart_title: Steps per month
       steps_per_year_chart_title: Steps per year
