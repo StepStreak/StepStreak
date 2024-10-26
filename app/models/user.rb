@@ -14,7 +14,7 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: true
 
   enum :device_type, { ios: 0, android: 1 }
-  enum :locale, { en: 0, ar: 1 }
+  enum :locale, I18n.available_locales
 
   normalizes :email, with: ->(email) { email.strip.downcase }
 

@@ -250,6 +250,7 @@ ar:
     user:
       locale:
         ar: العربية
+        de: Deutsch
         en: English
   errors:
     format: "%{message}"
@@ -529,6 +530,7 @@ ar:
     index:
       account: الحساب
       app_settings: خصائص التطبيق
+      beta: تجريبي
       challenges: التحديات
       delete_account: حذف حسابك
       delete_account_confirmation: هل أنت متأكد أنك تريد حذف حسابك؟ سيؤدي هذا إلى

@@ -122,6 +122,7 @@ en:
     user:
       locale:
         ar: العربية
+        de: Deutsch
         en: English
   goals:
     edit:
@@ -295,6 +296,7 @@ en:
     index:
       account: Account
       app_settings: App Settings
+      beta: Beta
       challenges: Challenges
       delete_account: Delete Your Account
       delete_account_confirmation: Are you sure you want to delete your account? This

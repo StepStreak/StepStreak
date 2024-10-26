@@ -1,0 +1,567 @@
+---
+de:
+  activerecord:
+    attributes:
+      user:
+        email: E-Mail
+        locale: App-Sprache
+        password: Passwort
+        password_confirmation: Passwort bestätigen
+        username: Benutzername
+    errors:
+      messages:
+        record_invalid: 'Gültigkeitsprüfung ist fehlgeschlagen: %{errors}'
+        restrict_dependent_destroy:
+          has_many: Datensatz kann nicht gelöscht werden, da abhängige %{record} existieren.
+          has_one: Datensatz kann nicht gelöscht werden, da ein abhängiger %{record}-Datensatz
+            existiert.
+      models:
+        challenge_user:
+          attributes:
+            code:
+              invalid: ist ungültig
+    models:
+      user: Benutzer
+  application_helper:
+    goal_label:
+      month_steps_goal: Monatliches Schrittziel
+      no_goal: Kein Ziel
+  bottom: Unten
+  challenge_users:
+    new:
+      code_prompt: Geben Sie den Challenge-Code ein
+  challenges:
+    challenge:
+      joined: Beigetreten
+      participants: Teilnehmer
+      teams: Teams
+    ended:
+      ended_challenges_tab: Beendet
+      ended_challenges_title: Beendete Challenges
+      no_challenges_found: Keine Challenges gefunden.
+    index:
+      active_challenges_tab: Aktiv
+      active_challenges_title: Aktive Challenges
+      no_challenges_found: Keine Challenges gefunden.
+    king_challenge_participants:
+      participants: Teilnehmer
+      score: Punktzahl
+      status: Status
+      steps: Schritte
+    show:
+      end_time: Endzeit
+      join_team: Einem Team beitreten
+      join_with_code: Mit Code beitreten
+      leave: Verlassen
+      leave_confirmation: Sind Sie sicher, dass Sie die Challenge verlassen möchten?
+      start_time: Startzeit
+    solo_challenge_participants:
+      participants: Teilnehmer
+      rank: Rang
+      score: Punktzahl
+      steps: Schritte
+    team_challenge_participants:
+      rank: Rang
+      steps: Schritte
+      team: Team
+      team_challenge_table_info: Klicken Sie auf eine Teamzeile, um die individuellen
+        Punktzahlen der Teilnehmer anzuzeigen
+  dashboard:
+    overview:
+      calories: Kalorien (kcal)
+      distance: Distanz (KM)
+      heart_rate_per_month_chart_title: Monatlicher Durchschnitt/Maximum Herzfrequenz
+      steps: Schritte
+      steps_per_month_chart_title: Schritte pro Monat
+      steps_per_year_chart_title: Schritte pro Jahr
+      today: Heute
+      top_twenty: Top 20
+    partials:
+      activities_table:
+        calories: Kalorien (Kcal)
+        date: Datum
+        distance: Distanz (KM)
+        steps: Schritte
+      bridge:
+        syncing: Synchronisierung
+      daily_heart_rate:
+        heart_rate: Herzfrequenz
+        heart_rate_chart_title: Herzfrequenz diesen Monat
+        max_heart_rate: Maximale Herzfrequenz
+      daily_steps:
+        steps_chart_title: Schritte diesen Monat
+      new_update_available:
+        new_update_alert: Wir haben ein neues Update für StepStreak veröffentlicht.
+          Verpassen Sie nicht unsere neuesten Funktionen und Verbesserungen. Jetzt
+          aktualisieren!
+      summary:
+        calories: Kalorien (kcal)
+        compared_to_last_month: vs. Letzter Monat
+        distance: Distanz (KM)
+        steps: Schritte
+  date:
+    abbr_day_names:
+    - So
+    - Mo
+    - Di
+    - Mi
+    - Do
+    - Fr
+    - Sa
+    abbr_month_names:
+    -
+    - Jan
+    - Feb
+    - Mär
+    - Apr
+    - Mai
+    - Jun
+    - Jul
+    - Aug
+    - Sep
+    - Okt
+    - Nov
+    - Dez
+    day_names:
+    - Sonntag
+    - Montag
+    - Dienstag
+    - Mittwoch
+    - Donnerstag
+    - Freitag
+    - Samstag
+    formats:
+      default: "%d.%m.%Y"
+      long: "%e. %B %Y"
+      month_only: "%B"
+      month_year: "%B %Y"
+      short: "%e. %b"
+    month_names:
+    -
+    - Januar
+    - Februar
+    - März
+    - April
+    - Mai
+    - Juni
+    - Juli
+    - August
+    - September
+    - Oktober
+    - November
+    - Dezember
+    order:
+    - :day
+    - :month
+    - :year
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: etwa eine Stunde
+        other: etwa %{count} Stunden
+      about_x_months:
+        one: etwa ein Monat
+        other: etwa %{count} Monate
+      about_x_years:
+        one: etwa ein Jahr
+        other: etwa %{count} Jahre
+      almost_x_years:
+        one: fast ein Jahr
+        other: fast %{count} Jahre
+      half_a_minute: eine halbe Minute
+      less_than_x_minutes:
+        one: weniger als eine Minute
+        other: weniger als %{count} Minuten
+      less_than_x_seconds:
+        one: weniger als eine Sekunde
+        other: weniger als %{count} Sekunden
+      over_x_years:
+        one: mehr als ein Jahr
+        other: mehr als %{count} Jahre
+      x_days:
+        one: ein Tag
+        other: "%{count} Tage"
+      x_minutes:
+        one: eine Minute
+        other: "%{count} Minuten"
+      x_months:
+        one: ein Monat
+        other: "%{count} Monate"
+      x_seconds:
+        one: eine Sekunde
+        other: "%{count} Sekunden"
+    prompts:
+      day: Tag
+      hour: Stunde
+      minute: Minute
+      month: Monat
+      second: Sekunde
+      year: Jahr
+  enums:
+    challenge:
+      challenge_type:
+        solo: Einzel
+        team: Team
+      mode:
+        king_of_the_hill: King of the Hill
+        milestone: Meilenstein
+        race: Rennen
+    user:
+      locale:
+        ar: العربية
+        de: Deutsch
+        en: English
+  errors:
+    format: "%{attribute} %{message}"
+    messages:
+      accepted: muss akzeptiert werden
+      blank: muss ausgefüllt werden
+      confirmation: stimmt nicht mit %{attribute} überein
+      empty: muss ausgefüllt werden
+      equal_to: muss genau %{count} sein
+      even: muss gerade sein
+      exclusion: ist nicht verfügbar
+      greater_than: muss größer als %{count} sein
+      greater_than_or_equal_to: muss größer oder gleich %{count} sein
+      inclusion: ist kein gültiger Wert
+      invalid: ist nicht gültig
+      less_than: muss kleiner als %{count} sein
+      less_than_or_equal_to: muss kleiner oder gleich %{count} sein
+      model_invalid: 'Gültigkeitsprüfung ist fehlgeschlagen: %{errors}'
+      not_a_number: ist keine Zahl
+      not_an_integer: muss ganzzahlig sein
+      odd: muss ungerade sein
+      other_than: darf nicht gleich %{count} sein
+      present: darf nicht ausgefüllt werden
+      required: muss ausgefüllt werden
+      taken: ist bereits vergeben
+      too_long:
+        one: ist zu lang (mehr als %{count} Zeichen)
+        other: ist zu lang (mehr als %{count} Zeichen)
+      too_short:
+        one: ist zu kurz (weniger als %{count} Zeichen)
+        other: ist zu kurz (weniger als %{count} Zeichen)
+      wrong_length:
+        one: hat die falsche Länge (muss genau %{count} Zeichen haben)
+        other: hat die falsche Länge (muss genau %{count} Zeichen haben)
+    template:
+      body: 'Bitte überprüfen Sie die folgenden Felder:'
+      header:
+        one: 'Konnte %{model} nicht speichern: ein Fehler.'
+        other: 'Konnte %{model} nicht speichern: %{count} Fehler.'
+  goals:
+    edit:
+      update_goal: Aktualisieren Sie Ihr Schrittziel
+    index:
+      month_steps_goal: "%{month} Schrittziel"
+      no_goal: Kein Schrittziel für diesen Monat festgelegt
+    new:
+      set_goal: Legen Sie Ihr Schrittziel fest
+  helpers:
+    select:
+      prompt: Bitte wählen
+    submit:
+      create: "%{model} erstellen"
+      submit: "%{model} speichern"
+      update: "%{model} aktualisieren"
+  home:
+    data:
+      data_page_title: Wie gehen wir mit Ihren Daten um?
+      header:
+        description: Wir setzen auf Transparenz und Benutzerkontrolle im Umgang mit
+          Daten. Hier erfahren Sie, wie wir mit Ihren Aktivitätsdaten umgehen.
+        title: Bei StepStreak
+      sections:
+        data_collection:
+          content: StepStreak erfasst Daten wie zurückgelegte Schritte, Distanz und
+            allgemeine Aktivitätsniveaus. Diese Informationen helfen uns, Ihnen detaillierte
+            Zusammenfassungen, ansprechende Diagramme und personalisierte Einblicke
+            zu bieten, um Sie zu motivieren und Ihren Fortschritt zu verfolgen.
+          title: Datenerfassung für verbesserte Erfahrung
+        data_control:
+          content: Ihre Privatsphäre hat oberste Priorität. Mit StepStreak haben Sie
+            die volle Kontrolle über Ihre persönlichen Daten. Sie können Ihre Informationen
+            jederzeit einfach verwalten, überprüfen oder löschen. Wir ermöglichen
+            es Ihnen, die Kontrolle über Ihre Daten zu übernehmen und stellen sicher,
+            dass sie nur zu Ihrem Vorteil verwendet werden.
+          title: Ihre Kontrolle über Ihre Daten
+        privacy_policy:
+          content_html: Für detailliertere Informationen darüber, wie wir Ihre Daten
+            verwenden, speichern und schützen, besuchen Sie bitte unsere %{privacy_policy_link}.
+            Wir haben sie klar und verständlich gestaltet und an die neuesten Datenschutzbestimmungen
+            angepasst.
+          privacy_policy_link_text: Datenschutzerklärung
+          title: Offene und zugängliche Datenschutzerklärung
+        purposeful_use:
+          content: Die von Ihnen generierten Daten werden verwendet, um Ihre Erfahrung
+            mit StepStreak zu bereichern. Von monatlichen Einblicken in Ihre Aktivitätstrends
+            bis hin zur Teilnahme an unterhaltsamen, gemeinschaftsbasierten Challenges
+            spielt Ihre Daten eine Schlüsselrolle dabei, StepStreak zu einem dynamischen
+            und engagierten Begleiter auf Ihrer Fitness-Reise zu machen.
+          title: Zweckgebundene Datennutzung
+        security:
+          content: Wir nehmen die Sicherheit Ihrer Daten ernst. StepStreak setzt robuste
+            Sicherheitsmaßnahmen ein, um Ihre Informationen vor unbefugtem Zugriff
+            zu schützen. Unser Engagement für den Datenschutz ist unerschütterlich,
+            und wir aktualisieren unsere Praktiken kontinuierlich, um Ihre Daten sicher
+            zu halten.
+          title: Datensicherheit und Privatsphäre
+    permissions:
+      continue: Fortfahren
+      description: Um StepStreak optimal nutzen zu können, basiert unsere App auf
+        diesen Daten, um Ihnen personalisierte Gesundheitsdiagramme und Einblicke
+        zu bieten. Ohne Zugriff auf diese Daten können Sie leider die Erfahrung unserer
+        App nicht genießen.
+      privacy:
+        guarantees:
+        - Zugriff ist streng auf notwendige Aktivitätsdaten beschränkt.
+        - Sie können Ihre Berechtigungen jederzeit in den Einstellungen ändern.
+        - Sie können Ihr Konto jederzeit löschen.
+        title: "🔒 Ihre Privatsphäre ist unsere Priorität"
+      privacy_notice_html: Weitere Informationen zum Umgang mit Ihren Daten finden
+        Sie in unserer %{privacy_policy_link}.
+      privacy_policy_link_text: Datenschutzerklärung
+      title: Wir benötigen Ihre Erlaubnis für den Zugriff auf Ihre Aktivitätsdaten
+      why_allow:
+        benefits:
+        - Essentiell für die Nutzung von StepStreak und seinen Funktionen.
+        - Erhalten Sie personalisierte Gesundheitsdiagramme und Statistiken basierend
+          auf Ihren Daten.
+        - Überwachen Sie Ihren Fortschritt und genießen Sie eine maßgeschneiderte
+          Erfahrung.
+        title: "🌟 Warum Zugriff erlauben?"
+    privacy:
+      account_deletion:
+        process:
+          content: Wenn Sie sich entscheiden, Ihr Konto zu löschen, können Sie dies
+            über den Link in den Einstellungen tun. Bei der Löschung werden alle Ihre
+            persönlichen Daten, die mit dem Konto verbunden sind, dauerhaft von unseren
+            Servern entfernt.
+          label: 'Löschprozess:'
+        title: 5. Kontolöschung
+      contact:
+        feedback:
+          content: Wenn Sie Fragen oder Bedenken zu dieser Datenschutzerklärung oder
+            unseren Datenpraktiken haben, zögern Sie nicht, uns unter mrahmoun93@gmail.com
+            zu kontaktieren.
+          label: 'Feedback und Anfragen:'
+        title: 7. Kontaktieren Sie uns
+      data_collection:
+        google_api_link_text: Google API Services Nutzerdatenrichtlinie
+        google_api_notice: Die Nutzung und Übertragung von Informationen, die StepStreak
+          von Google-APIs erhält, an andere Apps erfolgt gemäß der
+        google_api_notice_2: einschließlich der Anforderungen für eingeschränkte Nutzung.
+        purpose:
+          content: Die von uns gesammelten Daten werden verwendet, um Ihnen personalisierte
+            Aktivitätsübersichten, detaillierte Grafiken und Einblicke anzubieten.
+            Sie ermöglichen die Teilnahme am Challenge-Modus unserer App, wo Sie mit
+            anderen wetteifern und Ihren Fortschritt auf unterhaltsame und engagierte
+            Weise verfolgen können.
+          label: 'Zweck der Erfassung:'
+        title: 1. Datenerfassung und -nutzung
+        what_we_collect:
+          content: Wir erfassen Daten zu Ihren körperlichen Aktivitäten, einschließlich
+            und ausschließlich beschränkt auf zurückgelegte Schritte, zurückgelegte
+            Distanz, verbrannte Kalorien und Herzfrequenz. Diese Erfassung erfolgt,
+            wenn Sie Ihr Smartphone mit unserer App synchronisieren.
+          label: 'Was wir erfassen:'
+      data_control:
+        management:
+          content: Wir bieten benutzerfreundliche Tools innerhalb der App, mit denen
+            Sie Ihre Datenpräferenzen und Einstellungen anpassen können, um sicherzustellen,
+            dass Sie die volle Kontrolle über Ihre Informationen haben.
+          label: 'Datenverwaltungstools:'
+        rights:
+          content: Sie behalten die volle Kontrolle über Ihre Daten. In der App können
+            Sie jederzeit auf Ihre Daten zugreifen, sie überprüfen und verwalten.
+          label: 'Ihre Rechte:'
+        title: 2. Datenkontrolle und Zugriff
+      data_security:
+        commitment:
+          content: Der Schutz Ihrer Daten hat für uns oberste Priorität. Wir setzen
+            eine Reihe von Sicherheitsmaßnahmen ein, um Ihre persönlichen Informationen
+            vor unbefugtem Zugriff, Änderung, Offenlegung oder Zerstörung zu schützen.
+          label: 'Verpflichtung zur Sicherheit:'
+        title: 4. Datensicherheit
+      data_sharing:
+        internal_use:
+          content: Wir geben Ihre persönlichen Daten nicht an Drittanbieter-Vermarkter
+            weiter. Ihre Daten werden ausschließlich innerhalb von StepStreak verwendet,
+            um Ihre Erfahrung zu verbessern und zu personalisieren.
+          label: 'Nur interne Nutzung:'
+        title: 3. Datenweitergabe und Offenlegung
+      effective_date: 'Gültig ab: 15.12.2023'
+      policy_changes:
+        title: 6. Änderungen dieser Richtlinie
+        updates:
+          content: Wir können diese Datenschutzerklärung von Zeit zu Zeit aktualisieren.
+            Alle Änderungen werden auf dieser Seite veröffentlicht, und wir werden
+            uns bemühen, Sie über wichtige Änderungen über die App oder per E-Mail
+            zu informieren.
+          label: 'Richtlinien-Updates:'
+      privacy_policy_page_title: Datenschutzerklärung
+      welcome_text: Willkommen bei StepStreak, Ihrem dynamischen Begleiter für die
+        Verfolgung und Analyse täglicher Aktivitäten. Wir verwandeln Ihr Smartphone
+        in einen leistungsstarken Aktivitätsanalyst, der sich der Förderung Ihrer
+        Aktivität und Ihres Engagements widmet.
+    welcome:
+      data_link: Erfahren Sie, wie wir mit Ihren Daten umgehen
+      get_started: Loslegen
+      privacy_link: Lesen Sie unsere Datenschutzerklärung
+      sub_title: StepStreak bietet eine dynamische Möglichkeit, Ihre täglichen Aktivitäten
+        zu verfolgen und zu analysieren, indem es Ihr Smartphone in einen leistungsstarken
+        Aktivitätsanalyst verwandelt. Es ist nicht nur eine App; es ist Ihr Partner,
+        um aktiv und engagiert zu bleiben.
+      title: Ihr ultimativer Aktivitäts-Tracking-Begleiter
+  join: Beitreten
+  left: Links
+  notifications:
+    index:
+      no_notifications: Sie haben keine Benachrichtigungen
+      page_title: Benachrichtigungen
+  number:
+    currency:
+      format:
+        delimiter: "."
+        format: "%n %u"
+        precision: 2
+        separator: ","
+        significant: false
+        strip_insignificant_zeros: false
+        unit: "€"
+    format:
+      delimiter: "."
+      precision: 2
+      round_mode: default
+      separator: ","
+      significant: false
+      strip_insignificant_zeros: false
+    human:
+      decimal_units:
+        format: "%n %u"
+        units:
+          billion:
+            one: Milliarde
+            other: Milliarden
+          million:
+            one: Million
+            other: Millionen
+          quadrillion:
+            one: Billiarde
+            other: Billiarden
+          thousand: Tausend
+          trillion:
+            one: Billion
+            other: Billionen
+          unit: ''
+      format:
+        delimiter: ''
+        precision: 3
+        significant: true
+        strip_insignificant_zeros: true
+      storage_units:
+        format: "%n %u"
+        units:
+          byte:
+            one: Byte
+            other: Bytes
+          eb: EB
+          gb: GB
+          kb: KB
+          mb: MB
+          pb: PB
+          tb: TB
+    percentage:
+      format:
+        delimiter: ''
+        format: "%n %"
+    precision:
+      format:
+        delimiter: ''
+  right: Rechts
+  save: Speichern
+  sessions:
+    create:
+      errors:
+        invalid_credentials: Ungültige Anmeldedaten
+    errors:
+      invalid_credentials: Ungültige E-Mail oder Passwort
+    new:
+      page_title: Anmelden
+      register_new_account: Noch kein Konto?
+      sign_in: Anmelden
+      sign_up: Registrieren
+      sub_title: Melden Sie sich bei Ihrem StepStreak-Konto an
+      title: Anmelden
+  settings:
+    index:
+      account: Konto
+      app_settings: App-Einstellungen
+      beta: Beta
+      challenges: Challenges
+      delete_account: Konto löschen
+      delete_account_confirmation: Sind Sie sicher, dass Sie Ihr Konto löschen möchten?
+        Dies löscht Ihr Konto und alle damit verbundenen Daten.
+      modes: Modi
+      privacy_policy: Datenschutzerklärung
+      sign_out: Abmelden
+      sign_out_confirmation: Sind Sie sicher, dass Sie sich abmelden möchten?
+      tournaments: Turniere
+      useful_links: Nützliche Links
+      version: Version
+  support:
+    array:
+      last_word_connector: " und "
+      two_words_connector: " und "
+      words_connector: ", "
+  teams:
+    new:
+      name_field_label: Geben Sie den Namen Ihres Teams ein
+  time:
+    am: vormittags
+    formats:
+      default: "%A, %d. %B %Y, %H:%M Uhr"
+      long: "%A, %d. %B %Y, %H:%M Uhr"
+      short: "%d. %b, %H:%M Uhr"
+    pm: nachmittags
+  top: Oben
+  tournament_participants:
+    create:
+      errors:
+        invalid_code: Ungültiger Code
+    errors:
+      invalid_code: Ungültiger Turniercode
+    new:
+      code_prompt: Turniercode eingeben
+      join_custom_tournament: Einem benutzerdefinierten Turnier beitreten
+  tournaments:
+    partials:
+      countdown_time:
+        days: Tage
+        hours: Stunden
+        minutes: Minuten
+        seconds: Sekunden
+      current_challenge:
+        end_time: Endzeit
+        start_time: Startzeit
+    show:
+      info: Info
+      leave: Verlassen
+      leave_confirmation: Sind Sie sicher, dass Sie das Turnier verlassen möchten?
+      next_challenge_in: NÄCHSTE CHALLENGE IN ...
+      ranking: Rangliste
+      ranking_table_participant: Teilnehmer
+      ranking_table_rank: Rang
+      ranking_table_score: Punktzahl
+      starting_in: BEGINNT IN ...
+      tournament_ended: Turnier beendet
+  users:
+    edit:
+      locale_change_note: Änderungen werden sofort wirksam, aber ein Neustart der
+        App wird für optimale Leistung empfohlen.
+      page_title: App-Einstellungen
+    new:
+      page_title: Konto erstellen
+      sign_in: Anmelden
+      sign_in_instead: Haben Sie bereits ein Konto?
+      sign_up: Registrieren
