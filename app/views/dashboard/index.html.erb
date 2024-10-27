@@ -2,8 +2,6 @@
   <%= turbo_stream_from("activities_turbo_native_user_#{current_user.id}") %>
 <% end %>
 
-<%= turbo_page_requires_reload %>
-
 <div id="dashboard-details">
   <%= turbo_frame_tag(:dashboard, src: dashboard_details_path(date: params[:date])) do %>
     <%= render 'loading_skeleton' %>
