@@ -9,7 +9,10 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.create(user_params)
+    default_locale = cookies[:device_locale] || I18n.default_locale
+
+    @user = User.create(user_params.merge(locale: default_locale))
+
     if @user.valid?
       sign_in @user
 

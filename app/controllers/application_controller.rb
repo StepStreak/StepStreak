@@ -4,15 +4,20 @@ class ApplicationController < ActionController::Base
   with_options unless: -> { request.format.json? } do
     protect_from_forgery
 
+    around_action :switch_locale
+
     before_action :authenticate_user!
     before_action :track
     before_action :save_app_version
-
-    around_action :switch_locale
   end
 
   def switch_locale(&action)
-    locale = current_user&.locale || I18n.default_locale
+
+    if cookies[:device_locale].nil? || params[:locale] && cookies[:device_locale] != params[:locale]
+      cookies[:device_locale] = params[:locale] || current_user&.locale
+    end
+
+    locale = current_user&.locale || cookies[:device_locale] || I18n.default_locale
     I18n.with_locale(locale, &action)
   end
 
