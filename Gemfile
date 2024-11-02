@@ -43,7 +43,7 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
-gem "rpush", "~> 7.0", github: "alhajrahmoun/rpush"
+gem "rpush", "~> 9.0", github: "alhajrahmoun/rpush"
 gem 'newrelic_rpm'
 gem "solid_cache"
 # Use Sass to process CSS
