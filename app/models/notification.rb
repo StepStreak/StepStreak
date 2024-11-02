@@ -43,10 +43,10 @@ class Notification < ApplicationRecord
       body: body
     }
 
-    n = Rpush::Gcm::Notification.new
-    n.app = Rpush::Gcm::App.find_by_name("android_app")
-    n.registration_ids = [user.notification_token]
-    n.notification = payload
+    n = Rpush::Fcm::Notification.new
+    n.app = Rpush::Fcm::App.where(name: "fcm_app").first
+    n.device_token = user.notification_token
+    n.data = payload
     n.save!
   end
 end
