@@ -20,7 +20,6 @@ class Notification < ApplicationRecord
     end
 
     Rpush.push
-    Rpush.apns_feedback
   end
 
   def send_ios_notification
