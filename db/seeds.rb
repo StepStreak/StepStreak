@@ -88,7 +88,7 @@ end
 
 # fcm_app = Rpush::Fcm::App.new
 # fcm_app.name = "fcm_app"
-# fcm_app.firebase_project_id = "779988440919"
+# fcm_app.firebase_project_id = "project_number"
 # fcm_app.json_key = json_key.to_s
 # fcm_app.connections = 30
 # fcm_app.save!
