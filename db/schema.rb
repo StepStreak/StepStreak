@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_10_26_205252) do
+ActiveRecord::Schema[7.2].define(version: 2024_11_02_172514) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -126,6 +126,8 @@ ActiveRecord::Schema[7.2].define(version: 2024_10_26_205252) do
     t.string "team_id"
     t.string "bundle_id"
     t.boolean "feedback_enabled", default: true
+    t.string "firebase_project_id"
+    t.text "json_key"
   end
 
   create_table "rpush_feedback", force: :cascade do |t|
