@@ -45,7 +45,7 @@ class Notification < ApplicationRecord
     n = Rpush::Fcm::Notification.new
     n.app = Rpush::Fcm::App.where(name: "fcm_app").first
     n.device_token = user.notification_token
-    n.data = payload
+    n.notification = payload
     n.save!
   end
 end
