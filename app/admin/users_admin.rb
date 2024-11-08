@@ -6,14 +6,14 @@ Trestle.resource(:users) do
   # Customize the table columns shown on the index view.
   #
   table do
-    column :id
-    column :email
-    column :username
+    column :id, align: :center
+    column :email, align: :center
+    column :username, align: :center
     column :created_at, align: :center
     column :last_sync_at, align: :center
-    column :device_type
-    column :app_version
-    column :notification_token
+    column :device_type, align: :center
+    column :app_version, align: :center
+    column :locale
     actions
   end
 
