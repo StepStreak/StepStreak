@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get '/privacy', to: 'home#privacy', as: 'privacy'
   get '/permissions', to: 'home#permissions', as: 'permissions'
   get '/data', to: 'home#data', as: 'data'
+  get '/account_deletion', to: 'home#account_deletion', as: 'account_deletion'
 
   resources :sessions, only: %i[new create destroy]
   resources :users
