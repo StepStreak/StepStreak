@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/TrestleAdmin/trestle.git
-  revision: 43f52850195925ac25c3e0fbabdc66e8443a4ac3
+  revision: 6118b66ec77b3110da5ed2e87f80d3e962c5066d
   specs:
     trestle (0.10.1)
       activemodel (>= 6.0.0)
@@ -110,7 +110,7 @@ GEM
     base64 (0.2.0)
     bcrypt (3.1.20)
     benchmark (0.4.0)
-    bigdecimal (3.1.8)
+    bigdecimal (3.1.9)
     bindex (0.8.1)
     bootsnap (1.18.4)
       msgpack (~> 1.2)
@@ -205,7 +205,7 @@ GEM
     jsbundling-rails (1.3.1)
       railties (>= 6.0.0)
     json (2.9.1)
-    jwt (2.9.3)
+    jwt (2.10.0)
       base64
     kaminari (1.2.2)
       activesupport (>= 4.1.0)
@@ -252,7 +252,7 @@ GEM
       connection_pool (~> 2.2)
     net-http2 (0.18.5)
       http-2 (~> 0.11)
-    net-imap (0.5.2)
+    net-imap (0.5.4)
       date
       net-protocol
     net-pop (0.1.2)
@@ -264,15 +264,14 @@ GEM
     net-sftp (4.0.0)
       net-ssh (>= 5.0.0, < 8.0.0)
     net-smtp (0.5.0)
-      net-protocol
     net-ssh (7.3.0)
     newrelic_rpm (9.16.1)
     nio4r (2.7.4)
-    nokogiri (1.17.2-arm64-darwin)
+    nokogiri (1.18.0-arm64-darwin)
       racc (~> 1.4)
-    nokogiri (1.17.2-x86_64-linux)
+    nokogiri (1.18.0-x86_64-linux-gnu)
       racc (~> 1.4)
-    openssl (3.2.1)
+    openssl (3.3.0)
     os (1.1.4)
     ostruct (0.6.1)
     parser (3.3.6.0)
@@ -294,7 +293,7 @@ GEM
     rack (3.1.8)
     rack-session (2.0.0)
       rack (>= 3.0.0)
-    rack-test (2.1.0)
+    rack-test (2.2.0)
       rack (>= 1.3)
     rackup (2.2.1)
       rack (>= 3)
@@ -335,7 +334,7 @@ GEM
     rdoc (6.10.0)
       psych (>= 4.0.0)
     redis (4.8.1)
-    regexp_parser (2.9.3)
+    regexp_parser (2.10.0)
     reline (0.6.0)
       io-console (~> 0.5)
     rexml (3.4.0)
@@ -442,7 +441,7 @@ DEPENDENCIES
   webdrivers
 
 RUBY VERSION
-   ruby 3.3.6p108
+   ruby 3.4.1p0
 
 BUNDLED WITH
-   2.5.18
+   2.6.2
