@@ -11,6 +11,8 @@ module PreRequest
 
       WebRequest.create(user_email: current_user&.email,
                         remote_ip: request.remote_ip,
+                        original_remote_ip: request.headers['CF-Connecting-IP'],
+                        forwarded_ip: request.headers['X-Forwarded-For'],
                         controller_class: request.controller_class,
                         original_path: request.original_fullpath,
                         app_version: app_version,

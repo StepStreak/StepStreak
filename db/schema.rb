@@ -10,9 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_11_02_172514) do
+ActiveRecord::Schema[8.0].define(version: 2025_01_01_182055) do
   # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+  enable_extension "pg_catalog.plpgsql"
 
   create_table "activities", force: :cascade do |t|
     t.integer "steps", default: 0
@@ -244,6 +244,8 @@ ActiveRecord::Schema[7.2].define(version: 2024_11_02_172514) do
     t.datetime "updated_at", null: false
     t.integer "device_type", default: 2
     t.string "app_version"
+    t.string "original_remote_ip"
+    t.string "forwarded_ip"
   end
 
   add_foreign_key "activities", "users", validate: false
