@@ -12,12 +12,13 @@ class ApplicationController < ActionController::Base
   end
 
   def switch_locale(&action)
-
     if cookies[:device_locale].nil? || params[:locale] && cookies[:device_locale] != params[:locale]
       cookies[:device_locale] = params[:locale] || current_user&.locale
     end
 
     locale = current_user&.locale || cookies[:device_locale] || I18n.default_locale
+    locale = I18n.default_locale unless locale.to_sym.in?(I18n.available_locales)
+
     I18n.with_locale(locale, &action)
   end
 
