@@ -5,7 +5,7 @@ class TournamentParticipantsController < ApplicationController
   end
 
   def create
-    @tournament = Tournament.active.find_by(code: params[:code])
+    @tournament = Tournament.active.find_by(code: params[:code].downcase)
     if @tournament
       @tournament_participant = TournamentParticipant.create(tournament: @tournament, user: current_user)
       redirect_to @tournament
