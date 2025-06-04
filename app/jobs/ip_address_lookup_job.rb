@@ -8,11 +8,13 @@ class IpAddressLookupJob < ApplicationJob
 
     access_token = Rails.application.credentials.ipinfo_token
     handler = IPinfo.create(access_token)
-    details = handler.details(request.remote_ip)
+    details = handler.details(request.original_remote_ip)
+    cf_details = handler.details(request.remote_ip)
 
     country = details.country_name
     city = details.city
+    cf_edge_location = cf_details.city
 
-    request.update(country: country, city: city)
+    request.update(country: country, city: city, cf_edge_location: cf_edge_location)
   end
 end
